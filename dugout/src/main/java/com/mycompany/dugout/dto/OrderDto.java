@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class orderDto {
+public class OrderDto {
 	private String orderId;
 	private String userId;
 	private Date orderDate;

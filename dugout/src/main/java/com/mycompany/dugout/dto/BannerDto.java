@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
-public class bannerDto {
+public class BannerDto {
 	private int bannerId;
 	private MultipartFile bannerData;
 	private String bannerName;

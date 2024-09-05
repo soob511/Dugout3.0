@@ -1,6 +1,6 @@
 package com.mycompany.dugout.dto;
 
-public class orderItemDto {
+public class OrderItemDto {
 	private int orderId;
 	private int goodsId;
 	private int orderItemPrice;

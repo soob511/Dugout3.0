@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
-public class goodsDto {
+public class GoodsDto {
 	private int goodsId;
 	private String goodsName;
 	private String goodsTeam;
