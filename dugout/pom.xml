@@ -6,7 +6,7 @@
   <!-- Company Domain Name-->
   <groupId>com.mycompany</groupId>
   <!-- Project Name -->
-  <artifactId>miniproject</artifactId>
+  <artifactId>dugout</artifactId>
   <!-- Project Version -->
   <version>1.0.0</version>
   <!-- Final Build File -->
