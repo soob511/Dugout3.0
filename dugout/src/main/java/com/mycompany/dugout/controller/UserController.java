@@ -7,11 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class HomeController {
+@RequestMapping("User")
+public class UserController {
+	
 	@RequestMapping("")
-	public String index() {
-		log.info("실행");
-		return "index";
+	public String cart() {
+		log.info("장바구니");
+		return "cart/cart";
 	}
-
 }

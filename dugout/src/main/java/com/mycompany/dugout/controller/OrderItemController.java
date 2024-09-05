@@ -7,11 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("/Admin")
-public class AdminController {
-	@RequestMapping("/manageBanner")
-	public String banner() {
-		log.info("배너관리");
-		return "admin/manageBanner";
+@RequestMapping("Order")
+public class OrderItemController {
+	
+	@RequestMapping("")
+	public String cart() {
+		log.info("장바구니");
+		return "cart/cart";
 	}
 }

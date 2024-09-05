@@ -7,13 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("Like")
-public class LikeController {
+@RequestMapping("Notice")
+public class NoticeController {
 	
 	@RequestMapping("")
-	public String likeList() {
-		log.info("찜목록실행");
-		return "like/likeList";
+	public String cart() {
+		log.info("장바구니");
+		return "cart/cart";
 	}
-
 }

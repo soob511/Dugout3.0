@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("Order")
-public class OrderController {
+@RequestMapping("Banner")
+public class BannerController {
 	
 	@RequestMapping("")
 	public String cart() {
