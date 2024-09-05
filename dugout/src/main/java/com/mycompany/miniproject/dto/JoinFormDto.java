@@ -11,5 +11,4 @@ public class JoinFormDto {
 	private String email;
 	private String phone;
 	private String address;
-	private String test;
 }
