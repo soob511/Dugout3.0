@@ -1,4 +1,4 @@
-package com.mycompany.miniproject.controller;
+package com.mycompany.dugout.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,11 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class HomeController {
+@RequestMapping("Cart")
+public class CartController {
+	
 	@RequestMapping("")
-	public String index() {
-		log.info("실행");
-		return "index";
+	public String cart() {
+		log.info("장바구니");
+		return "cart/cart";
 	}
-
 }

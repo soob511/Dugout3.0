@@ -1,4 +1,4 @@
-package com.mycompany.miniproject.controller;
+package com.mycompany.dugout.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
