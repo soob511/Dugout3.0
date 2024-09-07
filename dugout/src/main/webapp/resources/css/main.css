@@ -1,0 +1,40 @@
+header {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+section.banner-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.category {
+  width: 100%;
+  margin: 0;
+  padding: 80px;
+}
+.product {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+nav hr {
+  display: none;
+}
+main hr {
+  margin: 0 0 42px 0;
+}

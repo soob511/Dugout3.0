@@ -1,0 +1,50 @@
+@charset "UTF-8";
+body {
+	font-family: "Pretendard-Regular";
+}
+
+header, footer {
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+}
+
+.container.mt-5 {
+    margin-top: 0 !important;
+}
+
+.menu-section {
+    min-width: 180px;
+    padding: 20px;
+    margin-left: 160px;
+}
+
+.section-title {
+    color: #333;
+    padding-bottom: 40px;
+    font-size: 26px;  
+    font-weight: bold; 
+}
+
+.img-thumbnail {
+    max-width: 100px !important;
+    height: auto !important;
+}
+
+.menu-item {
+    color: #b6b6b6;
+    padding-bottom: 20px;
+    cursor: pointer;
+    font-size: 20px;  
+    font-weight: 500; 
+}
+
+.menu-item.active {
+    color: #333;
+}
+
+.content-section {
+    padding: 20px;
+}

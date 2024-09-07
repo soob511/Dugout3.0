@@ -1,0 +1,68 @@
+html {
+  width: 1728px;
+  min-width: 1280px;
+  margin: 0 auto;
+  caret-color: transparent;
+}
+#header-body {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo-container {
+  clear: both;
+  margin-top: 62px;
+  margin-bottom: 60px;
+  position: relative;
+  text-align: center;
+}
+.logo-div {
+  display: inline-block;
+  text-align: center;
+}
+.logo {
+  width: 256px;
+  height: 74px;
+  display: block;
+  margin: 0 auto;
+}
+.login {
+  top: -88px;
+  left: 440px;
+  font-size: 14px;
+}
+.member {
+  top: -88px;
+  left: 440px;
+  font-size: 14px;
+}
+.myPage {
+  position: absolute;
+  top: -2px;
+  left: 340px;
+}
+.rights {
+  position: absolute;
+  top: 24px;
+  left: 1020px;
+  width: 20%;
+  text-align: center;
+}
+.rights a {
+  display: inline-block;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333333;
+  text-align: center;
+  position: relative;
+}
+.rights img {
+  width: 34px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+}
+.rights span {
+  font-weight: bold;
+  font-size: 16px;
+}

@@ -1,0 +1,67 @@
+#member-info {
+	font-family: 'Pretendard-Regular';
+	margin: 20px;
+}
+
+.product-insert-title {
+	font-weight: bold;
+	width: 1140px;
+	display: block;
+	color: #333;
+	font-size: 26px;
+	margin-bottom: 24px;
+}
+
+.product-insert-box {
+	width: 100%;
+	border-bottom: 3px solid #000;
+	margin-bottom: 24px;
+}
+
+.membership board {
+	width: 478px;
+	height: 751px;
+}
+
+.member-id, .member-password, .member-password-again, .member-name,
+	.member-phone-number, .member-address, .member-email {
+	font-weight: bold;
+	font-size: 15px;
+	height: 68px;
+	width: 450px
+}
+
+.form-control {
+	border: none !important;
+	border-bottom: 1px solid #ebebeb !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	height: 40px !important;
+	font-size: 16px !important;
+	margin-bottom: 24px !important;
+}
+
+.form-control:focus {
+	border-color: #333333 !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.btnMember {
+	width: 404px;
+	height: 64px;
+	border: none;
+	color: #ffffff;
+	background-color: #000000;
+	border-radius: 14px;
+	margin-top: 96px;
+}
+
+.withdrawal-btn {
+	color: #d81d2e;
+	background-color: white;
+	border: none;
+	padding: 0px 0px 0px 160px;
+	margin-top: 20px;
+	margin-bottom: 200px;
+}

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.logo-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #fff;
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: opacity 0.1s ease;
+    padding: 10px;
+}
+
+.logo-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+}
+
+.logo-item.dimmed {
+    opacity: 0.3;
+}

@@ -1,0 +1,67 @@
+body {
+	font-family: "Pretendard-Regular";
+}
+
+.product-insert-title {
+    font-weight: bold;
+   	width:1140px;
+   	display:block;
+	color: #333;
+    font-size: 26px;  
+	margin-bottom: 24px;
+}
+
+.product-insert-box {
+	width:100%;
+	border-bottom: 3px solid #000;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.form-select, .form-control {
+    width: 100%;
+}
+
+.d-flex .form-select {
+    flex: 1;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.btn {
+    width: 100%;
+}
+
+.d-flex {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.d-flex .form-control {
+    width: auto;
+    max-width: 200px;
+}
+
+.d-flex .btn-dark {
+    width: auto;
+    max-width: 100px;
+}
+
+.search-bar .form-control {
+    height: 36px;
+    font-size: 14px;
+}
+
+.table-responsive {
+	margin-top: 30px;
+}
+
+.search-bar .btn-dark {
+    height: 36px;
+    font-size: 14px;
+}

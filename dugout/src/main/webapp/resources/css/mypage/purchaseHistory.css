@@ -1,0 +1,107 @@
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Pretendard-Regular';
+	margin: 20px;
+}
+
+.product-insert-title {
+	font-weight: bold;
+   	width:1140px;
+	display:block;
+	color: #333;
+    font-size: 26px;  
+	margin-bottom: 24px;
+}
+
+.product-insert-box {
+	width:100%;
+	border-bottom: 3px solid #000;
+}
+
+.purchase-history {
+	width: 100%;
+	padding: 0;
+	margin-bottom: 200px;
+}
+
+.purchase-history-header {
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.purchase-period-buttons {
+	display: flex;
+	gap: 10px;
+	margin-top: 28px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+}
+
+.purchase-period-buttons button {
+	padding: 5px 10px;
+	font-size: 13px;
+	cursor: pointer;
+	border-radius: 20px;
+}
+.purchase-period-buttons button.active {
+	background-color: #333333;
+	color: white;
+	border: none;
+	border-radius: 20px;
+}
+.recent6-month-btn {
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+.recent1-year-btn {
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+.purchase-item {
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	gap: 20px;
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.purchase-item img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border: 1px solid #ddd;
+}
+
+.purchase-item-details {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.purchase-date {
+	font-size: 23px;
+}
+
+.purchase-item-details div {
+	margin-bottom: 5px;
+}
+
+.purchase-item-price {
+	font-size: 16px;
+	color: #888;
+}
