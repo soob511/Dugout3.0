@@ -7,12 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("OrderItem")
-public class OrderItemController {
-	
-	@RequestMapping("")
-	public String cart() {
-		log.info("장바구니");
-		return "cart/cart";
+public class PaymentController {
+	@RequestMapping("/payment")
+	public String payment() {
+		log.info("실행");
+		return "/payment";
 	}
 }

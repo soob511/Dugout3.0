@@ -7,12 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("Cart")
 public class CartController {
-	
-	@RequestMapping("")
+	@RequestMapping("/cart")
 	public String cart() {
-		log.info("장바구니");
-		return "cart/cart";
+		log.info("실행");
+		return "/cartForm";
 	}
 }
