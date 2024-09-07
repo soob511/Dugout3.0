@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="carouselExampleIndicators" class="carousel slide"
 	data-bs-ride="carousel">
@@ -14,16 +14,16 @@
 	</div>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img src="${pageContext.request.contextPath}/resources/image/banner/배너2.png" class="d-block w-100"
-				style="height: 12cm;" alt="...">
+			<img src="${pageContext.request.contextPath}/banner/bannerImg?bannerId=1"
+				class="d-block w-100" style="height: 12cm;" alt="이미지1">
 		</div>
 		<div class="carousel-item">
-			<img src="${pageContext.request.contextPath}/resources/image/banner/kboallstar상품.jpg"
-				class="d-block w-100" style="height: 12cm;" alt="...">
+			<img src="${pageContext.request.contextPath}/banner/bannerImg?bannerId=2"
+				class="d-block w-100" style="height: 12cm;" alt="이미지">
 		</div>
 		<div class="carousel-item">
-			<img src="${pageContext.request.contextPath}/resources/image/banner/배너3.jpg" class="d-block w-100"
-				style="height: 12cm;" alt="...">
+			<img src="${pageContext.request.contextPath}/banner/bannerImg?bannerId=3"
+				class="d-block w-100" style="height: 12cm;" alt="이미지3">
 		</div>
 	</div>
 	<button class="carousel-control-prev" type="button"
