@@ -16,7 +16,7 @@
 	</bean>
 	
 	<!-- @Mapper(관리객체를생성)를 사용하기 위한 설정  -->
-	<mybatis-spring:scan base-package="com.mycompany.dugout.dao.mybatis"
+	<mybatis-spring:scan base-package="com.mycompany.dugout.dao"
 		annotation = "org.apache.ibatis.annotations.Mapper"/>
 
 
