@@ -11,13 +11,20 @@ html {
   display: flex;
   justify-content: flex-end;
   margin: 24px 0;
+  gap: 16px;
   padding-right: 80px;
 }
 .members a {
   text-decoration: none;
   color: #333333;
 }
+
+.notice {
+	margin-right: 16px;
+}
+
 .login {
+  margin-left: 16px;
   margin-right: 16px;
 }
 .logo-icons-section {
