@@ -9,7 +9,7 @@ xmlns-네임스페이스 선언 -->
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- 객체를 생성할수 있는 클래스를 찾게해줌 -->
-	<context:component-scan base-package="com.mycompany.miniproject" use-default-filters="false"><!-- 자동으로 어노테이션 찾게하는거 방지 -->
+	<context:component-scan base-package="com.mycompany.dugout" use-default-filters="false"><!-- 자동으로 어노테이션 찾게하는거 방지 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	
