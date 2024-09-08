@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-
+<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 <div id="header-body">
   <div class="members">
     <a href="${pageContext.request.contextPath}/notice/noticeList" class="notice" style="margin-right: 16px">공지사항</a> 

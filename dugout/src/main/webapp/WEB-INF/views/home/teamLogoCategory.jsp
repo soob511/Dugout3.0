@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link href="${pageContext.request.contextPath}/resources/css/home/teamLogoCategory.css"  rel="stylesheet" />
 <div class="logo-grid-container">
 	<div class="logo-grid">
 		<div class="logo-item selected" id="all">

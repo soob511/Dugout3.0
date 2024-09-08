@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link href="${pageContext.request.contextPath}/resources/css/home/product.css"  rel="stylesheet" />
 <section class="section-top">
 	<div class="d-flex align-items-center">
 		<div class="col-6">
