@@ -6,4 +6,9 @@
 		FROM goods
 	</select>
 	
+	<select id="getImg" parameterType="int" resultType="Goods">
+		SELECT goodsmaindata, goodsmaintype
+		FROM goods
+		WHERE goodsId = #{goodsId}
+	</select>
 </mapper>

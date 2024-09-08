@@ -19,5 +19,9 @@ public class GoodsService {
 		return list;
 	}
 
+	public GoodsDto getImg(int goodsId) {
+		GoodsDto goods = goodsDao.getImg(goodsId);
+		return goods;
+	}
 
 }
