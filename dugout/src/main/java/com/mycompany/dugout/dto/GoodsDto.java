@@ -15,10 +15,10 @@ public class GoodsDto {
 	private String goodsCategory;
 	private int goodsStock;
 	private int goodsStatus;
-	private MultipartFile goodsMainData;
+	private byte[]  goodsMainData;
 	private String goodsMainName;
 	private String goodsMainType;
-	private MultipartFile goodsDetailData;
+	private byte[]  goodsDetailData;
 	private String goodsDetailName;
 	private String goodsdetailtype;
 	private Date goodsregdate ;
