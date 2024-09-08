@@ -11,11 +11,6 @@
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	
 	<link href="${pageContext.request.contextPath}/resources/css/main.css"  rel="stylesheet" />
-	<%-- <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" /> --%>
-	<link href="${pageContext.request.contextPath}/resources/css/common/nav.css"  rel="stylesheet" />
-	<%-- <link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" /> --%>
-	<link href="${pageContext.request.contextPath}/resources/css/home/teamLogoCategory.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/home/proudct.css"  rel="stylesheet" />
   </head>
   <body>
 	  <jsp:include page="/WEB-INF/views/common/header.jsp" />
