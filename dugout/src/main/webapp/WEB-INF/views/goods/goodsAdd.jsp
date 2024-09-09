@@ -8,7 +8,7 @@
     <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-    <link href="${pageContext.request.contextPath}/resources/css/product/productAdd.css"  rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/goods/goodsAdd.css"  rel="stylesheet" />
     <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
@@ -20,15 +20,15 @@
           <h2 class="product-insert-title">상품 등록</h2>
         </div>
         <form
+          id="insertGoodsForm"
+          method="post"
+          action="insertGoods"
           enctype="multipart/form-data"
-          name="insertForm"
-          method="get"
-          id="insertForm"
         >
           <div class="form-group">
             <span>분류</span>
-            <select class="team-insert-list">
-              <option selected="selected">팀 선택</option>
+            <select class="team-insert-list" name = "goodsTeam">
+              <option selected="selected" >팀 선택</option>
               <option>기아 타이거즈</option>
               <option>두산 베어스</option>
               <option>한화 이글스</option>
@@ -41,7 +41,7 @@
               <option>삼성 라이온즈</option>
               <option>국가대표</option>
             </select>
-            <select class="product-kind-insert">
+            <select class="product-kind-insert"  name="goodsCategory">
               <option selected="selected">상품 종류</option>
               <option>유니폼</option>
               <option>의류</option>
@@ -52,29 +52,29 @@
           </div>
           <div class="product-group">
             <label for="firstImg">메인 이미지</label>
-            <input type="file" class="form-control" id="mainImage" />
+            <input type="file" class="form-control" name="mainImg" />
           </div>
           <div class="product-group">
             <label for="secondBanner">상세 이미지</label>
-            <input type="file" class="form-control" id="detailImage" />
+            <input type="file" class="form-control" name="detailImg" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">상품이름</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="text" class="form-control" name="goodsName"/>
           </div>
           <div class="product-group">
             <label for="thirdBanner">가격</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="number" class="form-control" name="goodsPrice" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">재고</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="number" class="form-control"	name="goodsStock" />
           </div>
           <div class="action-buttons">
-            <button class="preview-button" onclick="openPreview()">
+            <button class="preview-button" type="submit">
               미리보기
             </button>
-            <button class="save-button" onclick="showSaveAlert()">
+            <button class="save-button" >
               저장하기
             </button>
           </div>

@@ -24,4 +24,8 @@ public class GoodsService {
 		return goods;
 	}
 
+	public void insertGoods(GoodsDto goods) {
+		goodsDao.insertGoods(goods);
+	}
+
 }

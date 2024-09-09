@@ -27,11 +27,6 @@ public class ProudctController {
 		return "/product/previewProduct";
 	}
 	
-	@RequestMapping("/productAdd")
-	public String productAdd() {
-		log.info("실행");
-		return "/product/productAdd";
-	}
 	
 	@RequestMapping("/productDetails")
 	public String productDetails() {

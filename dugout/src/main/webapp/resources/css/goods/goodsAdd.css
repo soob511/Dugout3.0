@@ -33,17 +33,17 @@ body {
     max-width: 100%; 
 }
 
-#insertForm {
+#insertGoodsForm {
     margin-top: 50px;
     width: 800px;
 }
 
-#insertForm span {
+#insertGoodsForm {
     font-size: 20px; 
     font-weight: 600;
 }
 
-#insertForm select {
+#insertGoodsForm select {
     height: 36px;
     border-radius: 8px;
     margin-right: 10px;
