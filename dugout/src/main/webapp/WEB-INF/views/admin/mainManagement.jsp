@@ -8,13 +8,11 @@
     <title>관리자 페이지</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-    <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/admin/mainManagement.css"  rel="stylesheet" />
     <script src="MainManagement.js"></script>
   </head>
   <body>
-    <%-- <jsp:include page="/WEB-INF/views/common/header.jsp" /> --%>
+    <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp"/> 
     <hr />
     <div class="main-container">
       <div class="menu-section">
@@ -29,7 +27,7 @@
       <div class="content-section" id="content-section"></div>
     </div>
 
-     <%-- <jsp:include page="/WEB-INF/views/common/footer.jsp" /> --%>
+     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>
 >

@@ -12,8 +12,8 @@
     <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
-  	  <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
-  	 <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" />
+  	 <%-- <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" /> --%>
+  	 <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> 
     <main>
       <section>
         <div class="product-insert-box">
@@ -81,6 +81,5 @@
         </form>
       </section>
     </main>
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>
