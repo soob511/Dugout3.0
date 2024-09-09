@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.dugout.dto.GoodsDto;
@@ -32,6 +33,15 @@ public class GoodsController {
 		out.flush();
 		out.close();
 	}
+	
+	@PostMapping("insertGoods")
+	public String insertGoods() {
+		
+		return "goods/productAdd";
+	}
+	
+	
+	
 	
 	@RequestMapping("")
 	public String cart() {
