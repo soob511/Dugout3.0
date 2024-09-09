@@ -48,7 +48,7 @@
             </li>
             <li class="nav-item mb-2">
               <a href="#" class="nav-link p-0 text-muted"
-                >전수빈 이성노 안중건 이승혁</a
+                >전수빈 박지애</a
               >
             </li>
           </ul>
