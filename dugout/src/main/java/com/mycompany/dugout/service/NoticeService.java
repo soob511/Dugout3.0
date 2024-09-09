@@ -26,4 +26,12 @@ public class NoticeService {
 		NoticeDto notice = noticeDao.selectNoticeDetail(noticeId);
 		return notice;
 	}
+
+	public void deleteNotice(int noticeId) {
+		noticeDao.delete(noticeId);
+	}
+
+	public void updateNotice(NoticeDto notice) {
+		noticeDao.update(notice);
+	}
 }
