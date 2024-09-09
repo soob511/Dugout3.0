@@ -17,6 +17,7 @@ body {
 }
 
 .form-group, .product-group {
+	color: black;
     display: flex;
     align-items: center;
     margin-bottom: 20px;

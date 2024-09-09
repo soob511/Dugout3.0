@@ -5,13 +5,15 @@
   <head>
     <meta charset="UTF-8" />
     <title>상품 등록</title>
-    <link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../common/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="ProductAdd.css" />
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+    <link href="${pageContext.request.contextPath}/resources/css/product/productAdd.css"  rel="stylesheet" />
     <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
+  	  <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
+  	 <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" />
     <main>
       <section>
         <div class="product-insert-box">
@@ -41,6 +43,11 @@
             </select>
             <select class="product-kind-insert">
               <option selected="selected">상품 종류</option>
+              <option>유니폼</option>
+              <option>의류</option>
+              <option>모자</option>
+              <option>응원용품</option>
+              <option>잡화</option>
             </select>
           </div>
           <div class="product-group">
@@ -74,5 +81,6 @@
         </form>
       </section>
     </main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>

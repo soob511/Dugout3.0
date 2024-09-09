@@ -13,7 +13,8 @@
 	<link href="${pageContext.request.contextPath}/resources/css/main.css"  rel="stylesheet" />
   </head>
   <body>
-	  <jsp:include page="/WEB-INF/views/common/header.jsp" />
+	  <%-- <jsp:include page="/WEB-INF/views/common/header.jsp" /> --%>
+	   <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
 	  <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	  <jsp:include page="/WEB-INF/views/home/banner.jsp" />	
     <main>
