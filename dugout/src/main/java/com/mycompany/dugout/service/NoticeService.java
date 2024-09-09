@@ -21,4 +21,9 @@ public class NoticeService {
 		List<NoticeDto> list = noticeDao.selectNoticeList();
 		return list;
 	}
+
+	public NoticeDto getNoticeDetail(int noticeId) {
+		NoticeDto notice = noticeDao.selectNoticeDetail(noticeId);
+		return notice;
+	}
 }

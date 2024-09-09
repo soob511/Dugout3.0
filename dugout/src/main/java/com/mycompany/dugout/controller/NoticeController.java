@@ -25,9 +25,16 @@ public class NoticeController {
 	public String noticeList(Model model) {
 		log.info("공지사항 목록");
 		List<NoticeDto> list = noticeService.getNoticeList();
-		System.out.println(list);
 		model.addAttribute("list",list);
 		return "notice/noticeList";
+	}
+	
+	@GetMapping("/noticeDetail")
+	public String noticeDetail(int noticeId,Model model) {
+		log.info("공지사항 상세");
+		NoticeDto notice = noticeService.getNoticeDetail(noticeId);
+		model.addAttribute("notice",notice);
+		return "notice/noticeDetail";
 	}
 	
 	@GetMapping("/writeNoticeForm")

@@ -17,4 +17,12 @@
 		from notice
 		
 	</select>
+	
+	<select id="selectNoticeDetail" parameterType="int" resultType="Notice">
+		select noticeId,noticeTitle, noticeContent,noticeHitCount,noticeRegDate
+		from notice
+		where noticeId = #{noticeId}
+	
+	</select>
+	
 </mapper>
