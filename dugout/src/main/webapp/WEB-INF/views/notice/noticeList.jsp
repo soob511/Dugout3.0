@@ -65,7 +65,9 @@
             </table>
 		</div>
 	</div>
-		<a href="writeNoticeForm">게시물 쓰기</a>
+	<div class="m-2 d-flex justify-content-end">
+		<a href="writeNoticeForm"  class="btn btn-info btn-sm">게시물 쓰기</a>	
+	</div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
   </body>
 </html>
