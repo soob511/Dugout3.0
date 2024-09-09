@@ -11,4 +11,10 @@
 			#{noticeId}, #{noticeTitle}, #{noticeContent}, 0, sysdate
 		)
 	</insert>
+	
+	<select id="selectNoticeList" resultType="Notice">
+		select noticeid,noticetitle,noticehitcount,noticeregdate
+		from notice
+		
+	</select>
 </mapper>
