@@ -12,10 +12,24 @@
 		)
 	</insert>
 	
-	<select id="selectNoticeList" resultType="Notice">
-		select noticeId,noticeTitle,noticeHitCount,noticeRegDate
-		from notice
-		order by noticeId desc
+	<select id="selectNoticeList" parameterType="Pager" resultType="Notice">
+	<![CDATA[
+			select  noticeId, noticeTitle, noticeHitCount, noticeRegDate
+			from    (
+			            select rownum as rnum, noticeId, noticeTitle, noticeHitCount, noticeRegDate
+			            from (
+			                    select noticeId, noticeTitle, noticeHitCount, noticeRegDate
+			                    from notice
+			                    order by noticeId desc
+			            )
+			    		where rownum <= #{endRowNo}
+			    )
+				where rnum >= #{startRowNo}
+		]]>
+	</select>
+	
+	<select id="getTotalRows" resultType="int">
+		select count(*) from notice
 	</select>
 	
 	<select id="selectNoticeDetail" parameterType="int" resultType="Notice">
@@ -34,6 +48,5 @@
 	<delete id="delete" parameterType="int">
 		delete from notice
 		where noticeId=#{noticeId}
-	</delete>
-	
+	</delete>	
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.dugout.dao.NoticeDao;
 import com.mycompany.dugout.dto.NoticeDto;
+import com.mycompany.dugout.dto.PagerDto;
 
 @Service
 public class NoticeService {
@@ -17,8 +18,8 @@ public class NoticeService {
 		noticeDao.insert(notice);
 	}
 
-	public List<NoticeDto> getNoticeList() {
-		List<NoticeDto> list = noticeDao.selectNoticeList();
+	public List<NoticeDto> getNoticeList(PagerDto pager) {
+		List<NoticeDto> list = noticeDao.selectNoticeList(pager);
 		return list;
 	}
 
@@ -33,5 +34,10 @@ public class NoticeService {
 
 	public void updateNotice(NoticeDto notice) {
 		noticeDao.update(notice);
+	}
+
+	public int totalRows() {
+		int rows = noticeDao.getTotalRows();
+		return rows;
 	}
 }
