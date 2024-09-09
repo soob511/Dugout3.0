@@ -51,4 +51,10 @@ public class NoticeController {
 		noticeService.writeNotice(notice);	
 		return "redirect:/notice/noticeList";
 	}
+	
+	@GetMapping("/deleteNotice")
+	public String deleteNotice(int noticeId) {
+		noticeService.deleteNotice(noticeId);
+		return "redirect:/notice/noticeList";
+	}
 }

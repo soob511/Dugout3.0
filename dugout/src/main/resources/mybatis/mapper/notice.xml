@@ -21,7 +21,11 @@
 		select noticeId,noticeTitle, noticeContent,noticeHitCount,noticeRegDate
 		from notice
 		where noticeId = #{noticeId}
-	
 	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from notice
+		where noticeId=#{noticeId}
+	</delete>
 	
 </mapper>
