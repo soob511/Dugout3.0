@@ -13,9 +13,8 @@
 	</insert>
 	
 	<select id="selectNoticeList" resultType="Notice">
-		select noticeid,noticetitle,noticehitcount,noticeregdate
+		select noticeId,noticeTitle,noticeHitCount,noticeRegDate
 		from notice
-		
 	</select>
 	
 	<select id="selectNoticeDetail" parameterType="int" resultType="Notice">
