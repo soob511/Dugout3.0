@@ -12,4 +12,5 @@ public interface NoticeDao {
 	public List<NoticeDto> selectNoticeList();
 	public NoticeDto selectNoticeDetail(int noticeId);
 	public int delete(int noticeId);
+	public int update(NoticeDto notice);
 }

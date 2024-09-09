@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.dugout.dto.NoticeDto;
+import com.mycompany.dugout.dto.UpdateNoticeForm;
 import com.mycompany.dugout.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -50,6 +51,24 @@ public class NoticeController {
 
 		noticeService.writeNotice(notice);	
 		return "redirect:/notice/noticeList";
+	}
+	
+	@GetMapping("/updateNotice")
+	public String updateNotice(int noticeId, Model model) {
+		NoticeDto notice = noticeService.getNoticeDetail(noticeId);
+		model.addAttribute("notice", notice);
+		return "notice/updateNoticeForm";
+	}
+	
+	@PostMapping("/updateNotice")
+	public String updateNotice(UpdateNoticeForm form) {
+		NoticeDto notice = new NoticeDto();
+		notice.setNoticeId(form.getNoticeId());
+		notice.setNoticeTitle(form.getNoticeTitle());
+		notice.setNoticeContent(form.getNoticeContent());
+		noticeService.updateNotice(notice);	
+		
+		return "redirect:/notice/noticeDetail?noticeId=" + form.getNoticeId();
 	}
 	
 	@GetMapping("/deleteNotice")

@@ -23,6 +23,13 @@
 		where noticeId = #{noticeId}
 	</select>
 	
+	<update id="update" parameterType="Notice">
+		update notice set
+			noticeTitle=#{noticeTitle},
+			noticeContent=#{noticeContent}
+		where noticeId=#{noticeId}
+	</update>
+	
 	<delete id="delete" parameterType="int">
 		delete from notice
 		where noticeId=#{noticeId}
