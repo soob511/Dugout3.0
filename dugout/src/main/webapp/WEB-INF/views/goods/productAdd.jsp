@@ -20,10 +20,10 @@
           <h2 class="product-insert-title">상품 등록</h2>
         </div>
         <form
+          id="insertGoodsForm"
+          method="post"
+          action="insertGoods"
           enctype="multipart/form-data"
-          name="insertForm"
-          method="get"
-          id="insertForm"
         >
           <div class="form-group">
             <span>분류</span>
@@ -52,7 +52,7 @@
           </div>
           <div class="product-group">
             <label for="firstImg">메인 이미지</label>
-            <input type="file" class="form-control" id="mainImage" />
+            <input type="file" class="form-control" name="mainImage" />
           </div>
           <div class="product-group">
             <label for="secondBanner">상세 이미지</label>
@@ -71,10 +71,10 @@
             <input type="text" class="form-control" id="thirdBanner" />
           </div>
           <div class="action-buttons">
-            <button class="preview-button" onclick="openPreview()">
+            <button class="preview-button" type="submit">
               미리보기
             </button>
-            <button class="save-button" onclick="showSaveAlert()">
+            <button class="save-button" >
               저장하기
             </button>
           </div>
