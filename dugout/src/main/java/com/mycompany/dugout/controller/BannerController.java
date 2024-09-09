@@ -27,10 +27,6 @@ public class BannerController {
 		String contentType = banner.getBannerType();
 		response.setContentType(contentType);
 		
-		String fileName = banner.getBannerName();
-		String encodingfileName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
-		response.setHeader("Content-Disposition", "inline; filename=\"" + encodingfileName +"\"");
-		
 		OutputStream out = response.getOutputStream();
 		out.write(banner.getBannerData());
 		out.flush();
