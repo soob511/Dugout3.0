@@ -32,7 +32,7 @@
               <option>기아 타이거즈</option>
               <option>두산 베어스</option>
               <option>한화 이글스</option>
-              <option>옌씨 다이노스</option>
+              <option>엔씨 다이노스</option>
               <option>키움 히어로즈</option>
               <option>엘지 트윈스</option>
               <option>SSG 랜더스</option>
@@ -51,23 +51,23 @@
             </select>
           </div>
           <div class="product-group">
-            <label for="firstImg">메인 이미지</label>
+            <label for="mainImg">메인 이미지</label>
             <input type="file" class="form-control" name="mainImg" />
           </div>
           <div class="product-group">
-            <label for="secondBanner">상세 이미지</label>
+            <label for="detailImg">상세 이미지</label>
             <input type="file" class="form-control" name="detailImg" />
           </div>
           <div class="product-group">
-            <label for="thirdBanner">상품이름</label>
+            <label for="goodsName">상품이름</label>
             <input type="text" class="form-control" name="goodsName"/>
           </div>
           <div class="product-group">
-            <label for="thirdBanner">가격</label>
+            <label for="goodsPrice">가격</label>
             <input type="number" class="form-control" name="goodsPrice" />
           </div>
           <div class="product-group">
-            <label for="thirdBanner">재고</label>
+            <label for="goodsStock">재고</label>
             <input type="number" class="form-control"	name="goodsStock" />
           </div>
           <div class="action-buttons">
