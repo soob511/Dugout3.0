@@ -49,6 +49,6 @@ public class NoticeController {
 		notice.setNoticeContent(form.getNoticeContent());
 
 		noticeService.writeNotice(notice);	
-		return "notice/noticeList";
+		return "redirect:/notice/noticeList";
 	}
 }
