@@ -12,6 +12,7 @@ public interface GoodsDao {
 	public List<GoodsDto> SelectGoodsList();
 
 	public GoodsDto getImg(int goodsId);
-	
 
+	public int insertGoods(GoodsDto goods);
+	
 }

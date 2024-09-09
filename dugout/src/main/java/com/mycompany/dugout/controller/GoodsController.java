@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mycompany.dugout.dto.GoodsDto;
+import com.mycompany.dugout.dto.InsertGoodsDto;
 import com.mycompany.dugout.service.GoodsService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +43,28 @@ public class GoodsController {
 	}
 	
 	@PostMapping("insertGoods")
-	public String insertGoods() {
+	public String insertGoods(InsertGoodsDto form) throws IOException {
+		log.info("실행");
+		GoodsDto goods = new GoodsDto();
+		goods.setGoodsTeam(form.getGoodsTeam());
+		goods.setGoodsName(form.getGoodsName());
+		goods.setGoodsCategory(form.getGoodsCategory());
+		goods.setGoodsPrice(form.getGoodsPrice());
+		goods.setGoodsStock(form.getGoodsStock());
+		goods.setGoodsPrice(form.getGoodsPrice());
+	
+		
+		MultipartFile main = form.getMainImg();
+		goods.setGoodsMainName(main.getOriginalFilename());
+		goods.setGoodsMainType(main.getContentType());
+		goods.setGoodsMainData(main.getBytes());
+		
+		MultipartFile detail = form.getDetailImg();
+		goods.setGoodsDetailName(detail.getOriginalFilename());
+		goods.setGoodsDetailType(detail.getContentType());
+		goods.setGoodsDetailData(detail.getBytes());
+		
+		goodsService.insertGoods(goods);
 		
 		return "goods/goodsAdd";
 	}

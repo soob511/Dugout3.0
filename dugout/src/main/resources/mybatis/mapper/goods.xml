@@ -11,4 +11,18 @@
 		FROM goods
 		WHERE goodsId = #{goodsId}
 	</select>
+	
+	<insert id="insertGoods" parameterType="Goods">
+		<selectKey keyProperty="goodsId" resultType="int" order="BEFORE">
+			SELECT seq_goodsId.nextval from dual
+		</selectKey>
+		INSERT INTO goods(goodsId,goodsName,goodsPrice,goodsTeam,goodsCategory,goodsStock,goodsStatus,
+		goodsMainData,goodsMainName,goodsMainType,goodsDetailData,goodsDetailName,goodsDetailType,
+		goodsRegDate,goodsLikeCount,goodsSaleCount
+		)VALUES(
+			#{goodsId},#{goodsName},#{goodsPrice},#{goodsTeam},#{goodsCategory},#{goodsStock},1,#{goodsMainData},
+			#{goodsMainName},#{goodsMainType},#{goodsDetailData},#{goodsDetailName},#{goodsDetailType},
+			sysdate,0,0
+		)
+	</insert>
 </mapper>

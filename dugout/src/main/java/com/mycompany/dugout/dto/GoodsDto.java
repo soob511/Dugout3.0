@@ -20,8 +20,8 @@ public class GoodsDto {
 	private String goodsMainType;
 	private byte[]  goodsDetailData;
 	private String goodsDetailName;
-	private String goodsdetailtype;
-	private Date goodsregdate ;
-	private int goodslikecount;
-	private int goodssalecount;
+	private String goodsDetailType;
+	private Date goodsRegDate ;
+	private int goodsLikeCount;
+	private int goodsSaleCount;
 }

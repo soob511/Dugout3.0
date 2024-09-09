@@ -27,8 +27,8 @@
         >
           <div class="form-group">
             <span>분류</span>
-            <select class="team-insert-list">
-              <option selected="selected" name = "goodsTeam">팀 선택</option>
+            <select class="team-insert-list" name = "goodsTeam">
+              <option selected="selected" >팀 선택</option>
               <option>기아 타이거즈</option>
               <option>두산 베어스</option>
               <option>한화 이글스</option>
@@ -41,8 +41,8 @@
               <option>삼성 라이온즈</option>
               <option>국가대표</option>
             </select>
-            <select class="product-kind-insert">
-              <option selected="selected" name="goodsCategory">상품 종류</option>
+            <select class="product-kind-insert"  name="goodsCategory">
+              <option selected="selected">상품 종류</option>
               <option>유니폼</option>
               <option>의류</option>
               <option>모자</option>
@@ -52,11 +52,11 @@
           </div>
           <div class="product-group">
             <label for="firstImg">메인 이미지</label>
-            <input type="file" class="form-control" name="mainImage" />
+            <input type="file" class="form-control" name="mainImg" />
           </div>
           <div class="product-group">
             <label for="secondBanner">상세 이미지</label>
-            <input type="file" class="form-control" name="detailImage" />
+            <input type="file" class="form-control" name="detailImg" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">상품이름</label>
@@ -64,11 +64,11 @@
           </div>
           <div class="product-group">
             <label for="thirdBanner">가격</label>
-            <input type="text" class="form-control" name="goodsPrice" />
+            <input type="number" class="form-control" name="goodsPrice" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">재고</label>
-            <input type="text" class="form-control"	name="goodsStock" />
+            <input type="number" class="form-control"	name="goodsStock" />
           </div>
           <div class="action-buttons">
             <button class="preview-button" type="submit">
