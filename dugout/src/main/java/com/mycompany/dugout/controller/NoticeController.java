@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mycompany.dugout.dto.NoticeDto;
+import com.mycompany.dugout.dto.PagerDto;
 import com.mycompany.dugout.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +25,13 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@GetMapping("/noticeList")
-	public String noticeList(Model model) {
-		log.info("공지사항 목록");
-		List<NoticeDto> list = noticeService.getNoticeList();
+	public String noticeList(Model model, @RequestParam(defaultValue="1") int pageNo) {
+		int totalRows = noticeService.totalRows();
+		PagerDto pager = new PagerDto(10, 3, totalRows, pageNo);
+		model.addAttribute("pager", pager);
+		
+		List<NoticeDto> list = noticeService.getNoticeList(pager);
+		log.info("리스트:" + list.toString());
 		model.addAttribute("list",list);
 		return "notice/noticeList";
 	}
