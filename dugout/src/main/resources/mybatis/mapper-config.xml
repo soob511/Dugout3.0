@@ -14,6 +14,7 @@
 		<typeAlias type="com.mycompany.dugout.dto.OrderDto" alias="Order"/>
 		<typeAlias type="com.mycompany.dugout.dto.OrderItemDto" alias="orderItem"/>
 		<typeAlias type="com.mycompany.dugout.dto.BannerDto" alias="Banner"/>	
+		<typeAlias type="com.mycompany.dugout.dto.PagerDto" alias="Pager"/>	
 	</typeAliases>
 
 </configuration>

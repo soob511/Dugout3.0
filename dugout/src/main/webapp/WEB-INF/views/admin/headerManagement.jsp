@@ -5,13 +5,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>관리자헤더</title>
-    <link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <script src="../common/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="../common/jquery/jquery.min.js"></script>
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <!-- <link href="Header.css" rel="stylesheet"> -->
    
 	<link href="${pageContext.request.contextPath}/resources/css/admin/headerManagement.css"  rel="stylesheet" />
-    <script src="HeaderManagement.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/admin/headerManagement.js"></script>
   </head>
   <body>
 <div id="header-body">

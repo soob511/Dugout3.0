@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.dugout.dto.NoticeDto;
-import com.mycompany.dugout.dto.UpdateNoticeForm;
 import com.mycompany.dugout.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -61,13 +61,8 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/updateNotice")
-	public String updateNotice(UpdateNoticeForm form) {
-		NoticeDto notice = new NoticeDto();
-		notice.setNoticeId(form.getNoticeId());
-		notice.setNoticeTitle(form.getNoticeTitle());
-		notice.setNoticeContent(form.getNoticeContent());
-		noticeService.updateNotice(notice);	
-		
+	public String updateNotice(@ModelAttribute NoticeDto form) {
+		noticeService.updateNotice(form);		
 		return "redirect:/notice/noticeDetail?noticeId=" + form.getNoticeId();
 	}
 	

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,10 +24,10 @@
 	         
 	         <div class="input-group">
 	            <div class="input-group-prepend"><span class="input-group-text">번호</span></div>
-	            <input id="noticeId" type="text" name="noticeId" class="form-control" value="${notice.noticeId}" readonly>
+	            <input id="noticeId" type="number" name="noticeId" class="form-control" value="${notice.noticeId}" readonly>
 	         </div>
 	         
-	         <div class="input-group mt-2"">
+	         <div class="input-group mt-2">
 	            <div class="input-group-prepend"><span class="input-group-text">제목</span></div>
 	            <input id="noticeTitle" type="text" name="noticeTitle" class="form-control" value="${notice.noticeTitle}">
 	         </div>
@@ -34,7 +35,15 @@
 	         <div class="input-group mt-2">
 	            <div class="input-group-prepend"><span class="input-group-text">내용</span></div>
 	            <textarea id="noticeContent" name="noticeContent" class="form-control">${notice.noticeContent}</textarea>
-	         </div>            
+	         </div>  
+	         <div class="input-group mt-2">
+	            <div class="input-group-prepend"><span class="input-group-text">날짜</span></div>
+	            <input value="<fmt:formatDate value='${notice.noticeRegDate}' pattern='yyyy-MM-dd' />" readonly />
+	         </div> 
+	         <div class="input-group mt-2">
+	            <div class="input-group-prepend"><span class="input-group-text">조회수</span></div>
+	            <input id="noticeHitCount" name="noticeHitCount" class="form-control" value="${notice.noticeHitCount}" type="number" readonly></input>
+	         </div>           
 	         <div class="mt-3">
 	            <button type="submit" class="btn btn-info btn-sm me-2">수정</button>
 	            <a class="btn btn-info btn-sm" href="noticeList">목록</a>
