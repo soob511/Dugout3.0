@@ -34,10 +34,16 @@ public class GoodsController {
 		out.close();
 	}
 	
+	@RequestMapping("/goodsAdd")
+	public String goodsAdd() {
+		log.info("실행");
+		return "/goods/goodsAdd";
+	}
+	
 	@PostMapping("insertGoods")
 	public String insertGoods() {
 		
-		return "goods/productAdd";
+		return "goods/goodsAdd";
 	}
 	
 	

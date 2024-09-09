@@ -23,7 +23,7 @@
           상품 관리
         </div>
         <!-- <div class="menu-item" data-page="ProductAdd.html">상품 등록</div> -->
-        <a href="product/productAdd">상품등록</a>
+        <a href="goods/goodsAdd">상품등록</a>
         <div class="menu-item" data-page="BannerManagement.html">베너 관리</div>
       </div>
       <div class="content-section" id="content-section"></div>

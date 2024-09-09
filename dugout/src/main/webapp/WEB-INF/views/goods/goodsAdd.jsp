@@ -8,7 +8,7 @@
     <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-    <link href="${pageContext.request.contextPath}/resources/css/product/productAdd.css"  rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/goods/goodsAdd.css"  rel="stylesheet" />
     <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
@@ -28,7 +28,7 @@
           <div class="form-group">
             <span>분류</span>
             <select class="team-insert-list">
-              <option selected="selected">팀 선택</option>
+              <option selected="selected" name = "goodsTeam">팀 선택</option>
               <option>기아 타이거즈</option>
               <option>두산 베어스</option>
               <option>한화 이글스</option>
@@ -42,7 +42,7 @@
               <option>국가대표</option>
             </select>
             <select class="product-kind-insert">
-              <option selected="selected">상품 종류</option>
+              <option selected="selected" name="goodsCategory">상품 종류</option>
               <option>유니폼</option>
               <option>의류</option>
               <option>모자</option>
@@ -56,19 +56,19 @@
           </div>
           <div class="product-group">
             <label for="secondBanner">상세 이미지</label>
-            <input type="file" class="form-control" id="detailImage" />
+            <input type="file" class="form-control" name="detailImage" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">상품이름</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="text" class="form-control" name="goodsName"/>
           </div>
           <div class="product-group">
             <label for="thirdBanner">가격</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="text" class="form-control" name="goodsPrice" />
           </div>
           <div class="product-group">
             <label for="thirdBanner">재고</label>
-            <input type="text" class="form-control" id="thirdBanner" />
+            <input type="text" class="form-control"	name="goodsStock" />
           </div>
           <div class="action-buttons">
             <button class="preview-button" type="submit">
