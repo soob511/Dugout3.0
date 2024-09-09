@@ -32,7 +32,7 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/writeNotice")
-	public String writeNotice(NoticeDto form, HttpSession session) throws Exception {
+	public String writeNotice(NoticeDto form) throws Exception {
 		NoticeDto notice = new NoticeDto();
 		notice.setNoticeTitle(form.getNoticeTitle());
 		notice.setNoticeContent(form.getNoticeContent());
