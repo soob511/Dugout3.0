@@ -40,9 +40,10 @@
 	</div>
 </section>
 
-	<div class="d-flex justify-content-center">
+	<div class="container">
+		<div class="row d-flex justify-content-between">
 		<c:forEach items="${list}" var ="goods">
-			<div class="card" style="width: 300px; height: 500px">
+			<div class="card col-3" style="width: 300px; height: 500px">
 				<a href="${pageContext.request.contextPath}/resource"><img
 					class="card-img-top"
 					src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
@@ -54,6 +55,7 @@
 				</div>
 			</div>
 		</c:forEach>
+		</div>
 	</div>
 
 <nav aria-label="..." class="d-flex justify-content-center">
