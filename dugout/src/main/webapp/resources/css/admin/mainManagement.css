@@ -112,3 +112,22 @@ footer {
 #form-img {
 	width: 220px;
 }
+
+.page-container {
+	margin-top: 20px;
+	border: none;
+	width: 100%;
+}
+
+.page-link {
+  margin: 0px 0px 0px 0px;
+}
+.page-link {
+  border: none !important;
+  color: gray !important;
+  cursor: pointer !important;
+}
+.pagination .page-item.active .page-link {
+  color: black !important;
+  background-color: white !important;
+}

@@ -101,8 +101,60 @@
               </td>
             </tr>
 			</c:forEach>
+			
+			<tr>
+			  <td colspan="5" class="text-center page-container">
+			    <div class="d-flex justify-content-between align-items-center">
+			      
+			      <div class="mx-auto">
+			        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+			          <ul class="pagination">
+			            <li class="page-item">
+			              <a class="page-link" href="?pageNo=1" aria-label="First">
+			                <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+			              </a>
+			            </li>
+			
+			            <li class="page-item">
+			              <c:if test="${pager.groupNo>1}">
+			                <a class="page-link" href="?pageNo=${pager.startPageNo - 1}" aria-label="Previous">
+			                  <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+			                </a>
+			              </c:if>
+			            </li>
+			
+			            <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
+			              <c:if test="${pager.pageNo == i}">
+			                <li class="page-item active"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+			              </c:if>
+			              <c:if test="${pager.pageNo != i}">
+			                <li class="page-item"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+			              </c:if>    
+			            </c:forEach>
+			
+			            <li class="page-item">
+			              <c:if test="${pager.groupNo < pager.totalGroupNo}">
+			                <a class="page-link" href="?pageNo=${pager.endPageNo + 1}" aria-label="Next">
+			                  <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+			                </a>
+			              </c:if>
+			            </li>
+			
+			            <li class="page-item">
+			              <a class="page-link" href="?pageNo=${pager.totalPageNo}" aria-label="Last">
+			                <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+			              </a>
+			            </li>
+			          </ul>
+			        </nav>
+			      </div>
+			    </div>
+			  </td>
+			</tr>
+			
+			
           </tbody>
-        </table>
+        </table>   
       </div>
     </div>
       </div>
