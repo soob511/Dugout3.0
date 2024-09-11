@@ -74,3 +74,16 @@ margin-top: 20px;
   text-align: center;
 }
 
+.page-link {
+  margin: 0px 0px 0px 0px;
+}
+.page-link {
+  border: none !important;
+  color: gray !important;
+  cursor: pointer !important;
+}
+.pagination .page-item.active .page-link {
+  color: black !important;
+  background-color: white !important;
+}
+

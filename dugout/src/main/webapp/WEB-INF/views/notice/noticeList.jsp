@@ -45,27 +45,51 @@
 	              <tr>
 					  <td colspan="5" class="text-center">
 					    <div class="d-flex justify-content-between align-items-center">
-					     
+					      
 					      <div class="mx-auto">
-					        <a href="noticeList?pageNo=1" class="btn btn-sm"><i class="bi bi-chevron-double-left"></i></a>
-					        <c:if test="${pager.groupNo > 1}">
-					          <a href="noticeList?pageNo=${pager.startPageNo - 1}" class="btn btn-sm"><i class="bi bi-chevron-compact-left"></i></a>
-					        </c:if>
-					        <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
-					          <c:if test="${pager.pageNo == i}">
-					            <a href="noticeList?pageNo=${i}" class="btn btn-sm fw-bold">${i}</a>
-					          </c:if>
-					          <c:if test="${pager.pageNo != i}">
-					            <a href="noticeList?pageNo=${i}" class="btn btn-sm">${i}</a>
-					          </c:if>
-					        </c:forEach>
-					        <c:if test="${pager.pageNo < pager.totalPageNo}">
-					          <a href="noticeList?pageNo=${pager.endPageNo + 1}" class="btn btn-sm"><i class="bi bi-chevron-compact-right"></i></a>
-					        </c:if>
-					        <a href="noticeList?pageNo=${pager.totalPageNo}" class="btn btn-sm"><i class="bi bi-chevron-double-right"></i></a>
+					        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+					          <ul class="pagination">
+					            <li class="page-item">
+					              <a class="page-link" href="?pageNo=1" aria-label="First">
+					                <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+					              </a>
+					            </li>
+					
+					            <li class="page-item">
+					              <c:if test="${pager.groupNo>1}">
+					                <a class="page-link" href="?pageNo=${pager.startPageNo - 1}" aria-label="Previous">
+					                  <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+					                </a>
+					              </c:if>
+					            </li>
+					
+					            <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
+					              <c:if test="${pager.pageNo == i}">
+					                <li class="page-item active"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+					              </c:if>
+					              <c:if test="${pager.pageNo != i}">
+					                <li class="page-item"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+					              </c:if>    
+					            </c:forEach>
+					
+					            <li class="page-item">
+					              <c:if test="${pager.groupNo < pager.totalGroupNo}">
+					                <a class="page-link" href="?pageNo=${pager.endPageNo + 1}" aria-label="Next">
+					                  <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+					                </a>
+					              </c:if>
+					            </li>
+					
+					            <li class="page-item">
+					              <a class="page-link" href="?pageNo=${pager.totalPageNo}" aria-label="Last">
+					                <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+					              </a>
+					            </li>
+					          </ul>
+					        </nav>
 					      </div>
 					
-					      
+					
 					      <div>
 					        <a href="writeNoticeForm" class="btn btn-sm btn-writenotice">게시물 쓰기</a>
 					      </div>
