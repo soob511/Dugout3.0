@@ -41,6 +41,8 @@ public class AdminController {
 		return "admin/mainManagement";
 	}
 	
+	
+	
 	@RequestMapping("/bannerManagement")
 	public String  bannerManagement() {
 		log.info("실행");
