@@ -3,11 +3,11 @@
 <mapper namespace="com.mycompany.dugout.dao.GoodsDao">
 	<select id = "SelectGoodsList" parameterType="Pager" resultType="Goods" >
 		<![CDATA[
-	         select  goodsid,goodsname,goodsteam,goodsprice
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 	         from    (
-	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 	                     from (
-	                          SELECT goodsid,goodsname,goodsteam,goodsprice
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 							  FROM goods
 	                     )
 	                   where rownum <= #{endRowNo}
