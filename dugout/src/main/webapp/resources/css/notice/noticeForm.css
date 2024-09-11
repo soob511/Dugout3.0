@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+hr {
+	color: black;
+}
+.form-group{
+	color: black;
+	font-weight:bold;
+}
+
+.notice-insert-title {
+	display: block;
+	color: #333333;
+	font-size: 26px;
+	margin-bottom: 24px;
+	font-weight: bold;
+}
+
+.notice-insert-box {
+	width: 1300px;
+	border-bottom: 3px solid #000;
+	margin-bottom: 20px;
+}
+
+.container {
+	margin: 50px auto;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+
+.input-group-prepend{
+	background: white;
+}
+
+input#noticeTitle, textarea#noticeContent {
+	height: 50px; /* 높이 조절 */
+	width: 100%; /* 너비 100% */
+	margin-bottom: 20px; /* 텍스트 박스와 제목 간격 조정 */
+	margin-top:10px;
+}
+
+textarea#noticeContent {
+	height: 200px; /* 내용 입력 칸 더 크게 */
+}
+
+.btn-write, .btn-list {
+	margin-top: 20px;
+	display: inline-block;
+	padding: 8px 12px;
+	font-size: 13px;
+	background-color: #333333;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+
+/* 쓰기, 목록 버튼을 오른쪽 정렬 */
+.btn-container {
+	text-align: right; /* 오른쪽 정렬 */
+	margin-top: 20px;
+}
