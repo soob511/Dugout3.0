@@ -49,19 +49,46 @@
 					src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
 					height="150" /></a> <i class="bi bi-heart"></i>
 				<div class="card-body">
-					<p class="card-title">[${goods.goodsTeam}]${goods.goodsName}</p>
+					<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
 					<p class="card-text">${goods.goodsName}</p>
 					<p class="card-text2">${goods.goodsPrice}</p>
 				</div>
 			</div>
 		</c:forEach>
 		</div>
-	</div>
 
-<nav aria-label="..." class="d-flex justify-content-center">
+	</div>
+	  <tr>
+      		<td colspan="5" class="text-center">
+      				<div>
+      						<a href="?pageNo=1" class="btn btn-outline-primary btn-sm">처음</a>
+      						<c:if test="${pager.groupNo>1}">
+      							<a href="?pageNo=${pager.startPageNo-1}" class="btn btn-outline-info btn-sm">이전</a>
+      						</c:if>
+      						
+      						<c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
+      							<c:if test="${pager.pageNo==i}">
+      								<a href = "?pageNo=${i}" class="btn btn-danger btn-sm">${i}</a>	
+      							</c:if>
+      							<c:if test="${pager.pageNo!= i}">
+      								<a href = "?pageNo=${i}" class="btn btn-outline-success btn-sm">${i}</a>	
+      							</c:if>			
+      						</c:forEach>                                                                                                                                                                                                                                                            
+      						
+      						<c:if test="${pager.groupNo<pager.totalGroupNo}">
+      							<a href="?pageNo=${pager.endPageNo+1}" class="btn btn-outline-info btn-sm">다음</a>
+      						</c:if>
+      						
+      						<a href="?pageNo=${pager.totalPageNo}" class="btn btn-outline-primary btn-sm">맨끝</a>
+      				</div>
+      		</td>
+        </tr>
+	
+
+<!-- <nav aria-label="..." class="d-flex justify-content-center">
 	<ul class="pagination">
 		<li class="page-item active"><a class="page-link">1</a></li>
 		<li class="page-item"><a class="page-link">2</a></li>
 		<li class="page-item"><a class="page-link">3</a></li>
 	</ul>
-</nav>
+</nav> -->
