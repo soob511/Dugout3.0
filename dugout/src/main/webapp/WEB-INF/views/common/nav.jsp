@@ -2,7 +2,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/common/nav.css"  rel="stylesheet" />
 <nav>
   <a href="${pageContext.request.contextPath}/">전체상품</a>
-  <a href="${pageContext.request.contextPath}/product/newProduct">신상품</a>
-  <a href="${pageContext.request.contextPath}/product/recommendProduct">추천상품</a>
-  <a href="${pageContext.request.contextPath}/product/bestProduct">BEST상품</a>
+  <a href="${pageContext.request.contextPath}/goods/newGoods">신상품</a>
+  <a href="${pageContext.request.contextPath}/goods/recommendGoods">추천상품</a>
+  <a href="${pageContext.request.contextPath}/goods/bestGoods">BEST상품</a>
 </nav>

@@ -15,4 +15,5 @@ public interface NoticeDao {
 	public int delete(int noticeId);
 	public int update(NoticeDto notice);
 	public int getTotalRows();
+	public int updateHitCount(int noticeId);
 }

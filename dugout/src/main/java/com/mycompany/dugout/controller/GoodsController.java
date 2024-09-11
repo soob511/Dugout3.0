@@ -69,6 +69,23 @@ public class GoodsController {
 		return "goods/goodsAdd";
 	}
 	
+	@RequestMapping("/bestGoods")
+	public String bestProduct() {
+		log.info("실행");
+		return "/goods/bestGoods";
+	}
+	
+	@RequestMapping("/newGoods")
+	public String newProduct() {
+		log.info("실행");
+		return "/goods/newGoods";
+	}
+	
+	@RequestMapping("/recommendGoods")
+	public String recommendProduct() {
+		log.info("실행");
+		return "/goods/recommendGoods";
+	}
 	
 	
 	

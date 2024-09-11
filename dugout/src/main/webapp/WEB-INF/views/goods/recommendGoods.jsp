@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>추천 상품</title>
-<link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <script src="../common/bootstrap/bootstrap.min.js.map"></script>
-    <script src="../common/bootstrap/jquery.min.js.map"></script>
+ <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="RecommendProduct.css">
+   <link href="${pageContext.request.contextPath}/resources/css/goods/recommendGoods.css"  rel="stylesheet" />
 </head>
 <body>
     <header></header>
