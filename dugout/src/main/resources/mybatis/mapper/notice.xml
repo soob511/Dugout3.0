@@ -49,4 +49,10 @@
 		delete from notice
 		where noticeId=#{noticeId}
 	</delete>	
+	
+	<update id="updateHitCount" parameterType="int">
+		update notice set
+			noticeHitCount = noticeHitCount+1
+		where noticeId = #{noticeId}
+	</update>
 </mapper>

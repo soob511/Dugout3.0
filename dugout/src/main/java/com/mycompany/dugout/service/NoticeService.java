@@ -40,4 +40,8 @@ public class NoticeService {
 		int rows = noticeDao.getTotalRows();
 		return rows;
 	}
+
+	public void updateHitCount(int noticeId) {
+		noticeDao.updateHitCount(noticeId);
+	}
 }

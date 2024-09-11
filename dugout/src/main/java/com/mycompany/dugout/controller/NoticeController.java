@@ -36,6 +36,12 @@ public class NoticeController {
 		return "notice/noticeList";
 	}
 	
+	@GetMapping("/noticeHitCount")
+	public String noticeHitCount(int noticeId,Model model) {
+		noticeService.updateHitCount(noticeId);
+		return noticeDetail(noticeId,model);
+	}
+	
 	@GetMapping("/noticeDetail")
 	public String noticeDetail(int noticeId,Model model) {
 		log.info("공지사항 상세");

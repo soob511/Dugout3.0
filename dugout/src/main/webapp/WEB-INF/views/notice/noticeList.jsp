@@ -35,7 +35,7 @@
 	              <c:forEach  items="${list}" var="notice">
 	              		<tr>
 	              			<td>${notice.noticeId}</td>
-	              			<td><a href="noticeDetail?noticeId=${notice.noticeId}">${notice.noticeTitle}</a></td>
+	              			<td><a href="noticeHitCount?noticeId=${notice.noticeId}">${notice.noticeTitle}</a></td>
 	              			<td><fmt:formatDate value="${notice.noticeRegDate}" pattern="yyyy-MM-dd"/></td>
 	              			<td>${notice.noticeHitCount}</td>
 	              			<td>관리자</td>
