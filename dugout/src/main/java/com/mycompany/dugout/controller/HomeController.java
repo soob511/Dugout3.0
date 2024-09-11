@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mycompany.dugout.dto.GoodsDto;
+import com.mycompany.dugout.dto.PagerDto;
 import com.mycompany.dugout.service.GoodsService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,9 +22,12 @@ public class HomeController {
 	private GoodsService goodsService;
 	
 	@RequestMapping("")
-	public String index(Model model) {
+	public String index(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
-		List<GoodsDto> list =  goodsService.getGoodsList();
+		int totalRows = goodsService.getTotalRows();
+		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		model.addAttribute("pager",pager);
+		List<GoodsDto> list =  goodsService.getGoodsList(pager);
 		model.addAttribute("list",list);
 		return "index";
 	}

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.dugout.dao.GoodsDao;
 import com.mycompany.dugout.dto.GoodsDto;
+import com.mycompany.dugout.dto.PagerDto;
 
 @Service
 public class GoodsService {
@@ -14,8 +15,8 @@ public class GoodsService {
 	@Autowired
 	private GoodsDao goodsDao;
 
-	public List<GoodsDto> getGoodsList() {
-		List<GoodsDto> list = goodsDao.SelectGoodsList();
+	public List<GoodsDto> getGoodsList(PagerDto pager) {
+		List<GoodsDto> list = goodsDao.SelectGoodsList(pager);
 		return list;
 	}
 
@@ -26,6 +27,11 @@ public class GoodsService {
 
 	public void insertGoods(GoodsDto goods) {
 		goodsDao.insertGoods(goods);
+	}
+
+	public int getTotalRows() {
+		int totalRows = goodsDao.getTotalRows();
+		return totalRows;
 	}
 
 }
