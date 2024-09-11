@@ -2,6 +2,15 @@ body {
 	font-family: "Pretendard-Regular";
 }
 
+.main-container {
+	display: flex;
+}
+
+.containers {
+	padding: 20px 160px 0 80px;
+	margin-bottom: 200px;
+}
+
 .product-insert-title {
 	display: block;
 	color: #333;
@@ -11,7 +20,7 @@ body {
 }
 
 .product-insert-box {
-	width: 1140px;
+	width: 1000px;
 	border-bottom: 3px solid #000;
 }
 
@@ -69,4 +78,9 @@ body {
 	background-color: black;
 	color: white;
 	width: 800px;
+}
+
+.menu-item:last-of-type a {
+	color: #333;
+	font-weight: bolder;
 }

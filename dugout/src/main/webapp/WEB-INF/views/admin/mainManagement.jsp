@@ -9,25 +9,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 	<link href="${pageContext.request.contextPath}/resources/css/admin/mainManagement.css"  rel="stylesheet" />
-    <script src="MainManagement.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/admin/mainManagement.js" ></script>
   </head>
   <body>
-    <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp"/> 
+  	<jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> 
     <hr />
     <div class="main-container">
-      <div class="menu-section">
-        <h2 class="section-title">관리자 페이지</h2>
-        <div class="menu-item active" data-page="ProductManagement.html">
-          상품 관리
-        </div>
-        <!-- <div class="menu-item" data-page="ProductAdd.html">상품 등록</div> -->
-        <a href="goods/goodsAdd">상품등록</a>
-        <div class="menu-item" data-page="BannerManagement.html">베너 관리</div>
-      </div>
-      <div class="content-section" id="content-section"></div>
+      <%@ include file="/WEB-INF/views/admin/adminMenu.jsp" %>
+        
+      <!-- <div class="content-section" id="content-section"></div> -->
     </div>
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>
->

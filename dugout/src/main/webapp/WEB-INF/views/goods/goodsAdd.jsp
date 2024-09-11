@@ -14,8 +14,11 @@
   <body id="product-insert-body">
   	 <%-- <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" /> --%>
   	 <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> 
+  	 
     <main>
-      <section>
+      <section class="main-container">
+      <%@ include file="/WEB-INF/views/admin/adminMenu.jsp" %>
+      <div class="containers">
         <div class="product-insert-box">
           <h2 class="product-insert-title">상품 등록</h2>
         </div>
@@ -79,7 +82,9 @@
             </button>
           </div>
         </form>
+        </div>
       </section>
     </main>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>

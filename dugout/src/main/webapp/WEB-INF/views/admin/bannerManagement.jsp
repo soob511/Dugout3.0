@@ -19,6 +19,10 @@
   </head>
   <body>
   <jsp:include page="/WEB-INF/views/common/header.jsp" />
+  
+  <div class="main-container">
+  <%@ include file="/WEB-INF/views/admin/adminMenu.jsp" %>
+  	<div class="containers">
     <div class="product-insert-box">
       <h2 class="product-insert-title">배너 관리</h2>
     </div>
@@ -40,6 +44,8 @@
         <button class="preview-button" >미리보기</button>
         <button class="save-button" >저장하기</button>
       </div>
+    </div>
+    </div>
     </div>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
