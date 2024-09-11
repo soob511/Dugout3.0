@@ -1,0 +1,23 @@
+.menu-section {
+	padding: 20px;
+	margin-left: 160px;
+}
+
+.section-title {
+	color: #333;
+	padding-bottom: 40px;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.menu-item {
+	padding-bottom: 20px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.menu-item a {
+	text-decoration: none;
+	color: #b6b6b6;
+}
