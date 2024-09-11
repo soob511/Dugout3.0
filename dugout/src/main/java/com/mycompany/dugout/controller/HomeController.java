@@ -28,7 +28,7 @@ public class HomeController {
 	public String index(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
 		int totalRows = goodsService.getTotalRows();
-		PagerDto pager = new PagerDto(4, 5, totalRows, pageNo);
+		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
 		model.addAttribute("pager",pager);
 		List<GoodsDto> list =  goodsService.getGoodsList(pager);
 		model.addAttribute("list",list);
