@@ -14,7 +14,7 @@
   <body id="product-insert-body">
   	 <%-- <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" /> --%>
   	 <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> 
-  	 
+  	 <hr>
     <main>
       <section class="main-container">
       <%@ include file="/WEB-INF/views/admin/adminMenu.jsp" %>

@@ -1,7 +1,9 @@
 body {
 	font-family: "Pretendard-Regular";
 }
-
+hr{
+	color: black!important;
+}
 header {
 	width: 100%;
 }

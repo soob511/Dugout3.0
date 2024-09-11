@@ -19,7 +19,7 @@
   </head>
   <body>
   <jsp:include page="/WEB-INF/views/common/header.jsp" />
-  
+  <hr>
   <div class="main-container">
   <%@ include file="/WEB-INF/views/admin/adminMenu.jsp" %>
   	<div class="containers">

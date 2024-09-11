@@ -21,6 +21,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
+	<hr>
 	<div class="main-container">
 		<%@ include file="/WEB-INF/views/admin/adminMenu.jsp"%>
 
