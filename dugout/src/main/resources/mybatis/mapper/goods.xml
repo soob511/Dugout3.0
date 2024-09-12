@@ -85,7 +85,7 @@
 			goodsMainType = #{goodsMainType},
 			goodsMainData = #{goodsMainData}
 			</if>
-			<if test = "goodsMainName!=null">
+			<if test = "goodsDetailName!=null">
 			,
 			goodsDetailName = #{goodsDetailName},
 			goodsDetailType = #{goodsDetailType},
