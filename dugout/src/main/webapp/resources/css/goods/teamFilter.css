@@ -1,6 +1,9 @@
 .row {
   width: 950px;
 }
+hr{
+	color:black;
+}
 .col-6 {
   margin: 8px 0;
   padding: 0px 65px 0px 0px;
@@ -89,3 +92,13 @@ form {
 .section-top {
   padding: 0 80px;
 }
+.page-link {
+  border: none !important;
+  color: gray !important;
+  cursor: pointer !important;
+}
+.pagination .page-item.active .page-link {
+  color: black !important;
+  background-color: white !important;
+}
+
