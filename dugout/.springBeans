@@ -7,13 +7,13 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/spring/dispatcher/ch01_view_resolver.xml</config>
-		<config>src/main/resources/spring/dispatcher/ch01_static_resources.xml</config>
 		<config>src/main/resources/spring/dispatcher/message.xml</config>
 		<config>src/main/resources/spring/dispatcher/multipart_resolver.xml</config>
+		<config>src/main/resources/spring/dispatcher/component_scan.xml</config>
+		<config>src/main/resources/spring/dispatcher/view_resolver.xml</config>
+		<config>src/main/resources/spring/dispatcher/static_resources.xml</config>
 	</configs>
 	<autoconfigs>
-		<config>src/main/resources/spring/dispatcher/ch01_component_scan.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
