@@ -24,5 +24,7 @@ public interface GoodsDao {
 	public int getTeamRows(String goodsTeam);
 
 	public GoodsDto selectGoodsDetail(int goodsId);
+
+	public int updateGoods(GoodsDto goods);
 	
 }

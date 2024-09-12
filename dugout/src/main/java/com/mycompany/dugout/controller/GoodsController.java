@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mycompany.dugout.dto.GoodsDto;
 import com.mycompany.dugout.dto.InsertGoodsDto;
 import com.mycompany.dugout.dto.PagerDto;
+import com.mycompany.dugout.dto.UpdateGoodsDto;
 import com.mycompany.dugout.service.GoodsService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -82,6 +83,36 @@ public class GoodsController {
 		goodsService.insertGoods(goods);
 		
 		return "goods/goodsAdd";
+	}
+	
+	@PostMapping("/updateGoods")
+	public String updateGoods(UpdateGoodsDto udGoods) throws IOException {
+		log.info("실행");
+		GoodsDto goods = new GoodsDto();
+		goods.setGoodsId(udGoods.getGoodsId());
+		goods.setGoodsName(udGoods.getGoodsName());
+		goods.setGoodsTeam(udGoods.getGoodsTeam());
+		goods.setGoodsCategory(udGoods.getGoodsCategory());
+		goods.setGoodsPrice(udGoods.getGoodsPrice());
+		goods.setGoodsStock(udGoods.getGoodsStock());
+		goods.setGoodsStatus(udGoods.getGoodsStatus());
+		
+		MultipartFile main = udGoods.getMainImg();
+		if(!main.isEmpty()) {
+			goods.setGoodsMainName(main.getOriginalFilename());
+			goods.setGoodsMainType(main.getContentType());
+			goods.setGoodsMainData(main.getBytes());
+		}
+		
+		MultipartFile detail = udGoods.getDetailImg();
+		if(!detail.isEmpty()) {
+			goods.setGoodsDetailName(detail.getOriginalFilename());
+			goods.setGoodsDetailType(detail.getContentType());
+			goods.setGoodsDetailData(detail.getBytes());
+		}
+		
+		goodsService.updateGoods(goods);
+		return "redirect:/admin";
 	}
 	
 	@RequestMapping("/teamFilter")

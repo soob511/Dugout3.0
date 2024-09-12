@@ -51,137 +51,100 @@
 							</tr>
 						</thead>
 						<tbody>
+							<!-- 상품마다 개별 form -->
 							<c:forEach items="${goods}" var="goods">
-								<tr>
-									<td><img
-										src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
-										class="img-thumbnail" alt="상품 이미지" /></td>
-									<td>
-										<div class="d-flex">
-											<select class="form-select me-2">
-												<c:forEach items="${teams}" var="team">
-													<option ${team == goods.goodsTeam ? "selected" : ""}>${team}</option>
-												</c:forEach>
-											</select> <select class="form-select">
-												<c:forEach items="${categories}" var="category">
-													<option
-														${category == goods.goodsCategory ? "selected" : ""}>${category}</option>
-												</c:forEach>
+								<form method="post" action="${pageContext.request.contextPath}/goods/updateGoods" enctype="multipart/form-data">
+									<tr>
+										<td>
+											<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}" class="img-thumbnail" alt="상품 이미지" />
+										</td>
+										<td>
+											<div class="d-flex">
+												<select class="form-select me-2" name="goodsTeam">
+													<c:forEach items="${teams}" var="team">
+														<option ${team == goods.goodsTeam ? "selected" : ""}>${team}</option>
+													</c:forEach>
+												</select> 
+												<select class="form-select" name="goodsCategory">
+													<c:forEach items="${categories}" var="category">
+														<option ${category == goods.goodsCategory ? "selected" : ""}>${category}</option>
+													</c:forEach>
+												</select>
+											</div>
+											<div class="mb-2">
+												<input type="text" class="form-control" name="goodsName" value="${goods.goodsName}" />
+												<input type="hidden" name="goodsId" value="${goods.goodsId}" />
+											</div>
+										</td>
+										<td id="form-status">
+											<input type="text" class="form-control" name="goodsPrice" value="${goods.goodsPrice}" />
+										</td>
+										<td id="form-status">
+											<input type="text" class="form-control" name="goodsStock" value="${goods.goodsStock}" />
+										</td>
+										<td>
+											<select class="form-select" name="goodsStatus">
+												<option value="0" ${goods.goodsStatus == 0 ? "selected" : ""}>품절</option>
+												<option value="1" ${goods.goodsStatus == 1 ? "selected" : ""}>판매 중</option>
+												<option value="2" ${goods.goodsStatus == 2 ? "selected" : ""}>판매 정지</option>
 											</select>
-										</div>
-										<div class="mb-2">
-											<input type="text" class="form-control"
-												placeholder="[${goods.goodsTeam}] ${goods.goodsName}" />
-										</div>
-									</td>
-									<td id="form-status"><input type="text"
-										class="form-control" placeholder="${goods.goodsPrice}" /></td>
-									<td id="form-status"><input type="text"
-										class="form-control" placeholder="${goods.goodsStock}" /></td>
-									<td><select class="form-select">
-											<option ${goods.goodsStatus == 0 ? "selected" : ""}>품절</option>
-											<option ${goods.goodsStatus == 1 ? "selected" : ""}>판매
-												중</option>
-											<option ${goods.goodsStatus == 2 ? "selected" : ""}>판매
-												정지</option>
-									</select></td>
-									<td id="form-img">
-										<div>
-											<input type="file" class="form-control mb-3" name="mainImg" />
-											<input type="file" class="form-control" name="detailImg" />
-										</div>
-									</td>
-									<td><a class="btn btn-dark"
-										href=" ${pageContext.request.contextPath}/admin/updateGoods?goodsId=${goods.goodsId}">
-											수정하기 </a></td>
-								</tr>
+										</td>
+										<td id="form-img">
+											<div>
+												<input type="file" class="form-control mb-3" name="mainImg" />
+												<input type="file" class="form-control" name="detailImg" />
+											</div>
+										</td>
+										<td>
+											<button type="submit" class="btn btn-dark">수정하기</button>
+										</td>
+									</tr>
+								</form>
 							</c:forEach>
+							<!-- 개별 form 종료 -->
 						</tbody>
 					</table>
-					<nav aria-label="Page navigation example" class="d-flex justify-content-center">
-			  <ul class="pagination">
-			    <li class="page-item">
-			      <a class="page-link" href="?pageNo=1" aria-label="First">
-			        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
-			      </a>
-			    </li>
-			    
-			    <li class="page-item">
-			    	<c:if test="${pager.groupNo>1}">
-              		<a class="page-link" href="?pageNo=${pager.startPageNo - 1}" aria-label="Previous">
-			        	<span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
-			      	</a>
-              		</c:if>
-			    </li>
-			
-			    <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
-			      <c:if test="${pager.pageNo == i}">
-			        <li class="page-item active"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
-			      </c:if>
-			      <c:if test="${pager.pageNo != i}">
-			        <li class="page-item"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
-			      </c:if>    
-			    </c:forEach>
-			
-			    <li class="page-item">
-			    <c:if test="${pager.groupNo<pager.totalGroupNo}">
-              		<a class="page-link" href="?pageNo=${pager.endPageNo + 1}" aria-label="Next">
-			        	<span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
-			      	</a>
-              		</c:if>
-			    </li>
-			    
-			    <li class="page-item">
-			      <a class="page-link" href="?pageNo=${pager.totalPageNo}" aria-label="Last">
-			        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>	                    
 				</div>
+
+				<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="?pageNo=1" aria-label="First">
+								<span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+							</a>
+						</li>
+						<li class="page-item">
+							<c:if test="${pager.groupNo>1}">
+								<a class="page-link" href="?pageNo=${pager.startPageNo - 1}" aria-label="Previous">
+									<span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+								</a>
+							</c:if>
+						</li>
+						<c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
+							<c:if test="${pager.pageNo == i}">
+								<li class="page-item active"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+							</c:if>
+							<c:if test="${pager.pageNo != i}">
+								<li class="page-item"><a href="?pageNo=${i}" class="page-link">${i}</a></li>
+							</c:if>
+						</c:forEach>
+						<li class="page-item">
+							<c:if test="${pager.groupNo<pager.totalGroupNo}">
+								<a class="page-link" href="?pageNo=${pager.endPageNo + 1}" aria-label="Next">
+									<span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+								</a>
+							</c:if>
+						</li>
+						<li class="page-item">
+							<a class="page-link" href="?pageNo=${pager.totalPageNo}" aria-label="Last">
+								<span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+							</a>
+						</li>
+					</ul>
+				</nav>                    
 			</div>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
-<script>
-$(document).ready(function(){
-    $(".update-btn").click(function(){
-        var row = $(this).closest("tr"); 
-        var formData = new FormData(); 
-
-        
-        formData.append("goodsId", row.find("input[name='goodsId']").val());
-        formData.append("goodsTeam", row.find("select[name='goodsTeam']").val());
-        formData.append("goodsCategory", row.find("select[name='goodsCategory']").val());
-        formData.append("goodsName", row.find("input[name='goodsName']").val());
-        formData.append("goodsPrice", row.find("input[name='goodsPrice']").val());
-        formData.append("goodsStock", row.find("input[name='goodsStock']").val());
-        formData.append("goodsStatus", row.find("select[name='goodsStatus']").val());
-
-       
-        var mainImg = row.find("input[name='mainImg']")[0].files[0]; 
-        var detailImg = row.find("input[name='detailImg']")[0].files[0];
-        
-        if (mainImg) {
-            formData.append("mainImg", mainImg);  
-        }
-        if (detailImg) {
-            formData.append("detailImg", detailImg); 
-        }
-
-        $.ajax({
-            url: "${pageContext.request.contextPath}/admin/updateGoods",  
-            type: "POST", 
-            contentType: false, 
-            processData: false,  
-            data: formData,  
-            success: function(response) {
-                console.log("수정성공");
-            }
-        });
-    });
-});
-</script>
-
 </html>
