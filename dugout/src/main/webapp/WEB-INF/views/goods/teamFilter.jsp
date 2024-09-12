@@ -71,7 +71,7 @@
 							height="150" /></a> <i class="bi bi-heart"></i>
 						<div class="card-body">
 							<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-							<p class="card-text">${goods.goodsName}</p>
+							<p class="card-text">${goods.goodsCategory}</p>
 							<p class="card-text2">${goods.goodsPrice}</p>
 						</div>
 					</div>
