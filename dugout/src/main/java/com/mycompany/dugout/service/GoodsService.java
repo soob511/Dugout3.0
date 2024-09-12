@@ -49,4 +49,9 @@ public class GoodsService {
 		return goods;
 	}
 
+	public void updateGoods(GoodsDto goods) {
+		goodsDao.updateGoods(goods);
+		
+	}
+
 }

@@ -3,11 +3,11 @@
 <mapper namespace="com.mycompany.dugout.dao.GoodsDao">
 	<select id = "SelectGoodsList" parameterType="Pager" resultType="Goods" >
 		<![CDATA[
-	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 	         from    (
-	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 	                     from (
-	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 							  FROM goods
 	                     )
 	                   where rownum <= #{endRowNo}
@@ -35,6 +35,7 @@
 			sysdate,0,0
 		)
 	</insert>
+	
 	
 	<select id="getTotalRows" resultType="int">
 		SELECT count(*)
@@ -68,5 +69,30 @@
 		from goods
 		where goodsId = #{goodsId}
 	</select>
+	
+	<update id="updateGoods" parameterType="Goods">
+		UPDATE goods set
+			goodsId=#{goodsId},
+			goodsName = #{goodsName},
+			goodsTeam = #{goodsTeam},
+			goodsPrice = #{goodsPrice},
+			goodsCategory = #{goodsCategory},
+			goodsStock = #{goodsStock},
+			goodsStatus = #{goodsStatus}
+			<if test = "goodsMainName!=null">
+			,
+			goodsMainName = #{goodsMainName},
+			goodsMainType = #{goodsMainType},
+			goodsMainData = #{goodsMainData}
+			</if>
+			<if test = "goodsMainName!=null">
+			,
+			goodsDetailName = #{goodsDetailName},
+			goodsDetailType = #{goodsDetailType},
+			goodsDetailData = #{goodsDetailData}
+			</if>
+		WHERE goodsId=#{goodsId}
+	
+	</update>
 	
 </mapper>
