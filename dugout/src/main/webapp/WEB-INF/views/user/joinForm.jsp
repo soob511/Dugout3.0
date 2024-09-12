@@ -15,7 +15,7 @@
 
 <link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/member/joinForm.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/user/joinForm.css" rel="stylesheet" />
 </head>
 <body class="join-body">
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />

@@ -11,7 +11,7 @@
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/member/login.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/user/login.css"  rel="stylesheet" />
   <body>
     <div class="loginpage-container">
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -33,8 +33,8 @@
           <button type="button" class="signup-btn">회원가입</button>
         </form>
         <div class="options">
-          <a href="${pageContext.request.contextPath}/member/findId">아이디 찾기</a>
-          <a href="${pageContext.request.contextPath}/member/findPassword">비밀번호 찾기</a>
+          <a href="${pageContext.request.contextPath}/user/findId">아이디 찾기</a>
+          <a href="${pageContext.request.contextPath}/user/findPassword">비밀번호 찾기</a>
         </div>
         <div id="result"></div>
       </div>

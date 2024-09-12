@@ -10,7 +10,7 @@
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/member/findPassword.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/user/findPassword.css"  rel="stylesheet" />
 </head>
 <body>
 	<div class="findidpage-container">
@@ -31,7 +31,7 @@
 				<button type="submit" class="findid-btn" disabled>확인</button>
 			</form>
 			<div class="options">
-				<a href="${pageContext.request.contextPath}/member/login">로그인</a>
+				<a href="${pageContext.request.contextPath}/user/login">로그인</a>
 			</div>
 			<div id="result" style="color: #688efe; margin-top: 20px;"></div>
 		</div>
