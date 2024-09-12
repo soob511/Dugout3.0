@@ -27,7 +27,7 @@
             
             <hr/>
             
-            <a href="noticeList" class="btn btn-info btn-sm">목록</a>
+            <a href="noticeList?pageNo=${pager.pageNo}" class="btn btn-info btn-sm">목록</a>
             <a href="updateNotice?noticeId=${notice.noticeId}" class="btn btn-info btn-sm">수정</a>
             <a href="deleteNotice?noticeId=${notice.noticeId}" class="btn btn-info btn-sm">삭제</a>
 

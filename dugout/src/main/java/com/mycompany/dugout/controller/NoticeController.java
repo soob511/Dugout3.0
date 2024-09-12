@@ -2,6 +2,8 @@ package com.mycompany.dugout.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +27,12 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@GetMapping("/noticeList")
-	public String noticeList(Model model, @RequestParam(defaultValue="1") int pageNo) {
+	public String noticeList(Model model, @RequestParam(defaultValue="1") int pageNo, HttpSession session) {
 		int totalRows = noticeService.totalRows();
 		PagerDto pager = new PagerDto(10, 3, totalRows, pageNo);
-		model.addAttribute("pager", pager);
+		session.setAttribute("pager", pager);
 		
 		List<NoticeDto> list = noticeService.getNoticeList(pager);
-		log.info("리스트:" + list.toString());
 		model.addAttribute("list",list);
 		return "notice/noticeList";
 	}
