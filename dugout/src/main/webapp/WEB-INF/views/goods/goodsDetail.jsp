@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="${pageContext.request.contextPath}/resources/css/goods/goodsDetail.css"  rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/js/goods/goodsDetail.js"></script>
 </head>
 <body>
         <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
