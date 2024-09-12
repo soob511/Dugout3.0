@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -112,7 +113,7 @@ public class GoodsController {
 		}
 		
 		goodsService.updateGoods(goods);
-		return "redirect:/admin";
+		return "redirect:/goods/goodsManagement";
 	}
 	
 	@RequestMapping("/teamFilter")
@@ -149,5 +150,23 @@ public class GoodsController {
 		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
 		model.addAttribute("goods",goods);
 		return "/goods/goodsDetail";
+	}
+	
+	@RequestMapping("/goodsManagement")
+	public String goodsManagement(Model model, @RequestParam(defaultValue="1") int pageNo, HttpSession session) {
+		int totalRows = goodsService.getTotalRows();
+		PagerDto pager = new PagerDto(10, 5, totalRows, pageNo);
+		session.setAttribute("pager", pager);
+		
+		List<GoodsDto> goods = goodsService.getGoodsList(pager);
+		model.addAttribute("goods", goods);
+		
+		String[] categories = {"유니폼", "의류", "모자", "응원용품", "잡화"};
+		String[] teams = 
+			{ "기아 타이거즈", "두산 베어스", "한화 이글스", "엔씨 다이노스",  "키움 히어로즈", 
+			   "엘지 트윈스", "SSG 랜더스", "케이티 위즈", "롯데 자이언츠", "삼성 라이온즈", "국가대표"};		
+		model.addAttribute("categories", categories);
+		model.addAttribute("teams", teams);
+		return "goods/goodsManagement";
 	}
 }

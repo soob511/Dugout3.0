@@ -4,7 +4,7 @@
 <div class="menu-section">
 	<h2 class="section-title">관리자 페이지</h2>
 	<div class="menu-item">
-		<a href="${pageContext.request.contextPath}/admin">상품 관리</a>
+		<a href="${pageContext.request.contextPath}/goods/goodsManagement">상품 관리</a>
 	</div>	
 	<div class="menu-item">
 	  <a href="${pageContext.request.contextPath}/goods/goodsAdd">상품 등록</a>

@@ -26,7 +26,7 @@
       </a>
     </div>
     <div class="icons">
-		<a href="${pageContext.request.contextPath}/admin" class="myPage"
+		<a href="${pageContext.request.contextPath}/goods/goodsManagement" class="myPage"
           ><img src="${pageContext.request.contextPath}/resources/image/logo/myPage.png" />
          <br> <span>관리자페이지</span>
         </a>
