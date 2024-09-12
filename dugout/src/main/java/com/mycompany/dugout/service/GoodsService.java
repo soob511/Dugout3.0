@@ -34,4 +34,14 @@ public class GoodsService {
 		return totalRows;
 	}
 
+	public List<GoodsDto> getTeamList(String goodsTeam, PagerDto pager) {
+		List<GoodsDto> list = goodsDao.getTeamList(goodsTeam,pager);
+		return list;
+	}
+
+	public int getTeamRows(String goodsTeam) {
+		int teamRows = goodsDao.getTeamRows(goodsTeam);
+		return 0;
+	}
+
 }

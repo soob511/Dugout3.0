@@ -41,4 +41,26 @@
 		FROM goods
 	</select>
 	
+	<select id="getTeamList" resultType="Goods">
+		<![CDATA[
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	         from    (
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	                     from (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+							  FROM goods
+							  where goodsTeam=#{goodsTeam}
+	                     )
+	                   where rownum <= #{pager.endRowNo}
+	             )
+	            where rnum >= #{pager.startRowNo}
+	      ]]>
+	</select>
+	
+	<select id="getTeamRows" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM goods
+		WHERE goodsTeam = #{goodsTeam}
+	</select>
+	
 </mapper>
