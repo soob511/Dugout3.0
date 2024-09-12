@@ -11,6 +11,7 @@
 		<typeAlias type="com.mycompany.dugout.dto.GoodsDto" alias="Goods"/>
 		<typeAlias type="com.mycompany.dugout.dto.GoodsLikeDto" alias="GoodsLike"/>
 		<typeAlias type="com.mycompany.dugout.dto.NoticeDto" alias="Notice"/>
+		<typeAlias type="com.mycompany.dugout.dto.UpdateNoticeDto" alias="UpdateNotice"/>
 		<typeAlias type="com.mycompany.dugout.dto.OrderDto" alias="Order"/>
 		<typeAlias type="com.mycompany.dugout.dto.OrderItemDto" alias="orderItem"/>
 		<typeAlias type="com.mycompany.dugout.dto.BannerDto" alias="Banner"/>	

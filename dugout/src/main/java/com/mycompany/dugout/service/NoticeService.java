@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mycompany.dugout.dao.NoticeDao;
 import com.mycompany.dugout.dto.NoticeDto;
 import com.mycompany.dugout.dto.PagerDto;
+import com.mycompany.dugout.dto.UpdateNoticeDto;
 
 @Service
 public class NoticeService {
@@ -32,7 +33,7 @@ public class NoticeService {
 		noticeDao.delete(noticeId);
 	}
 
-	public void updateNotice(NoticeDto notice) {
+	public void updateNotice(UpdateNoticeDto notice) {
 		noticeDao.update(notice);
 	}
 

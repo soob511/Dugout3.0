@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.mycompany.dugout.dto.NoticeDto;
 import com.mycompany.dugout.dto.PagerDto;
+import com.mycompany.dugout.dto.UpdateNoticeDto;
 
 @Mapper
 public interface NoticeDao {
@@ -13,7 +14,7 @@ public interface NoticeDao {
 	public List<NoticeDto> selectNoticeList(PagerDto pager);
 	public NoticeDto selectNoticeDetail(int noticeId);
 	public int delete(int noticeId);
-	public int update(NoticeDto notice);
+	public int update(UpdateNoticeDto notice);
 	public int getTotalRows();
 	public int updateHitCount(int noticeId);
 }

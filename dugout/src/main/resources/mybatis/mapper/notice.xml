@@ -38,7 +38,7 @@
 		where noticeId = #{noticeId}
 	</select>
 	
-	<update id="update" parameterType="Notice">
+	<update id="update" parameterType="UpdateNotice">
 		update notice set
 			noticeTitle=#{noticeTitle},
 			noticeContent=#{noticeContent}

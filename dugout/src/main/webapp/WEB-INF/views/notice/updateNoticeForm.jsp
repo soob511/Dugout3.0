@@ -10,48 +10,65 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-	
-	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
+	<link	href="${pageContext.request.contextPath}/resources/css/notice/updateNoticeForm.css"	rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+		
+	<div class="container">	
 	
-	<div class="card">
-		<div class="card-header">공지사항 수정</div>
-		<div class="card-body">
-	       <form id="updateNoticeForm" method="post" action="updateNotice">
-	         
-	         <div class="input-group">
-	            <div class="input-group-prepend"><span class="input-group-text">번호</span></div>
-	            <input id="noticeId" type="number" name="noticeId" class="form-control" value="${notice.noticeId}" readonly>
-	         </div>
-	         
-	         <div class="input-group mt-2">
-	            <div class="input-group-prepend"><span class="input-group-text">제목</span></div>
-	            <input id="noticeTitle" type="text" name="noticeTitle" class="form-control" value="${notice.noticeTitle}">
-	         </div>
-	         
-	         <div class="input-group mt-2">
-	            <div class="input-group-prepend"><span class="input-group-text">내용</span></div>
-	            <textarea id="noticeContent" name="noticeContent" class="form-control">${notice.noticeContent}</textarea>
-	         </div>  
-	         <div class="input-group mt-2">
-	            <div class="input-group-prepend"><span class="input-group-text">날짜</span></div>
-	            <input value="<fmt:formatDate value='${notice.noticeRegDate}' pattern='yyyy-MM-dd' />" readonly />
-	         </div> 
-	         <div class="input-group mt-2">
-	            <div class="input-group-prepend"><span class="input-group-text">조회수</span></div>
-	            <input id="noticeHitCount" name="noticeHitCount" class="form-control" value="${notice.noticeHitCount}" type="number" readonly></input>
-	         </div>           
-	         <div class="mt-3">
-	            <button type="submit" class="btn btn-info btn-sm me-2">수정</button>
-	            <a class="btn btn-info btn-sm" href="noticeList">목록</a>
-	         </div>
-	      </form>
-		</div>
-	</div>
-	
-	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		<div class="notice-update-box">
+			<h2 class="notice-update-title">공지사항 수정</h2>
+		</div>		
+		
+		<div class="notice-update-readonly d-flex justify-content-between">
+			<p class="m-0">
+				<span class="me-2 fw-semibold">No. ${notice.noticeId}</span> 
+				<span class="me-2">| </span> 
+				<span><fmt:formatDate value="${notice.noticeRegDate}" pattern="yyyy-MM-dd"/></span>
+			</p>
+			<p class="m-0 text-end">
+				<span class="fw-semibold text-end">조회수</span><span> : ${notice.noticeHitCount}</span>
+			</p>
+		</div>		
+		<hr class="m-0"/>	
+
+		<form id="updateNoticeForm">
+			<div class="input-group mt-2">
+				<label for="noticeTitle">제목</label>
+				<input id="noticeTitle" type="text" name="noticeTitle" class="form-control" value="${notice.noticeTitle}">
+			</div>
+			<div class="input-group mt-2">
+				<label for="noticeContent">내용</label>
+				<textarea id="noticeContent" name="noticeContent" class="form-control">${notice.noticeContent}</textarea>
+			</div>           
+			
+			<div class="mt-3 btn-container">
+				<button type="button" onclick="update()" class="btn-update">수정</button>
+				<a class="btn-list" href="noticeList">목록</a>
+			</div>
+		</form>
+	</div>	
+
+	<script>
+	function update() {
+		let noticeId = ${notice.noticeId};
+		let noticeTitle = $("#noticeTitle").val();
+		let noticeContent = $("#noticeContent").val();
+
+		const params = {noticeId, noticeTitle, noticeContent};
+		
+		$.ajax({
+			url: "updateNotice",
+			method: "post",
+	        data: params,
+			success: function(data) {
+				let url = `${pageContext.request.contextPath}/notice/noticeDetail?noticeId=${notice.noticeId}`;
+				location.href = url;
+			}
+		});
+	}
+	</script>
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

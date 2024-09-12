@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mycompany.dugout.dto.NoticeDto;
 import com.mycompany.dugout.dto.PagerDto;
+import com.mycompany.dugout.dto.UpdateNoticeDto;
 import com.mycompany.dugout.service.NoticeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -74,7 +74,7 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/updateNotice")
-	public String updateNotice(@ModelAttribute NoticeDto form) {
+	public String updateNotice(UpdateNoticeDto form) {
 		noticeService.updateNotice(form);		
 		return "redirect:/notice/noticeDetail?noticeId=" + form.getNoticeId();
 	}
