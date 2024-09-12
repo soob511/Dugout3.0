@@ -7,7 +7,7 @@
 	<div class="d-flex align-items-center">
 		<div class="col-6">
 			<p class="product count">
-				<span>315</span>개의 상품 검색
+				<span>${totalRows}</span>개의 상품 검색
 			</p>
 		</div>
 		<div class="col-6 d-flex justify-content-end">

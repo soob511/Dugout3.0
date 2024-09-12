@@ -28,7 +28,7 @@
 		class="d-flex justify-content-between align-items-center section-top">
 		<div>
 			<p class="product count">
-				<span>4</span>개의 상품 검색
+				<span>${teamRows}</span>개의 상품 검색
 			</p>
 		</div>
 		<div class="d-flex">
