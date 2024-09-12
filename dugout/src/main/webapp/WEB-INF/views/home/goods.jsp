@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="${pageContext.request.contextPath}/resources/css/home/product.css"  rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/home/goods.css"  rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <section class="section-top">
 	<div class="d-flex align-items-center">
@@ -51,7 +51,7 @@
 					height="150" /></a> <i class="bi bi-heart"></i>
 				<div class="card-body">
 					<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-					<p class="card-text">${goods.goodsName}</p>
+					<p class="card-text">${goods.goodsCategory}</p>
 					<p class="card-text2">${goods.goodsPrice}</p>
 				</div>
 			</div>
