@@ -1,5 +1,6 @@
 package com.mycompany.dugout.controller;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -76,7 +77,9 @@ public class GoodsController {
 	@RequestMapping("/teamFilter")
 	public String teamFilter(String goodsTeam,Model model,@RequestParam(defaultValue="1")int pageNo) {
 		int teamRows = goodsService.getTeamRows(goodsTeam);
+		log.info(String.valueOf(teamRows));
 		PagerDto pager = new PagerDto(16,5, teamRows, pageNo);
+		model.addAttribute("pager",pager);
 		List<GoodsDto> list = goodsService.getTeamList(goodsTeam,pager);
 		model.addAttribute("list",list);
 		return "/goods/teamFilter";

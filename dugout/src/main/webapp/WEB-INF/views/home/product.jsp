@@ -41,8 +41,8 @@
 	</div>
 </section>
 
-	<div class="container">
-		<div class="row d-flex justify-content-between">
+	<div class="container d-flex justify-content-center">
+		<div class="row d-flex justify-content-start gap-4" >
 		<c:forEach items="${list}" var ="goods">
 			<div class="card col-3" style="width: 300px; height: 500px">
 				<a href="${pageContext.request.contextPath}/resource"><img
@@ -57,7 +57,6 @@
 			</div>
 		</c:forEach>
 		</div>
-
 	</div>   
        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
 			  <ul class="pagination">

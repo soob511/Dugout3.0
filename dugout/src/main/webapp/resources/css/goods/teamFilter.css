@@ -1,19 +1,23 @@
-.row {
-  width: 950px;
+.container {
+	margin: 30px  auto;
+	padding: 0 !important;
+	min-width: 1480px !important;
 }
-hr{
-	color:black;
+.row {
+	width: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 .col-6 {
   margin: 8px 0;
-  padding: 0px 65px 0px 0px;
+  padding: 0px;
 }
-.product-count span {
+span {
   font-size: 18px;
-  padding-right: 8px;
+  padding: 0px 8px 0px 0px;
   color: black;
 }
-.product-count {
+.product.count {
   font-size: 12px;
   margin: 8px 0;
   padding: 0px 60px 0px 0px;
@@ -86,9 +90,6 @@ form {
 .page-link {
   margin: 0px 0px 0px 0px;
 }
-.hide-section {
-  visibility: hidden;
-}
 .section-top {
   padding: 0 80px;
 }
@@ -101,4 +102,3 @@ form {
   color: black !important;
   background-color: white !important;
 }
-
