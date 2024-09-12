@@ -3,8 +3,8 @@
 <div id="header-body">
   <div class="members">
     <a href="${pageContext.request.contextPath}/notice/noticeList" class="notice" style="margin-right: 16px">공지사항</a> 
-    <a href="${pageContext.request.contextPath}/member/login" class="login">로그인</a>
-    <a href="${pageContext.request.contextPath}/member/joinForm" class="member">회원가입</a>
+    <a href="${pageContext.request.contextPath}/user/login" class="login">로그인</a>
+    <a href="${pageContext.request.contextPath}/user/joinForm" class="member">회원가입</a>
   </div>
   <div class="logo-icons-section">
     <div class="logo-div">
