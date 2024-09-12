@@ -13,10 +13,9 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet" />
 <link
-	href="${pageContext.request.contextPath}/resources/css/admin/mainManagement.css"
+	href="${pageContext.request.contextPath}/resources/css/goods/goodsManagement.css"
 	rel="stylesheet" />
-<script
-	src="${pageContext.request.contextPath}/resources/js/admin/mainManagement.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/resources/js/goods/goodsManagement.js"></script> --%>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
