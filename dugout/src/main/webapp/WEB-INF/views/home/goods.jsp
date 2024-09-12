@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="${pageContext.request.contextPath}/resources/css/home/product.css"  rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/home/goods.css"  rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <section class="section-top">
 	<div class="d-flex align-items-center">
 		<div class="col-6">
 			<p class="product count">
-				<span>315</span>개의 상품 검색
+				<span>${totalRows}</span>개의 상품 검색
 			</p>
 		</div>
 		<div class="col-6 d-flex justify-content-end">
@@ -41,8 +41,8 @@
 	</div>
 </section>
 
-	<div class="container">
-		<div class="row d-flex justify-content-between">
+	<div class="container d-flex justify-content-center">
+		<div class="row d-flex justify-content-start gap-4" >
 		<c:forEach items="${list}" var ="goods">
 			<div class="card col-3" style="width: 300px; height: 500px">
 				<a href="${pageContext.request.contextPath}/resource"><img
@@ -51,13 +51,12 @@
 					height="150" /></a> <i class="bi bi-heart"></i>
 				<div class="card-body">
 					<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-					<p class="card-text">${goods.goodsName}</p>
+					<p class="card-text">${goods.goodsCategory}</p>
 					<p class="card-text2">${goods.goodsPrice}</p>
 				</div>
 			</div>
 		</c:forEach>
 		</div>
-
 	</div>   
        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
 			  <ul class="pagination">

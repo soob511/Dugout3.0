@@ -20,7 +20,7 @@
     <main>
       <jsp:include page="/WEB-INF/views/home/teamLogoCategory.jsp" />
       <hr />
-      <jsp:include page="/WEB-INF/views/home/product.jsp" />
+      <jsp:include page="/WEB-INF/views/home/goods.jsp" />
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>

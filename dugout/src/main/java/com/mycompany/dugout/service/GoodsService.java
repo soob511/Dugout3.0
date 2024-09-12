@@ -41,7 +41,7 @@ public class GoodsService {
 
 	public int getTeamRows(String goodsTeam) {
 		int teamRows = goodsDao.getTeamRows(goodsTeam);
-		return 0;
+		return teamRows;
 	}
 
 }
