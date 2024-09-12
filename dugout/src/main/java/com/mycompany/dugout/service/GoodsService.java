@@ -44,4 +44,9 @@ public class GoodsService {
 		return teamRows;
 	}
 
+	public GoodsDto getGoodsDetail(int goodsId) {
+		GoodsDto goods = goodsDao.selectGoodsDetail(goodsId);
+		return goods;
+	}
+
 }

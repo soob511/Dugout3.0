@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="getImg" parameterType="int" resultType="Goods">
-		SELECT goodsmaindata, goodsmaintype
+		SELECT goodsmaindata, goodsmaintype, goodsDetailData, goodsDetailType
 		FROM goods
 		WHERE goodsId = #{goodsId}
 	</select>
@@ -61,6 +61,12 @@
 		SELECT count(*)
 		FROM goods
 		WHERE goodsTeam = #{goodsTeam}
+	</select>
+	
+	<select id="selectGoodsDetail" parameterType="int" resultType="Goods">
+		select goodsId, goodsName, goodsTeam, goodsPrice, goodsCategory, goodsStock, goodsStatus
+		from goods
+		where goodsId = #{goodsId}
 	</select>
 	
 </mapper>

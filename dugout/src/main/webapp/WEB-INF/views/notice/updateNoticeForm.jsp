@@ -51,24 +51,24 @@
 	</div>	
 
 	<script>
-	function update() {
-		let noticeId = ${notice.noticeId};
-		let noticeTitle = $("#noticeTitle").val();
-		let noticeContent = $("#noticeContent").val();
-
-		const params = {noticeId, noticeTitle, noticeContent};
-		
-		$.ajax({
-			url: "updateNotice",
-			method: "post",
-	        data: params,
-			success: function(data) {
-				let url = `${pageContext.request.contextPath}/notice/noticeDetail?noticeId=${notice.noticeId}`;
-				location.href = url;
-			}
-		});
-	}
+		function update() {
+			let noticeId = ${notice.noticeId};
+			let noticeTitle = $("#noticeTitle").val();
+			let noticeContent = $("#noticeContent").val();
+	
+			const params = {noticeId, noticeTitle, noticeContent};
+			
+			$.ajax({
+				url: "updateNotice",
+				method: "post",
+		        data: params,
+				success: function(data) {
+					let url = `${pageContext.request.contextPath}/notice/noticeDetail?noticeId=${notice.noticeId}`;
+					location.href = url;
+				}
+			});
+		}
 	</script>
-		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

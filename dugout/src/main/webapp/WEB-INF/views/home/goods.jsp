@@ -45,7 +45,8 @@
 		<div class="row d-flex justify-content-start gap-4" >
 		<c:forEach items="${list}" var ="goods">
 			<div class="card col-3" style="width: 300px; height: 500px">
-				<a href="${pageContext.request.contextPath}/resource"><img
+				<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}">
+				<img
 					class="card-img-top"
 					src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
 					height="150" /></a> <i class="bi bi-heart"></i>

@@ -22,5 +22,7 @@ public interface GoodsDao {
 	public List<GoodsDto> getTeamList(@Param("goodsTeam")String goodsTeam, @Param("pager")PagerDto pager);
 
 	public int getTeamRows(String goodsTeam);
+
+	public GoodsDto selectGoodsDetail(int goodsId);
 	
 }

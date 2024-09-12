@@ -1,6 +1,5 @@
 package com.mycompany.dugout.controller;
 
-import java.io.Console;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -37,6 +36,17 @@ public class GoodsController {
 		response.setContentType(contentType);
 		OutputStream out = response.getOutputStream();
 		out.write(goods.getGoodsMainData());
+		out.flush();
+		out.close();
+	}
+	
+	@ RequestMapping("/getDetailImg")
+	public void getDetailImg(int goodsId,HttpServletResponse response) throws Exception{
+		GoodsDto goods = goodsService.getImg(goodsId);
+		String contentType = goods.getGoodsDetailType();
+		response.setContentType(contentType);
+		OutputStream out = response.getOutputStream();
+		out.write(goods.getGoodsDetailData());
 		out.flush();
 		out.close();
 	}
@@ -103,11 +113,10 @@ public class GoodsController {
 		return "/goods/recommendGoods";
 	}
 	
-	
-	
-	@RequestMapping("")
-	public String cart() {
-		log.info("장바구니");
-		return "cart/cart";
+	@RequestMapping("/goodsDetail")
+	public String goodsDetail(int goodsId, Model model) {
+		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
+		model.addAttribute("goods",goods);
+		return "/goods/goodsDetail";
 	}
 }
