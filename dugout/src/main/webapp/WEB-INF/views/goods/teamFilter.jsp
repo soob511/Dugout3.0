@@ -72,7 +72,7 @@
 						<div class="card-body">
 							<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
 							<p class="card-text">${goods.goodsCategory}</p>
-							<p class="card-text2">${goods.goodsPrice}</p>
+							<p class="card-text2">${goods.goodsPrice}원</p>
 						</div>
 					</div>
 				</c:forEach>
