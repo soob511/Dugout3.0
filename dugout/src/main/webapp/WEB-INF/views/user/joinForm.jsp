@@ -68,7 +68,7 @@
 					<button type="button" class="searchAddress ms-3" onclick="searchAddress()">주소검색</button>
 				</div>
 			</div>
-			<button class="btnMember" >회원가입</button>
+			<button class="btnMember"  disabled>회원가입</button>
 		</fieldset>
 	</form>
 	</main>

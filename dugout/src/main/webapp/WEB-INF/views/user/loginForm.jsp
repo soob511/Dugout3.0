@@ -38,7 +38,7 @@
           		</div>
           	</c:if> 
           <button type="submit" class="login-btn" disabled>로그인</button>
-          <button type="button" class="signup-btn">회원가입</button>
+          <a type="button" class="signup-btn" href="${pageContext.request.contextPath}/user/joinForm">회원가입</a>
         </form>
         <div class="options">
           <a href="${pageContext.request.contextPath}/user/findId">아이디 찾기</a>

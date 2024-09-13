@@ -12,7 +12,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/goods/goodsDetail.js"></script>
 </head>
 <body>
-        <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
+       <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
     <div class="ProductDetailsPage-container">
         <div><hr style="color: black;"></div>
         <div class="container">
