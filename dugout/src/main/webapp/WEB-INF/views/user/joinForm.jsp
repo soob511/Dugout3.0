@@ -35,27 +35,27 @@
 							  name="userId" />
 					<button type="button" class="id-check ms-3" onclick="idCheck()" >중복확인</button>
 				</div>
-				<span class="message username-message mb-2 ps-2"></span>
+				<span class="message username-message"></span>
 			</div>
 			<div class="mb-3 form-group">
 				<label for="inputPassword" class="form-label">비밀번호</label> 
 				<input type="password" class="form-control" id="inputPassword" placeholder="영문, 숫자 조합 8 ~ 16자" 
 						  name="userPassword" value="${userDto.password}" /> 
-				<span class="message password-check">비밀번호 형식이 올바르지 않습니다.</span>
+				<span class="message password-check"></span>
 			</div>
 			<div class="mb-3 form-group">
 				<label for="confirmPassword" class="form-label">비밀번호 확인</label> 
 				<input type="password" class="form-control" id="confirmPassword" placeholder="비밀번호 확인" /> 
-				<span class="message wrong-password">비밀번호가 일치하지	않습니다.</span>
+				<span class="message wrong-password"></span>
 			</div>
 			<div class="mb-3">
 				<label for="inputName" class="form-label">이름</label> 
 				<input type="text" class="form-control" id="inputName" name="userName" />
 			</div>
-			<div class="mb-3">
+			<div class="mb-3 form-group">
 				<label for="inputPhone" class="form-label">전화번호</label> 
-				<input type="text" class="form-control" id="inputPhone"  name="userPhone" value="${userDto.phone}"/>
-				<span class="text-danger"><form:errors path="joinFormDto.phone"/></span>
+				<input type="text" class="form-control" id="inputPhone"  name="userPhone"/>
+				<span class="message email-check"></span>
 			</div>
 			<div class="mb-3">
 				<label for="inputEmail" class="form-label">이메일</label> 
@@ -63,8 +63,10 @@
 			</div>
 			<div class="mb-3">
 				<label for="inputAddress" class="form-label">주소</label> 
-				<input type="text" class="form-control" id="inputAddress" name="userEmail"/>
-				<button type="button" class="searchAddress" onclick="searchAddress()">주소검색</button>
+				<div class="d-flex">
+					<input type="text" class="form-control" id="inputAddress" name="userEmail"/>
+					<button type="button" class="searchAddress ms-3" onclick="searchAddress()">주소검색</button>
+				</div>
 			</div>
 			<button class="btnMember" >회원가입</button>
 		</fieldset>
