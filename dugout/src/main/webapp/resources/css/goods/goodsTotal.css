@@ -15,7 +15,7 @@
 span {
   font-size: 18px;
   padding: 0px 8px 0px 0px;
-  color: black;
+  color: black !important;
 }
 .product.count {
   font-size: 12px;
