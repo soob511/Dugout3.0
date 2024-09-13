@@ -15,4 +15,9 @@
 		WHERE userId = #{userId}
 	</select>
 
+
+	<select id="idCheck" resultType="String">
+		select userId
+		from users
+	</select>
 </mapper>
