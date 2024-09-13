@@ -16,7 +16,7 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
 <link
-	href="${pageContext.request.contextPath}/resources/css/goods/teamFilter.css"
+	href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css"
 	rel="stylesheet" />
 </head>
 <body>
