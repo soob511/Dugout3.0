@@ -18,9 +18,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/login")
-	public String login() {
-		return "user/login";
+	@RequestMapping("/loginForm")
+	public String loginForm() {
+		return "user/loginForm";
 	}
 	
 	@GetMapping("/joinForm")
