@@ -26,31 +26,24 @@ function searchAddress() {
   }).open();
 }
 
+function idCheckFn() {
+	
+}
+
 /* 회원가입 Form 유효성 검사 */
 $(document).ready(function () {
-  $("footer").load("../main/Footer.html");
-  $("header").load("../main/Header.html");
-
-  var users = JSON.parse(localStorage.getItem("users"));
-  let checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-  let checkPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/;
-
-  $(".id-check").click(function () {
-    var id = $("#inputId").val().trim();
-    var isFindId = users.find(function (user) {
-      return user.id === id;
-    });
-    if (isFindId) {
-      console.log("아이디사용불가");
-    } else {
-      console.log("아이디사용가능");
-    }
-  });
+  const checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  const checkPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/;
 
   $("#inputId").on("input", function () {
-    var id = $("#inputId").val().trim();
-    if (id.length < 4 || id.length > 12 || checkKor.test(id)) {
-      console.log("아이디 사용불가");
+	let inputId = $("#inputId").val().trim();
+    const msg = $('.username-message');
+    
+    if (inputId.length < 4 || inputId.length > 12 || checkKor.test(inputId)) {
+    	msg.text("아이디는 영문 또는 숫자 4~12자로 작성해야 합니다.");
+		msg.css("opacity", "1");
+    } else {
+    	msg.css("opacity", "0");
     }
   });
 
