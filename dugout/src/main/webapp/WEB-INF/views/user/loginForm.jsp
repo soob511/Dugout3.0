@@ -22,11 +22,13 @@
           <div class="form-group">
             <label for="username">아이디</label>
             <input type="text" id="username" class="form-control" />
+            <input type="text" id="username" class="form-control" name = "userId" />
             <div id="usernameError" style="color: red; display: none"></div>
           </div>
           <div class="form-group">
             <label for="password">비밀번호</label>
             <input type="password" id="password" class="form-control" />
+            <input type="password" id="password" class="form-control" name="userPassword"/>
             <div id="passwordError" style="color: red; display: none"></div>
           </div>
           <button type="submit" class="login-btn" disabled>로그인</button>
