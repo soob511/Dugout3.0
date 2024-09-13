@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 <div id="header-body">
   <div class="members">
     <a href="${pageContext.request.contextPath}/notice/noticeList" class="notice" style="margin-right: 16px">공지사항</a> 
-    <a href="${pageContext.request.contextPath}/user/loginForm" class="login">로그인</a>
+    
+    <sec:authorize access="isAnonymous()">
+    <a href="${pageContext.request.contextPath}/user/loginForm" class="login">로그인</a>    
     <a href="${pageContext.request.contextPath}/user/joinForm" class="member">회원가입</a>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+    <a href="${pageContext.request.contextPath}/logout" class="logout">로그아웃</a>   
+    </sec:authorize>
+    
   </div>
   <div class="logo-icons-section">
     <div class="logo-div">

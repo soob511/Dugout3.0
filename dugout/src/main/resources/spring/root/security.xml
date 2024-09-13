@@ -18,6 +18,11 @@
 			 authentication-success-handler-ref="authenticationSuccessHandler"
 			 authentication-failure-handler-ref="authenticationFailureHandler" />
 
+
+			<security:logout 
+					 	logout-url="/logout"
+					    success-handler-ref="logoutSuccessHandler"/>
+
 	 	<security:csrf disabled="true"/>
 
 	
@@ -28,6 +33,9 @@
 	
 	<bean id= "authenticationFailureHandler" 
 	class="com.mycompany.dugout.security.AuthenticationFailureHandler"></bean>
+	
+	<bean id="logoutSuccessHandler"
+	class="com.mycompany.dugout.security.LogoutSuccessHandler"></bean>
 	
 	
 	<security:authentication-manager>

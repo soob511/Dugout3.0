@@ -23,7 +23,7 @@ html {
 	margin-right: 16px;
 }
 
-.login {
+.login,.logout{
   margin-left: 16px;
   margin-right: 16px;
 }
