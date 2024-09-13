@@ -28,32 +28,32 @@
 			<div class="membership board">
 				<div class="member-id ">
 					<span>아이디</span> <input type="text" class="form-control"
-						id="inputId" placeholder="kosaOTI">
+						id="inputId" placeholder="${user.userId}">
 				</div>
 				<div class="member-password">
 					<span>비밀번호</span> <input type="password" class="form-control"
-						id="exampleInputPassword1" placeholder="********">
+						id="exampleInputPassword1" >
 				</div>
 				<div class="member-password-again">
-					<span>비밀번호 확인</span> <input type="text" id="username"
-						class="form-control" placeholder="********" />
+					<span>비밀번호 확인</span> <input type="password" id="username"
+						class="form-control" />
 				</div>
 				<div class="member-name">
 					<span>이름</span> <input type="text" id="username"
-						class="form-control" placeholder="김코사" />
+						class="form-control" placeholder="${user.userName}" />
 				</div>
 				<div class="member-phone-number">
 					<span>전화번호</span>
-					<input type="number" id="username"
-						class="form-control" placeholder="01012345678" />
+					<input type="number" id="userPhone"
+						class="form-control" placeholder="${user.userPhone}" />
 					</div>
 				<div class="member-email">
-					<span>이메일</span> <input type="email" id="username"
-						class="form-control" placeholder="kosaOTI@naver.com" />
+					<span>이메일</span> <input type="email" id="userEmail"
+						class="form-control" placeholder="${user.userEmail}" />
 				</div>
 				<div class="member-address">
-					<span>주소</span> <input type="text" id="username"
-						class="form-control" placeholder="서울특별시 종로구 창경궁로 254 동원빌딩 402호" />
+					<span>주소</span> <input type="text" id="userAddress"
+						class="form-control" placeholder="${user.userAddress}" />
 				</div>
 				<div></div>
 				<button type="submit" class="btnMember" disabled>회원정보 수정</button>

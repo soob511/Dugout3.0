@@ -14,12 +14,6 @@ public class MypageController {
 		return "mypage/orderList";
 	}
 	
-	@RequestMapping("/userInfo")
-	public String userInfo() {
-		log.info("실행");
-		return "mypage/userInfo";
-	}
-	
 	@RequestMapping("/heartListForm")
 	public String heartListForm() {
 		log.info("실행");

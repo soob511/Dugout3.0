@@ -1,15 +1,18 @@
 package com.mycompany.dugout.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.UserDto;
+import com.mycompany.dugout.security.UserDetail;
 import com.mycompany.dugout.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -68,5 +71,16 @@ public class UserController {
 	@RequestMapping("/findPassword")
 	public String findPassword() {
 		return "user/findPassword";
+	}
+	
+	@GetMapping("userInfo")
+	public String userInfo(Model model, Authentication authentication) {
+
+		UserDetail userDetail = (UserDetail) authentication.getPrincipal();
+		UserDto user = userDetail.getUser();
+		log.info(String.valueOf(user));
+		model.addAttribute("user",user);
+
+		return "mypage/userInfo";
 	}
 }
