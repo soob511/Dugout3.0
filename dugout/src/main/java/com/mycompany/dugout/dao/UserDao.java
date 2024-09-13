@@ -7,4 +7,6 @@ import com.mycompany.dugout.dto.UserDto;
 @Mapper
 public interface UserDao {
 	public int join(UserDto user);
+
+	public UserDto selectByUser(String username);
 }

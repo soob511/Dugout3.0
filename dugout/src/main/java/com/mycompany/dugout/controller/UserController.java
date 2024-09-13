@@ -42,7 +42,7 @@ public class UserController {
 		user.setUserActive(1);
 
 		userService.join(user);
-		return "redirect:/user/login";
+		return "redirect:/user/loginForm";
 	}
 	
 	@RequestMapping("/findId")

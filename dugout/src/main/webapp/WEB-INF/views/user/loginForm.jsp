@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -12,13 +12,14 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/user/loginForm.css"  rel="stylesheet" />
+	<script src="${pageContext.request.contextPath}/resources/js/user/loginForm.js"></script>
   <body>
     <div class="loginpage-container">
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
       <hr />
       <div class="login-container" style="margin-top: 50px; margin-bottom: 50px">
         <h1>LOG-IN</h1>
-        <form id="loginForm">
+        <form id="loginForm" method ="post" action="${pageContext.request.contextPath}/login">
           <div class="form-group">
             <label for="username">아이디</label>
             <input type="text" id="username" class="form-control" name = "userId" />
@@ -29,6 +30,14 @@
             <input type="password" id="password" class="form-control" name="userPassword"/>
             <div id="passwordError" style="color: red; display: none"></div>
           </div>
+        	<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+          		<div class="alert alert-danger mt-2" role="alert">
+          		<%-- <c:if test="${SPRING_SECURITY_LAST_EXCEPTION.message =='Bad credentials'}">
+          			 	아이디 또는 비밀번호가 틀립니다.
+          		</c:if> --%>
+          		${SPRING_SECURITY_LAST_EXCEPTION.message}
+          		</div>
+          	</c:if> 
           <button type="submit" class="login-btn" disabled>로그인</button>
           <button type="button" class="signup-btn">회원가입</button>
         </form>

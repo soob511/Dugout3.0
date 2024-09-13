@@ -8,5 +8,11 @@
 			#{userId}, #{userPassword}, #{userName}, #{userPhone}, #{userAddress}, #{userEmail}, #{userRole}, #{userActive}
 		)
 	</insert>
+	
+	<select id="selectByUser" parameterType="String" resultType="User">
+		SELECT userId,userPassword,userName,userPhone,userAddress,userEmail,userRole
+		FROM users
+		WHERE userId = #{userId}
+	</select>
 
 </mapper>
