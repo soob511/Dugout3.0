@@ -11,7 +11,7 @@
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/user/login.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/user/loginForm.css"  rel="stylesheet" />
   <body>
     <div class="loginpage-container">
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -21,13 +21,11 @@
         <form id="loginForm">
           <div class="form-group">
             <label for="username">아이디</label>
-            <input type="text" id="username" class="form-control" />
             <input type="text" id="username" class="form-control" name = "userId" />
             <div id="usernameError" style="color: red; display: none"></div>
           </div>
           <div class="form-group">
             <label for="password">비밀번호</label>
-            <input type="password" id="password" class="form-control" />
             <input type="password" id="password" class="form-control" name="userPassword"/>
             <div id="passwordError" style="color: red; display: none"></div>
           </div>

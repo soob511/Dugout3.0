@@ -18,6 +18,9 @@ h1 {
 	font-family: 'PresicavHv';
 	color: black !important;
 }
+hr{
+	color:black;
+}
 
 .loginpage-container {
 	font-family: 'Pretendard-Regular';
