@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -89,10 +90,14 @@
 					        </nav>
 					      </div>
 					
-					
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
 					      <div>
 					        <a href="writeNoticeForm" class="btn btn-sm btn-writenotice">게시물 쓰기</a>
-					      </div>
+					      </div>		
+						</sec:authorize>
+					      
+					      
+					      
 					    </div>
 					  </td>
 					</tr>
