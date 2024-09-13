@@ -35,20 +35,17 @@ form {
     margin-bottom: 24px;
 }
 
-
 .mb-3 {
-	padding-left: 100px;
+	padding-left: 120px;
 }
 
 .message {
-    color: red;
     font-size: 14px;
     opacity: 0;
     transition: opacity 0.3s;
     position: absolute;
-    right: 225px;
-    top: 40px;
-   /*  width:100px; */
+    right: 210px;
+    top: 43px;
 }
 .form-control {
     border: none !important;
@@ -90,8 +87,7 @@ button {
     margin-top: 20px;
     cursor: pointer;
 }
-.id-check {
-/*     float: right; */
+.id-check, .searchAddress {
     margin-top: 0px;
     background-color: #333333;
     color: #ffffff;
@@ -112,11 +108,13 @@ button {
     color: #ffffff;
 }
 .btnMember {
-    width: 404px;
-    height: 64px;
+    width: 315px;
+ 	height: 53px;
     border: none;
     border-radius: 14px;
     background-color: #ebebeb;
     color: #ffffff;
-    cursor: default ;
+	cursor: default;
+    display: block;
+    margin: 10px auto;
 }
