@@ -32,10 +32,9 @@
           </div>
         	<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
           		<div class="alert alert-danger mt-2" role="alert">
-          		<%-- <c:if test="${SPRING_SECURITY_LAST_EXCEPTION.message =='Bad credentials'}">
+          		 <c:if test="${SPRING_SECURITY_LAST_EXCEPTION.message =='Bad credentials'}">
           			 	아이디 또는 비밀번호가 틀립니다.
-          		</c:if> --%>
-          		${SPRING_SECURITY_LAST_EXCEPTION.message}
+          		</c:if> 
           		</div>
           	</c:if> 
           <button type="submit" class="login-btn" disabled>로그인</button>
