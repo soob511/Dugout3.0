@@ -13,7 +13,7 @@
   </head>
   <body id="product-insert-body">
   	 <%-- <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" /> --%>
-  	 <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> 
+  	 <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
   	 <hr>
     <main>
       <section class="main-container">

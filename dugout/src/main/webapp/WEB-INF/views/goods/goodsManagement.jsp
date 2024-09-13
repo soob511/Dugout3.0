@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" />
+	<jsp:include page="/WEB-INF/views/common/header.jsp" /> 
 	<hr>
 	<div class="main-container">
 		<%@ include file="/WEB-INF/views/admin/adminMenu.jsp"%>
