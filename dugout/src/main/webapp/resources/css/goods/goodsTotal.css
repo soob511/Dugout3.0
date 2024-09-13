@@ -3,6 +3,9 @@
 	padding: 0 !important;
 	min-width: 1480px !important;
 }
+hr{
+	color:black;
+}
 .row {
 	width: 100%;
 	margin: 0 !important;
