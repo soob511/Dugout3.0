@@ -10,26 +10,19 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/mypage")
 public class MypageController {
 	@RequestMapping("")
-	public String mainMyPage() {
+	public String mypage() {
+		return "mypage/orderList";
+	}
+	
+	@RequestMapping("/userInfo")
+	public String userInfo() {
 		log.info("실행");
-		return "mypage/mainMyPage";
+		return "mypage/userInfo";
 	}
 	
 	@RequestMapping("/heartListForm")
 	public String heartListForm() {
 		log.info("실행");
 		return "mypage/heartListForm";
-	}
-
-	@RequestMapping("/memberInformation")
-	public String memberInformation() {
-		log.info("실행");
-		return "mypage/memberInformation";
-	}
-	
-	@RequestMapping("/purchaseHistory")
-	public String purchaseHistory() {
-		log.info("실행");
-		return "mypage/purchaseHistory";
 	}
 }

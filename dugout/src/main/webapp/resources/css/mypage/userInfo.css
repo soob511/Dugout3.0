@@ -1,6 +1,15 @@
-#member-info {
+body {
 	font-family: 'Pretendard-Regular';
 	margin: 20px;
+}
+
+hr {
+	color: black;
+}
+
+.main-container {
+	color:black;
+	display: flex;
 }
 
 .product-insert-title {
@@ -16,6 +25,12 @@
 	width: 100%;
 	border-bottom: 3px solid #000;
 	margin-bottom: 24px;
+}
+
+.member-information {
+	width: 1000px;
+	padding: 20px 160px 0 80px;
+	margin-bottom: 200px;
 }
 
 .membership board {
@@ -64,4 +79,9 @@
 	padding: 0px 0px 0px 160px;
 	margin-top: 20px;
 	margin-bottom: 200px;
+}
+
+.menu-item:nth-of-type(2) a {
+	color: #333;
+	font-weight: bolder;
 }
