@@ -11,7 +11,7 @@ import com.mycompany.dugout.dto.PagerDto;
 @Mapper
 public interface GoodsDao {
 
-	public List<GoodsDto> SelectGoodsList(PagerDto pager);
+	public List<GoodsDto> selectGoodsList(PagerDto pager);
 
 	public GoodsDto getImg(int goodsId);
 
@@ -26,5 +26,7 @@ public interface GoodsDao {
 	public GoodsDto selectGoodsDetail(int goodsId);
 
 	public int updateGoods(GoodsDto goods);
+
+	public List<GoodsDto> selectBestGoods(PagerDto pager);
 	
 }

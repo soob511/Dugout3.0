@@ -16,7 +16,7 @@ public class GoodsService {
 	private GoodsDao goodsDao;
 
 	public List<GoodsDto> getGoodsList(PagerDto pager) {
-		List<GoodsDto> list = goodsDao.SelectGoodsList(pager);
+		List<GoodsDto> list = goodsDao.selectGoodsList(pager);
 		return list;
 	}
 
@@ -52,6 +52,11 @@ public class GoodsService {
 	public void updateGoods(GoodsDto goods) {
 		goodsDao.updateGoods(goods);
 		
+	}
+
+	public List<GoodsDto> getBestGoods(PagerDto pager) {
+		List<GoodsDto> list = goodsDao.selectBestGoods(pager);
+		return list;
 	}
 
 }

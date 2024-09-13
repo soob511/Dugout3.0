@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mycompany.dugout.dao.GoodsDao">
-	<select id = "SelectGoodsList" parameterType="Pager" resultType="Goods" >
+	<select id = "selectGoodsList" parameterType="Pager" resultType="Goods" >
 		<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 	         from    (
@@ -94,5 +94,21 @@
 		WHERE goodsId=#{goodsId}
 	
 	</update>
+	
+	<select id = "selectBestGoods" parameterType="Pager" resultType="Goods" >
+	<![CDATA[
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+	         from    (
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+	                     from (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+							  FROM goods
+							  ORDER BY goodsSaleCount desc
+	                     )
+	                   where rownum <= #{endRowNo}
+	             )
+	            where rnum >= #{startRowNo}
+	      ]]>
+	</select>
 	
 </mapper>
