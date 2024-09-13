@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
 	font-family: 'Pretendard-Regular';
 	src:
@@ -12,7 +14,22 @@ body {
 	margin: 20px;
 }
 
-.product-insert-title {
+hr {
+	margin-top: 16px !important;
+	margin-bottom: 16px !important;
+}
+
+.main-container {
+	color:black;
+	display: flex;
+}
+
+.orderList-box {
+	width:100%;
+	border-bottom: 3px solid #000;
+}
+
+.orderList-title {
 	font-weight: bold;
    	width:1140px;
 	display:block;
@@ -21,14 +38,9 @@ body {
 	margin-bottom: 24px;
 }
 
-.product-insert-box {
-	width:100%;
-	border-bottom: 3px solid #000;
-}
-
 .purchase-history {
-	width: 100%;
-	padding: 0;
+	width: 1000px;
+	padding: 20px 160px 0 80px;
 	margin-bottom: 200px;
 }
 
@@ -104,4 +116,9 @@ body {
 .purchase-item-price {
 	font-size: 16px;
 	color: #888;
+}
+
+.menu-item:first-of-type a {
+	color: #333;
+	font-weight: bolder;
 }

@@ -1,10 +1,20 @@
+hr {
+	color: black;
+}
+
+.main-container {
+	color:black;
+	display: flex;
+}
+
 #heartlist-container {
-	width: 1140px;
-	padding: 0;
+	width: 1000px;
+	padding: 20px 160px 0 80px;
 	margin-bottom: 200px;
 }
 
 .product-insert-title {
+	width: 1140px;
     font-weight: bold;
     width: auto;
     display: inline-block; 
@@ -75,4 +85,9 @@
 	height: 32px;
 	background-color: #333333;
 	color: #fff;
+}
+
+.menu-item:last-of-type a {
+	color: #333;
+	font-weight: bolder;
 }
