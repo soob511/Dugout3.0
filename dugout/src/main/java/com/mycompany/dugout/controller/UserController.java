@@ -1,6 +1,8 @@
 package com.mycompany.dugout.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,12 +35,17 @@ public class UserController {
 		UserDto user = new UserDto();
 		
 		user.setUserId(form.getUserId());
-		user.setUserPassword(form.getUserPassword());
+		
+		String password = form.getUserPassword();
+		
+		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		password = passwordEncoder.encode(password);
+		user.setUserPassword(password);
 		user.setUserName(form.getUserName());
 		user.setUserPhone(form.getUserPhone());
 		user.setUserAddress(form.getUserAddress());
 		user.setUserEmail(form.getUserEmail());
-		user.setUserRole("user");
+		user.setUserRole("ROLE_USER");
 		user.setUserActive(1);
 
 		userService.join(user);
