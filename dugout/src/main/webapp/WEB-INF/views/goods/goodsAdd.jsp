@@ -12,7 +12,6 @@
     <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
-  	 <%-- <jsp:include page="/WEB-INF/views/admin/mainManagement.jsp" /> --%>
   	 <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
   	 <hr>
     <main>
