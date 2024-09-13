@@ -112,9 +112,21 @@ button {
  	height: 53px;
     border: none;
     border-radius: 14px;
+    background-color: #333333;
+    color: #ffffff;
+	cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+.btnMember:disabled {
+    width: 315px;
+ 	height: 53px;
+    border: none;
+    border-radius: 14px;
     background-color: #ebebeb;
     color: #ffffff;
-	cursor: default;
+	cursor: not-allowed;
     display: block;
     margin: 10px auto;
 }

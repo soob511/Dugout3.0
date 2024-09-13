@@ -89,4 +89,22 @@ $(document).ready(function () {
     	msg.css("opacity", "0");
     }
   });
+  
+  $("#inputId,#inputPassword,#confirmPassword,#inputName,#inputPhone,#inputEmail,#inputAddress").on("input", function() {
+	    var id = $("#inputId").val().trim();
+	    var password = $("#inputPassword").val().trim();
+	    var cPassword = $("#confirmPassword").val().trim();
+	    var name = $("#inputName").val().trim();
+	    var email = $("#inputEmail").val().trim();
+	    var address = $("#inputAddress").val().trim();
+	    
+	    if (id !== "" && password !== "" && cPassword !== "" && name !== "" && email !== "" && address !== "") {
+	        $(".btnMember").prop("disabled", false);
+	    } else {
+	        $(".btnMember").prop("disabled", true);
+	    }
+	});
 });
+  
+  
+  
