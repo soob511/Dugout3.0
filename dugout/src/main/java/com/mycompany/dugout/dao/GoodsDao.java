@@ -28,5 +28,7 @@ public interface GoodsDao {
 	public int updateGoods(GoodsDto goods);
 
 	public List<GoodsDto> selectBestGoods(PagerDto pager);
+
+	public List<GoodsDto> selectRecommendGoods(PagerDto pager);
 	
 }

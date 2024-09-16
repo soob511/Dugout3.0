@@ -59,4 +59,9 @@ public class GoodsService {
 		return list;
 	}
 
+	public List<GoodsDto> getRecommendGoods(PagerDto pager) {
+		List<GoodsDto> list = goodsDao.selectRecommendGoods(pager);
+		return list;
+	}
+
 }

@@ -111,4 +111,20 @@
 	      ]]>
 	</select>
 	
+	<select id = "selectRecommendGoods" parameterType="Pager" resultType="Goods" >
+	<![CDATA[
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
+	         from    (
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikecount
+	                     from (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
+							  FROM goods
+							  ORDER BY goodsLikecount desc
+	                     )
+	                   where rownum <= #{endRowNo}
+	             )
+	            where rnum >= #{startRowNo}
+	      ]]>
+	</select>
+	
 </mapper>
