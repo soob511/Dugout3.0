@@ -1,3 +1,31 @@
+/* 카카오주소 api */
+function searchAddress() {
+  new daum.Postcode({
+    oncomplete: function (data) {
+      let addr = "";
+      let extraAddr = "";
+
+      addr = data.userSelectedType === "R" ? data.roadAddress : data.jibunAddress;
+
+      if (data.userSelectedType === "R") {
+        if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+          extraAddr += data.bname;
+        }
+        if (data.buildingName !== "" && data.apartment === "Y") {
+          extraAddr +=
+            extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
+        }
+        if (extraAddr !== "") {
+          extraAddr = " (" + extraAddr + ")";
+        }
+      }
+      document.getElementById("inputAddress").value = addr + extraAddr;
+      document.getElementById("inputAddress").focus();
+    },
+  }).open();
+}
+
+/* 회원정보 수정 Form 유효성 검사 */
 $(document).ready(function () {
 	const checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 	const checkPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/;

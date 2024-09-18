@@ -11,6 +11,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/mypage/userInfo.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
@@ -57,6 +58,7 @@
 				<div class="member-address">
 					<span>주소</span>
 					<input type="text" id="inputAddress" class="form-control" value="${user.userAddress}" name="userAddress"/>
+					<button type="button" class="searchAddress" onclick="searchAddress()">주소검색</button>
 				</div>
 				<div></div>
 				<button type="submit" class="btnMember" disabled>회원정보 수정</button>

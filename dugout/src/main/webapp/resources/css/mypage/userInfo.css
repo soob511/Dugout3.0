@@ -73,6 +73,22 @@ hr {
 	outline: none !important;
 }
 
+.searchAddress {
+    margin-top: 0px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    width: 88px;
+    height: 32px;
+    border-radius: 16px;
+    line-height: 16px;
+    position: absolute;
+    right: -100px;
+    top: 23px;
+}
+
 .btnMember {
 	width: 404px;
 	height: 64px;
