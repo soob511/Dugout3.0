@@ -55,7 +55,7 @@
 			<div class="mb-3 form-group">
 				<label for="inputPhone" class="form-label">전화번호</label> 
 				<input type="text" class="form-control" id="inputPhone"  name="userPhone"/>
-				<span class="message email-check"></span>
+				<span class="message phone-check"></span>
 			</div>
 			<div class="mb-3">
 				<label for="inputEmail" class="form-label">이메일</label> 

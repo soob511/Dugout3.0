@@ -80,7 +80,7 @@ $(document).ready(function () {
 
   $("#inputPhone").on("input", function () {
     let phone = $("#inputPhone").val().trim();
-    const msg = $('.email-check');
+    const msg = $('.phone-check');
     if (phone && !phone.startsWith("010")) {
 		msg.text("전화번호는 010으로 시작해야 합니다.");
 	  	msg.css("color", "red");
