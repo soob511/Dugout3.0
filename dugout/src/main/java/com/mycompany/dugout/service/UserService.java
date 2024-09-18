@@ -29,4 +29,8 @@ public class UserService {
 			}
 		return flag;
 	}
+
+	public void deleteUser(String userId) {
+		userDao.deleteUser(userId);
+	}
 }

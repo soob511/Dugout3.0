@@ -11,4 +11,5 @@ public interface UserDao {
 	public int join(UserDto user);
 	public UserDto selectByUser(String username);
 	public List<String> idCheck();
+	public int deleteUser(String userId);
 }

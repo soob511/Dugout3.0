@@ -20,4 +20,10 @@
 		select userId
 		from users
 	</select>
+	
+	<update id="deleteUser" parameterType="String">
+		update users set
+			userActive = 0
+		where userId=#{userId}
+	</update>
 </mapper>

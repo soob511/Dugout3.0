@@ -83,4 +83,14 @@ public class UserController {
 
 		return "mypage/userInfo";
 	}
+	
+	@PostMapping("/deleteUser")
+	public String deleteUser(Authentication authentication) {
+		String userId = authentication.getName();
+		log.info("userId: " + userId);
+		userService.deleteUser(userId);
+		
+		return "redirect:/logout";
+	}
+	
 }

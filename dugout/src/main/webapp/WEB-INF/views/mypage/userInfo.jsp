@@ -25,10 +25,11 @@
 			<div class="product-insert-box">
 				<h2 class="product-insert-title">회원 정보</h2>
 			</div>
-			<div class="membership board">
+			<form class="membership board">
 				<div class="member-id ">
-					<span>아이디</span> <input type="text" class="form-control"
-						id="inputId" placeholder="${user.userId}">
+					<span>아이디</span> 
+					<input type="text" class="form-control"
+						id="inputId" placeholder="${user.userId}" readonly>
 				</div>
 				<div class="member-password">
 					<span>비밀번호</span> <input type="password" class="form-control"
@@ -58,10 +59,22 @@
 				<div></div>
 				<button type="submit" class="btnMember" disabled>회원정보 수정</button>
 				<br>
-				<button type="button" class="withdrawal-btn">회원탈퇴</button>
-			</div>
+				<button type="button" class="withdrawal-btn" onclick="deleteUser()">회원탈퇴</button>
+			</form>
 		</div>
 	</div>
+	<script>
+		function deleteUser() {		
+			$.ajax({
+				url: "deleteUser",
+				method: "post",
+				success: function(data) {
+					let url = `${pageContext.request.contextPath}/logout`;
+					location.href = url;
+				}
+			});
+		}
+	</script>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
