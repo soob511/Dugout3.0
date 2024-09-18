@@ -17,13 +17,23 @@
 
 
 	<select id="idCheck" resultType="String">
-		select userId
-		from users
+		SELECT userId
+		FROM users
 	</select>
 	
 	<update id="deleteUser" parameterType="String">
-		update users set
+		UPDATE users SET
 			userActive = 0
-		where userId=#{userId}
+		WHERE userId=#{userId}
+	</update>
+	
+	<update id="updateUser" parameterType="UpdateUser">
+		UPDATE users SET
+			userPassword = #{userPassword},
+			userName = #{userName},
+			userPhone = #{userPhone},
+			userEmail = #{userEmail},
+			userAddress = #{userAddress}
+		WHERE userId = #{userId}
 	</update>
 </mapper>

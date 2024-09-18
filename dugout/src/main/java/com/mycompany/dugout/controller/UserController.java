@@ -1,5 +1,7 @@
 package com.mycompany.dugout.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mycompany.dugout.dto.UpdateUserDto;
 import com.mycompany.dugout.dto.UserDto;
 import com.mycompany.dugout.security.UserDetail;
 import com.mycompany.dugout.service.UserService;
@@ -87,10 +90,28 @@ public class UserController {
 	@PostMapping("/deleteUser")
 	public String deleteUser(Authentication authentication) {
 		String userId = authentication.getName();
-		log.info("userId: " + userId);
 		userService.deleteUser(userId);
 		
 		return "redirect:/logout";
+	}
+	
+	@PostMapping("/updateUser")
+	public String updateUser(UpdateUserDto form) {
+		UpdateUserDto user = new UpdateUserDto();
+		
+		user.setUserId(form.getUserId());
+		String password = form.getUserPassword();
+		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		password = passwordEncoder.encode(password);
+		user.setUserPassword(password);
+		user.setUserName(form.getUserName());
+		user.setUserPhone(form.getUserPhone());
+		user.setUserEmail(form.getUserEmail());
+		user.setUserAddress(form.getUserAddress());
+	
+		userService.updateUser(user);
+
+		return "redirect:/user/userInfo";
 	}
 	
 }

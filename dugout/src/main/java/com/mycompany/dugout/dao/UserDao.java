@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.mycompany.dugout.dto.UpdateUserDto;
 import com.mycompany.dugout.dto.UserDto;
 
 @Mapper
@@ -12,4 +13,5 @@ public interface UserDao {
 	public UserDto selectByUser(String username);
 	public List<String> idCheck();
 	public int deleteUser(String userId);
+	public int updateUser(UpdateUserDto user);
 }

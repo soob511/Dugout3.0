@@ -7,6 +7,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.mycompany.dugout.dto.UserDto" alias="User"/>
+		<typeAlias type="com.mycompany.dugout.dto.UpdateUserDto" alias="UpdateUser"/>
 		<typeAlias type="com.mycompany.dugout.dto.CartDto" alias="Cart"/>
 		<typeAlias type="com.mycompany.dugout.dto.GoodsDto" alias="Goods"/>
 		<typeAlias type="com.mycompany.dugout.dto.GoodsLikeDto" alias="GoodsLike"/>

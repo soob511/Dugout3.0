@@ -11,6 +11,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/mypage/userInfo.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/mypage/userInfo.css"  rel="stylesheet" />
@@ -25,36 +26,34 @@
 			<div class="product-insert-box">
 				<h2 class="product-insert-title">회원 정보</h2>
 			</div>
-			<form class="membership board">
+			<form class="membership board" method="post" action="updateUser">
 				<div class="member-id ">
 					<span>아이디</span> 
-					<input type="text" class="form-control"
-						id="inputId" placeholder="${user.userId}" readonly>
+					<input type="text" class="form-control" id="inputId" value="${user.userId}" name="userId"  readonly>
 				</div>
 				<div class="member-password">
-					<span>비밀번호</span> <input type="password" class="form-control"
-						id="exampleInputPassword1" >
+					<span>비밀번호</span>
+					<input type="password" class="form-control" id="inputPassword" name="userPassword">
 				</div>
 				<div class="member-password-again">
-					<span>비밀번호 확인</span> <input type="password" id="username"
-						class="form-control" />
+					<span>비밀번호 확인</span> 
+					<input type="password" id="confirmPassword" class="form-control" />
 				</div>
 				<div class="member-name">
-					<span>이름</span> <input type="text" id="username"
-						class="form-control" placeholder="${user.userName}" />
+					<span>이름</span>
+					<input type="text" id="inputName" class="form-control" value="${user.userName}" name="userName"/>
 				</div>
 				<div class="member-phone-number">
 					<span>전화번호</span>
-					<input type="number" id="userPhone"
-						class="form-control" placeholder="${user.userPhone}" />
+					<input type="text" id="inputPhone" class="form-control" value="${user.userPhone}" name="userPhone"/>
 					</div>
 				<div class="member-email">
-					<span>이메일</span> <input type="email" id="userEmail"
-						class="form-control" placeholder="${user.userEmail}" />
+					<span>이메일</span>
+					<input type="text" id="inputEmail" class="form-control" value="${user.userEmail}" name="userEmail" />
 				</div>
 				<div class="member-address">
-					<span>주소</span> <input type="text" id="userAddress"
-						class="form-control" placeholder="${user.userAddress}" />
+					<span>주소</span>
+					<input type="text" id="inputAddress" class="form-control" value="${user.userAddress}" name="userAddress"/>
 				</div>
 				<div></div>
 				<button type="submit" class="btnMember" disabled>회원정보 수정</button>
@@ -68,7 +67,7 @@
 			$.ajax({
 				url: "deleteUser",
 				method: "post",
-				success: function(data) {
+				success: function() {
 					let url = `${pageContext.request.contextPath}/logout`;
 					location.href = url;
 				}
