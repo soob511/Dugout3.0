@@ -46,13 +46,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="product-actions">
-                            <button type="button" class="like-btn">찜</button>
-                            <button type="button" class="shoppingcart-btn">장바구니</button>
-                        </div>
-
-                        <button type="button" class="purchase-btn">구매하기</button>
+					<div class = "product-actions d-flex">
+						<button type="button" class="like-btn col-5">찜</button>
+						<button class="shoppingcart-btn col-5" onclick="addCart()">장바구니</button>
+					</div>
+					<button type="button" class="purchase-btn col-12">구매하기</button>
                     </div>
                 </div>
             </div>
@@ -60,6 +58,24 @@
                 <img src="${pageContext.request.contextPath}/goods/getDetailImg?goodsId=${goods.goodsId}">
             </div>
         </div>
+        <script>
+        	function addCart() {
+    			let goodsId = ${goods.goodsId};
+    			let cartCount = $("#quantity").val();
+    	
+    			const params = {goodsId, cartCount};
+    			
+    			$.ajax({
+    				url: "${pageContext.request.contextPath}/cart/addCart",
+    				method: "post",
+    		        data: params,
+    				success: function(data) {
+    					let url = `${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}`;
+    					location.href = url;
+    				}
+    			});
+        	}
+        </script>
        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </div>
 </body>

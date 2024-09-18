@@ -22,9 +22,4 @@ $(document).ready(function () {
     $(".shoppingcart-btn").click(function(){
         alert("장바구니에 담겼습니다.");
     })
-
-    $(".purchase-btn").click(function(){
-        location.href="../payment/Payment.html";
-    })
-
 });
