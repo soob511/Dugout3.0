@@ -34,10 +34,12 @@
 				<div class="member-password">
 					<span>비밀번호</span>
 					<input type="password" class="form-control" id="inputPassword" name="userPassword">
+					<span class="message password-check"></span>
 				</div>
 				<div class="member-password-again">
 					<span>비밀번호 확인</span> 
 					<input type="password" id="confirmPassword" class="form-control" />
+					<span class="message wrong-password"></span>
 				</div>
 				<div class="member-name">
 					<span>이름</span>
@@ -46,7 +48,8 @@
 				<div class="member-phone-number">
 					<span>전화번호</span>
 					<input type="text" id="inputPhone" class="form-control" value="${user.userPhone}" name="userPhone"/>
-					</div>
+					<span class="message phone-check"></span>
+				</div>
 				<div class="member-email">
 					<span>이메일</span>
 					<input type="text" id="inputEmail" class="form-control" value="${user.userEmail}" name="userEmail" />
