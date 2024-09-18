@@ -59,12 +59,12 @@
 			</div>
 			<div class="mb-3">
 				<label for="inputEmail" class="form-label">이메일</label> 
-				<input type="text" class="form-control" id="inputEmail" name="userAddress" />
+				<input type="text" class="form-control" id="inputEmail" name="userEmail" />
 			</div>
 			<div class="mb-3">
 				<label for="inputAddress" class="form-label">주소</label> 
 				<div class="d-flex">
-					<input type="text" class="form-control" id="inputAddress" name="userEmail"/>
+					<input type="text" class="form-control" id="inputAddress" name="userAddress"/>
 					<button type="button" class="searchAddress ms-3" onclick="searchAddress()">주소검색</button>
 				</div>
 			</div>
