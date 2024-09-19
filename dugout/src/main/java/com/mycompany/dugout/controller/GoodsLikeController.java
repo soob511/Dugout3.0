@@ -7,12 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-@RequestMapping("GoodsLike")
+@RequestMapping("goodsLike")
 public class GoodsLikeController {
 	
 	@RequestMapping("")
-	public String cart() {
-		log.info("장바구니");
-		return "cart/cart";
+	public String goodsLike() {
+		return "mypage/goodsLike";
 	}
 }
