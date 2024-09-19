@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +61,7 @@ public class GoodsController {
 		out.close();
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/goodsAdd")
 	public String goodsAdd() {
 		log.info("실행");
@@ -170,6 +172,7 @@ public class GoodsController {
 		return "/goods/recommendGoods";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/goodsManagement")
 	public String goodsManagement(Model model, @RequestParam(defaultValue="1") int pageNo, HttpSession session) {
 		int totalRows = goodsService.getTotalRows();

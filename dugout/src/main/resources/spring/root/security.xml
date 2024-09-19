@@ -24,9 +24,12 @@
 					    success-handler-ref="logoutSuccessHandler"/>
 
 	 	<security:csrf disabled="true"/>
+	 	
+	 	<security:access-denied-handler error-page="/user/error"/>
 
-	
 	</security:http>
+	
+	 <security:global-method-security secured-annotations="enabled"/>
 	
 	<bean id="authenticationSuccessHandler" 
 	class="com.mycompany.dugout.security.AuthenticationSuccessHandler"></bean>

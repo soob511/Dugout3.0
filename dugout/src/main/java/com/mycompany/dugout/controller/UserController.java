@@ -120,4 +120,9 @@ public class UserController {
 		
 		return "redirect:/logout";
 	}
+	
+	@GetMapping("/error")
+	public String error() {
+		return "common/error";
+	}
 }
