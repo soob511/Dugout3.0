@@ -25,7 +25,7 @@
 
 	 	<security:csrf disabled="true"/>
 	 	
-	 	<security:access-denied-handler error-page="/common/roleError"/>
+	 	<security:access-denied-handler error-page="/user/error"/>
 
 	</security:http>
 	
