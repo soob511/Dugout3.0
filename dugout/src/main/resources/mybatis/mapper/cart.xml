@@ -8,4 +8,12 @@
 			#{userId}, #{goodsId}, #{cartCount}
 		)
 	</insert>
+	
+	<select id="selectCartList" parameterType="String" resultType="Cart">
+		SELECT goodsId, cartCount
+		FROM cart
+		WHERE userId = #{userId}
+	</select>
+	
+	
 </mapper>
