@@ -16,4 +16,9 @@ public class BannerService {
 		return banner;
 	}
 
+	public void updateBanner(BannerDto banner) {
+		bannerDao.updateBanner(banner);
+		
+	}
+
 }

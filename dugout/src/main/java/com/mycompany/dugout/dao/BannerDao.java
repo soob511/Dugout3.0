@@ -8,4 +8,6 @@ import com.mycompany.dugout.dto.BannerDto;
 public interface BannerDao {
 	public BannerDto selectBannerById(int bannerId);
 
+	public int updateBanner(BannerDto banner);
+
 }

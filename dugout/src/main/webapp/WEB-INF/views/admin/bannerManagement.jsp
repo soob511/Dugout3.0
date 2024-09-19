@@ -27,24 +27,26 @@
       <h2 class="product-insert-title">배너 관리</h2>
     </div>
 
-    <div class="content-section" style="width: 100%">
-      <div class="banner-group">
+    <form action="updateBanner" method="post" enctype="multipart/form-data" class="content-section" style="width: 100%">
+    <div class="banner-group">
         <label for="firstBanner">첫번째 배너</label>
-        <input type="file" class="form-control" id="firstBanner" />
-      </div>
-      <div class="banner-group">
-        <label for="secondBanner">두번째 배너</label>
-        <input type="file" class="form-control" id="secondBanner" />
-      </div>
-      <div class="banner-group">
-        <label for="thirdBanner">세번째 배너</label>
-        <input type="file" class="form-control" id="thirdBanner" />
-      </div>
-      <div class="action-buttons">
-        <button class="preview-button" >미리보기</button>
-        <button class="save-button" >저장하기</button>
-      </div>
+        <input type="file" class="form-control" id="firstBanner" name="firstBanner" />
     </div>
+    <div class="banner-group">
+        <label for="secondBanner">두번째 배너</label>
+        <input type="file" class="form-control" id="secondBanner" name="secondBanner" />
+    </div>
+    <div class="banner-group">
+        <label for="thirdBanner">세번째 배너</label>
+        <input type="file" class="form-control" id="thirdBanner" name="thirdBanner" />
+    </div>
+    <div class="action-buttons">
+        <button type="button" class="preview-button">미리보기</button>
+        <button type="submit" class="save-button">저장하기</button>
+    </div>
+</form>
+
+    
     </div>
     </div>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />

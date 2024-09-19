@@ -10,6 +10,6 @@
 	  <a href="${pageContext.request.contextPath}/goods/goodsAdd">상품 등록</a>
 	</div>	
 	<div class="menu-item">
-	  <a href="${pageContext.request.contextPath}/admin/bannerManagement">배너 관리</a>
+	  <a href="${pageContext.request.contextPath}/banner/bannerManagement">배너 관리</a>
 	</div>
 </div>

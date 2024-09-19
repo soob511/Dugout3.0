@@ -6,4 +6,13 @@
 		from banner
 		where bannerId=#{bannerId}
 	</select>
+	
+	<update id="updateBanner" parameterType="Banner">
+		UPDATE banner SET 
+			bannerId = #{bannerId},
+			bannerName = #{bannerName},
+			bannerType = #{bannerType},
+			bannerData = #{bannerData}
+		WHERE bannerId = #{bannerId} 
+	</update>
 </mapper>

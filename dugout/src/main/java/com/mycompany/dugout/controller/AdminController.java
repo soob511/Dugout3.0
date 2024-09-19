@@ -9,11 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("/admin")
 public class AdminController {
-	@RequestMapping("/bannerManagement")
-	public String  bannerManagement() {
-		log.info("실행");
-		return "admin/bannerManagement";
-	}
 	
 	@RequestMapping("/headerManagement")
 	public String  headerManagement() {
