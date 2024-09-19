@@ -1,9 +1,9 @@
 package com.mycompany.dugout.controller;
 
-import java.security.Principal;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mycompany.dugout.dto.UpdateUserDto;
 import com.mycompany.dugout.dto.UserDto;
 import com.mycompany.dugout.security.UserDetail;
+import com.mycompany.dugout.service.UserDetailService;
 import com.mycompany.dugout.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,8 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserDetailService userDetailService;
 	
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -99,8 +102,13 @@ public class UserController {
 		user.setUserPhone(form.getUserPhone());
 		user.setUserEmail(form.getUserEmail());
 		user.setUserAddress(form.getUserAddress());
-		
+		//DB업데이트
 		userService.updateUser(user);
+		//SpringSecurity Authentication 업데이트
+		UserDetail userDetail = (UserDetail) userDetailService.loadUserByUsername(form.getUserId());
+		Authentication authentication = 
+				new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
+		SecurityContextHolder.getContext().setAuthentication(authentication);
 		
 		return "redirect:/user/userInfo";
 	}
