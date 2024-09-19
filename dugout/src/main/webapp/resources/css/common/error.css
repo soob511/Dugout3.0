@@ -1,0 +1,17 @@
+hr{
+	color:black;
+}
+.secure-title {
+    font-size: 24px;  
+    color: black;
+    font-weight: bold;  
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; 
+}
+

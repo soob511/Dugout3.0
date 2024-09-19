@@ -13,14 +13,14 @@
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<link href="${pageContext.request.contextPath}/resources/css/notice/noticeList.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/common/error.css"  rel="stylesheet" />
 </head>
   <body>
 	  <jsp:include page="/WEB-INF/views/common/header.jsp" />
 	  <hr>
 	<div class="container">
 	  <div class="notice-insert-box d-flex justify-content-between align-items-center">
-			  <h2 class="notice-insert-title">접근권한이 없습니다.</h2>
+			  <h2 class="secure-title">접근권한이 없습니다.</h2>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
