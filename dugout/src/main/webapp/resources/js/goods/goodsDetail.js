@@ -19,7 +19,7 @@ $(document).ready(function () {
         alert("관심목록에 담겼습니다.");
     })
 
-    $(".shoppingcart-btn").click(function(){
+/*    $(".shoppingcart-btn").click(function(){
         alert("장바구니에 담겼습니다.");
-    })
+    })*/
 });
