@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>장바구니</title>
-<!-- <script src="../common/jquery/jquery.min.js"></script> -->
-<!-- <script src="../common/bootstrap/bootstrap.bundle.min.js"></script> -->
-<link href="../common/bootstrap/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/cartForm.css"  rel="stylesheet" />
-	
-<script src="CartForm.js"></script> 
+	<meta charset="UTF-8">
+	<title>장바구니</title>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	 <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/cart/cartForm.js"></script>
+	<link href="${pageContext.request.contextPath}/resources/css/cart/cartForm.css"  rel="stylesheet" />
 </head>
 <body id="cart-body">
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -29,57 +26,25 @@
 				<input class="form-check-input checkbox" type="checkbox" value=""id="flexCheckDefault-all">
 				<label class="form-check-label all"for="flexCheckDefault">전체</label>
 				<button type="button" value="삭제" id="btnDelete">삭제</button>
-				<div class="cart-list">
-					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
-					<label class="form-check-label"for="flexCheckDefault"></label>
-					<a href="#"><img src="../common/image/product/[KIA타이거즈] 마킹키트 (홈) (개별판매용).jpg"></a>		
-					<div class="box">
-					<span id="product-name">[KIA타이거즈] 마킹키트 (홈) (개별판매용)</span>	<br>						
-					<span id="product-price" data-price="25000">25,000원</span><br>	
-					<button type="button" class="btn btn-light minus">-</button>
-					<button id="boxbox" type="button" class="btn btn-light cnt">1</button>
-					<button type="button" class="btn btn-light plus">+</button>	
-					</div>			
-				</div>
 				
-				<div class="cart-list">
-					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault" class="checkboxes">
-					<label class="form-check-label"for="flexCheckDefault"></label>
-					<a href="#"><img src="../common/image/product/[삼성라이온즈] 레플리카 원정 유니폼.png"></a>		
-					<div class="box">
-					<span id="product-name">[삼성라이온즈] 레플리카 원정 유니폼</span>	<br>						
-					<span id="product-price" data-price="79000">79,000원</span><br>	
-					<button type="button" class="btn btn-light minus">-</button>
-					<button id="boxbox" type="button" class="btn btn-light cnt">1</button>
-					<button type="button" class="btn btn-light plus">+</button>	
-					</div>			
-				</div>
-				<div class="cart-list">
-					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
-					<label class="form-check-label"for="flexCheckDefault"></label>
-					<a href="#"><img src="../common/image/product/[한화이글스]블랙 에어포스 레플리카 유니폼.png"></a>		
-					<div class="box">
-					<span id="product-name">[한화이글스]블랙 에어포스 레플리카 유니폼</span>	<br>						
-					<span id="product-price" data-price="65000">65,000원</span><br>	
-					<button type="button" class="btn btn-light minus">-</button>
-					<button id="boxbox" type="button" class="btn btn-light cnt">1</button>
-					<button type="button" class="btn btn-light plus">+</button>	
-					</div>			
-				</div>
-				
-				<div class="cart-list">
-					<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
-					<label class="form-check-label"for="flexCheckDefault"></label>		
-					<a href="#"><img src="../common/image/product/[두산베어스] 오리지널 벨크로 캡.jpg"></a>		
-					<div class="box">
-					<span id="product-name">[두산베어스] 오리지널 벨크로 캡</span>	<br>						
-					<span id="product-price" data-price="25000">25,000원</span><br>	
-					<button type="button" class="btn btn-light minus">-</button>
-					<button id="boxbox" type="button" class="btn btn-light cnt">1</button>
-					<button type="button" class="btn btn-light plus">+</button>	
-					</div>			
-				</div>
-					<hr>
+				<c:forEach items="${cartItems}" var="item">
+					<div class="cart-list">
+						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+						<label class="form-check-label"for="flexCheckDefault"></label>
+						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${item.goodsId}">
+						<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"></a>		
+						<div class="box">
+						<span id="product-name">[${item.goodsTeam}] ${item.goodsName}</span>	<br>						
+						<span id="product-price" data-price="${item.goodsPrice}">
+							<fmt:formatNumber value="${item.goodsPrice * item.cartCount}" pattern="#,###" />원
+						</span><br>	
+						<button type="button" class="btn btn-light minus">-</button>
+						<button id="boxbox" type="button" class="btn btn-light cnt">${item.cartCount}</button>
+						<button type="button" class="btn btn-light plus">+</button>	
+						</div>			
+					</div>
+				</c:forEach>
+			</div>
 		</article>
 		<aside class="pay-side">
 			<div class="pay-form">
@@ -111,7 +76,6 @@
 			</div>
 		</aside>
 	</main>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-<script></script>
+	<%-- <jsp:include page="/WEB-INF/views/common/footer.jsp" /> --%>
 </body>
 </html>

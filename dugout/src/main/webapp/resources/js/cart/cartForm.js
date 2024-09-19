@@ -1,15 +1,4 @@
 $(document).ready(function () {
-  $("#pay-all").click(function () {
-    location.href = "../payment/Payment.html";
-  });
-  $("#pay-select").click(function () {
-    location.href = "../payment/Payment.html";
-  });
-});
-
-$(document).ready(function () {
-  $("footer").load("../main/Footer.html");
-  $("header").load("../main/Header.html");
 
   $(".plus").click(function () {
     let product = $(this).closest(".cart-list");
@@ -44,7 +33,6 @@ $(document).ready(function () {
   });
 
   $("#flexCheckDefault-all").on("click", function () {
-    console.log("클릭됨");
     $(".cart-list .form-check-input").prop("checked", $(this).prop("checked"));
     totalPriceOper();
   });
