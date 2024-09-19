@@ -69,4 +69,9 @@ public class GoodsService {
 		return limitRows;
 	}
 
+	public List<GoodsDto> getNewGoods(PagerDto pager) {
+		List<GoodsDto> list = goodsDao.selectNewGoods(pager);
+		return list;
+	}
+
 }
