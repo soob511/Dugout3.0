@@ -1,6 +1,5 @@
 body {
 	font-family: 'Pretendard-Regular';
-	margin: 20px;
 }
 
 hr {
@@ -14,7 +13,7 @@ hr {
 
 .product-insert-title {
 	font-weight: bold;
-	width: 1140px;
+	width: 920px;
 	display: block;
 	color: #333;
 	font-size: 26px;
@@ -22,7 +21,7 @@ hr {
 }
 
 .product-insert-box {
-	width: 100%;
+	width: 920px;
 	border-bottom: 3px solid #000;
 	margin-bottom: 24px;
 }

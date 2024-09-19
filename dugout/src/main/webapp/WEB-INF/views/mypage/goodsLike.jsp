@@ -1,29 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
     
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>관심 목록</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/mypage/goodsLike.css"  rel="stylesheet" />
-</head>
+	<meta charset="UTF-8">
+	<title>관심 목록</title>
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/mypage/goodsLike.js"></script>
+		<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/resources/css/mypage/goodsLike.css"  rel="stylesheet" />
+	</head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<hr>
 	<div class="main-container">
 	    <%@ include file="/WEB-INF/views/mypage/mypageMenu.jsp" %>
-		<main id="heartlist-container">
+		<div id="heartlist-container">
 			<section>
 				<div class="heart-title-box">
 					<h2 class="product-insert-title">관심 목록</h2>
@@ -90,7 +89,7 @@
 					</div>
 				</div>
 			</section>
-		</main>
+		</div>
 	</div>
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
