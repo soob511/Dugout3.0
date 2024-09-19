@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<title>장바구니</title>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	 <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
@@ -44,6 +45,14 @@
 						</div>			
 					</div>
 				</c:forEach>
+				
+				<c:if test="${empty cartItems}">
+					<div class="empty-cart">
+						<i class="bi bi-exclamation-circle-fill"></i>
+						<h5>장바구니에 담긴 상품이 없습니다.</h5>
+					</div>
+				</c:if>
+				
 			</div>
 		</article>
 		<aside class="pay-side">
