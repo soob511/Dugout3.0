@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.CartDto;
 import com.mycompany.dugout.dto.CartItemDto;
@@ -32,7 +33,7 @@ public class CartController {
 	@RequestMapping("")
 	public String cart(Authentication authentication, Model model) {
 		if (authentication == null || !authentication.isAuthenticated()) {
-	        return "redirect:/user/loginForm";
+	        return "user/loginForm";
 	    }
 
 		String userId = authentication.getName();
@@ -58,8 +59,13 @@ public class CartController {
 		return "cart/cartForm";
 	}
 	
+	@ResponseBody
 	@PostMapping("/addCart")
-	public String addCart(Authentication authentication, int goodsId, int cartCount) {
+	public boolean addCart(Authentication authentication, int goodsId, int cartCount) {
+		if (authentication == null || !authentication.isAuthenticated()) {
+			return false;
+	    }
+		
 		CartDto item = new CartDto();
 
 		String userId = authentication.getName();
@@ -68,6 +74,6 @@ public class CartController {
 		item.setCartCount(cartCount);
 		
 		cartService.addCart(item);
-		return "redirect:/goods/goodsDetail?goodsId=" + goodsId;
+		return true;
 	}
 }

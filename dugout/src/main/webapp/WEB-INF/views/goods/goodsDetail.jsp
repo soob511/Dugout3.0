@@ -70,8 +70,13 @@
     				method: "post",
     		        data: params,
     				success: function(data) {
-    					let url = `${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}`;
-    					location.href = url;
+    					console.log(data);
+    					if(data == false) {
+    						alert("로그인 후 이용하시기 바랍니다.");
+    						location.href = "${pageContext.request.contextPath}/user/loginForm";
+    					} else {    						
+	    					alert("장바구니에 담겼습니다.");
+    					}
     				}
     			});
         	}
