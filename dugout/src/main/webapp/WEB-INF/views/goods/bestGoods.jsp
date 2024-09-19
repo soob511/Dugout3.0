@@ -22,7 +22,7 @@
     <section class="section-top">
       <div class="d-flex align-items-center">
           <p class="product count">
-				<span>${totalRows}</span>개의 상품 검색
+				<span>${limitRows}</span>개의 상품 검색
 			</p>
           <div class="col-6 d-flex justify-content-end">
               <div class="me-3">

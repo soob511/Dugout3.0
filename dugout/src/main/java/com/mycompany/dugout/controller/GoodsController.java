@@ -130,9 +130,9 @@ public class GoodsController {
 	@RequestMapping("/bestGoods")
 	public String bestGoods(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
-		int totalRows = goodsService.getTotalRows();
-		model.addAttribute("totalRows",totalRows);
-		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		int limitRows = goodsService.getLimitRows();
+		model.addAttribute("limitRows",limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
 		model.addAttribute("pager",pager);
 		List<GoodsDto> list =  goodsService.getBestGoods(pager);
 		model.addAttribute("list",list);
