@@ -2,11 +2,13 @@ package com.mycompany.dugout.controller;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.ProcessBuilder.Redirect;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +27,16 @@ public class BannerController {
 	@Autowired
 	private BannerService bannerService;
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/bannerManagement")
 	public String  bannerManagement() {
 		log.info("실행");
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		log.info("Authorities: " + auth.getAuthorities());
+
 		return "admin/bannerManagement";
 	}
-	
+
 	@RequestMapping("/bannerImg")
 	public void bannerImg(int bannerId, HttpServletResponse response) throws Exception {
 		BannerDto banner = bannerService.getBanner(bannerId);
