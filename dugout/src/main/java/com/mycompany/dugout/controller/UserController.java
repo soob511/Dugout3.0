@@ -1,6 +1,6 @@
 package com.mycompany.dugout.controller;
 
-import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -36,14 +36,6 @@ public class UserController {
 	public String joinForm() {
 		return "user/joinForm";
 	}
-	
-	@ResponseBody
-	@PostMapping("/idCheck")
-	public boolean idCheck(String inputId) {
-		boolean flag = userService.idCheck(inputId);
-		return flag;
-	}
-	
 	@PostMapping("join")
 	public String join(UserDto form) {
 		UserDto user = new UserDto();
@@ -61,9 +53,16 @@ public class UserController {
 		user.setUserEmail(form.getUserEmail());
 		user.setUserRole("ROLE_USER");
 		user.setUserActive(1);
-
+		
 		userService.join(user);
 		return "redirect:/user/loginForm";
+	}
+	
+	@ResponseBody
+	@PostMapping("/idCheck")
+	public boolean idCheck(String inputId) {
+		boolean flag = userService.idCheck(inputId);
+		return flag;
 	}
 	
 	@RequestMapping("/findId")
@@ -87,14 +86,6 @@ public class UserController {
 		return "mypage/userInfo";
 	}
 	
-	@PostMapping("/deleteUser")
-	public String deleteUser(Authentication authentication) {
-		String userId = authentication.getName();
-		userService.deleteUser(userId);
-		
-		return "redirect:/logout";
-	}
-	
 	@PostMapping("/updateUser")
 	public String updateUser(UpdateUserDto form) {
 		UpdateUserDto user = new UpdateUserDto();
@@ -108,10 +99,19 @@ public class UserController {
 		user.setUserPhone(form.getUserPhone());
 		user.setUserEmail(form.getUserEmail());
 		user.setUserAddress(form.getUserAddress());
-	
+		
 		userService.updateUser(user);
-
+		
 		return "redirect:/user/userInfo";
 	}
+	
+	@PostMapping("/deleteUser")
+	public String deleteUser(Authentication authentication) {
+		String userId = authentication.getName();
+		userService.deleteUser(userId);
+		
+		return "redirect:/logout";
+	}
+	
 	
 }
