@@ -127,4 +127,16 @@
 	      ]]>
 	</select>
 	
+	<select id="getLimitRows" resultType="int">
+	<![CDATA[
+	    SELECT count(*)
+	    FROM (
+	        SELECT goodsId
+	        FROM goods
+	        WHERE rownum <= 32
+	    )
+     ]]>
+</select>
+
+	
 </mapper>

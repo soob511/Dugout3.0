@@ -64,4 +64,9 @@ public class GoodsService {
 		return list;
 	}
 
+	public int getLimitRows() {
+		int limitRows = goodsDao.getLimitRows();
+		return limitRows;
+	}
+
 }
