@@ -42,6 +42,13 @@ public class GoodsController {
 		out.close();
 	}
 	
+	@RequestMapping("/goodsDetail")
+	public String goodsDetail(int goodsId, Model model) {
+		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
+		model.addAttribute("goods",goods);
+		return "/goods/goodsDetail";
+	}
+	
 	@ RequestMapping("/getDetailImg")
 	public void getDetailImg(int goodsId,HttpServletResponse response) throws Exception{
 		GoodsDto goods = goodsService.getImg(goodsId);
@@ -130,9 +137,9 @@ public class GoodsController {
 	@RequestMapping("/bestGoods")
 	public String bestGoods(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
-		int totalRows = goodsService.getTotalRows();
-		model.addAttribute("totalRows",totalRows);
-		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		int limitRows = goodsService.getLimitRows();
+		model.addAttribute("limitRows",limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
 		model.addAttribute("pager",pager);
 		List<GoodsDto> list =  goodsService.getBestGoods(pager);
 		model.addAttribute("list",list);
@@ -140,28 +147,27 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/newGoods")
-	public String newProduct() {
+	public String newProduct(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
+		int limitRows = goodsService.getLimitRows();
+		model.addAttribute("limitRows",limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
+		model.addAttribute("pager",pager);
+		List<GoodsDto> list =  goodsService.getNewGoods(pager);
+		model.addAttribute("list",list);
 		return "/goods/newGoods";
 	}
 	
 	@RequestMapping("/recommendGoods")
 	public String recommendProduct(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
-		int totalRows = goodsService.getTotalRows();
-		model.addAttribute("totalRows",totalRows);
-		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		int limitRows = goodsService.getLimitRows();
+		model.addAttribute("limitRows",limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
 		model.addAttribute("pager",pager);
 		List<GoodsDto> list =  goodsService.getRecommendGoods(pager);
 		model.addAttribute("list",list);
 		return "/goods/recommendGoods";
-	}
-	
-	@RequestMapping("/goodsDetail")
-	public String goodsDetail(int goodsId, Model model) {
-		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
-		model.addAttribute("goods",goods);
-		return "/goods/goodsDetail";
 	}
 	
 	@RequestMapping("/goodsManagement")

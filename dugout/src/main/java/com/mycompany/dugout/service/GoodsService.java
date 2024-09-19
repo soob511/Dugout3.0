@@ -64,4 +64,14 @@ public class GoodsService {
 		return list;
 	}
 
+	public int getLimitRows() {
+		int limitRows = goodsDao.getLimitRows();
+		return limitRows;
+	}
+
+	public List<GoodsDto> getNewGoods(PagerDto pager) {
+		List<GoodsDto> list = goodsDao.selectNewGoods(pager);
+		return list;
+	}
+
 }

@@ -127,4 +127,32 @@
 	      ]]>
 	</select>
 	
+	<select id="getLimitRows" resultType="int">
+	<![CDATA[
+	    SELECT count(*)
+	    FROM (
+	        SELECT goodsId
+	        FROM goods
+	        WHERE rownum <= 32
+	    )
+     ]]>
+</select>
+
+	<select id = "selectNewGoods" parameterType="Pager" resultType="Goods" >
+	<![CDATA[
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+	         from    (
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+	                     from (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+							  FROM goods
+							  ORDER BY goodsRegDate desc
+	                     )
+	                   where rownum <= #{endRowNo}
+	             )
+	            where rnum >= #{startRowNo}
+	      ]]>
+	</select>
+
+	
 </mapper>

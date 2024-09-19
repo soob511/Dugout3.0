@@ -30,5 +30,9 @@ public interface GoodsDao {
 	public List<GoodsDto> selectBestGoods(PagerDto pager);
 
 	public List<GoodsDto> selectRecommendGoods(PagerDto pager);
+
+	public int getLimitRows();
+
+	public List<GoodsDto> selectNewGoods(PagerDto pager);
 	
 }
