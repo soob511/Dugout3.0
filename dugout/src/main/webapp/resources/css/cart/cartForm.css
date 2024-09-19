@@ -1,6 +1,7 @@
 #cart-main{
 	width: 1334px;
 	margin: 144px 224px 0 170px;
+	color: black;
 }
 #title {
 	font-size: 40px;
@@ -15,6 +16,7 @@
 }
 aside{
 	float: right;
+	margin-bottom: 200px;
 }
 .pay-form{
 	border: 1px solid black;
@@ -147,9 +149,6 @@ button{
 }
  .box button {
     margin: 5px 0; 
-}
-footer{
-	clear: both;
 }
 
 .empty-cart {
