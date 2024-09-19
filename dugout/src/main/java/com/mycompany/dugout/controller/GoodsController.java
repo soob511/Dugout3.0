@@ -42,6 +42,13 @@ public class GoodsController {
 		out.close();
 	}
 	
+	@RequestMapping("/goodsDetail")
+	public String goodsDetail(int goodsId, Model model) {
+		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
+		model.addAttribute("goods",goods);
+		return "/goods/goodsDetail";
+	}
+	
 	@ RequestMapping("/getDetailImg")
 	public void getDetailImg(int goodsId,HttpServletResponse response) throws Exception{
 		GoodsDto goods = goodsService.getImg(goodsId);
@@ -161,13 +168,6 @@ public class GoodsController {
 		List<GoodsDto> list =  goodsService.getRecommendGoods(pager);
 		model.addAttribute("list",list);
 		return "/goods/recommendGoods";
-	}
-	
-	@RequestMapping("/goodsDetail")
-	public String goodsDetail(int goodsId, Model model) {
-		GoodsDto goods = goodsService.getGoodsDetail(goodsId);
-		model.addAttribute("goods",goods);
-		return "/goods/goodsDetail";
 	}
 	
 	@RequestMapping("/goodsManagement")
