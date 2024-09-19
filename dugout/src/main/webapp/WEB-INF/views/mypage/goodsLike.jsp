@@ -16,7 +16,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/mypage/heartListForm.css"  rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/mypage/goodsLike.css"  rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
