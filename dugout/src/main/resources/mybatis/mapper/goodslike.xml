@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mycompany.dugout.dao.GoodsLikeDao" />
+<mapper namespace="com.mycompany.dugout.dao.GoodsLikeDao">
+	<insert id="insertLike" parameterType="GoodsLike">
+		INSERT INTO goodsLike(userId,goodsId) 
+		VALUES (#{userId},#{goodsId})
+	</insert>
+	<delete id="deleteLike" parameterType="GoodsLike">
+		DELETE
+		FROM goodsLike
+		WHERE userId = #{userId}
+		AND goodsId = #{goodsId}
+	</delete>
+
+
+
+</mapper>
