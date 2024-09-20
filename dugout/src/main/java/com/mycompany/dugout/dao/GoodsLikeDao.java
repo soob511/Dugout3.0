@@ -15,4 +15,5 @@ public interface GoodsLikeDao {
 	public int deleteLike(GoodsLikeDto goodsLike);
 	public int getLikeRowsById(String userId);
 	public List<GoodsDto> getLikeItemList(@Param("userId") String userId, @Param("pager") PagerDto pager);
+	public int selectIsLike(GoodsLikeDto goodsLike);
 }

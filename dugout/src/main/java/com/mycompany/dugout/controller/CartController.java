@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.CartDto;
@@ -89,5 +90,18 @@ public class CartController {
 		cartService.updateCart(updateItem);
 		
 		return "ok";
+	}
+	
+	@ResponseBody
+	@PostMapping("/deleteCart")
+	public boolean deleteCart(int[] checkList) {
+		if(checkList==null) {
+			return false;
+		}else {
+			for(int goodsId : checkList){
+				cartService.deleteItem(goodsId);
+			}	
+		}
+		return true;
 	}
 }

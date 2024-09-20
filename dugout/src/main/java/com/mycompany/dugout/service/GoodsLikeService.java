@@ -33,5 +33,10 @@ public class GoodsLikeService {
 		List<GoodsDto> list = goodsLikeDao.getLikeItemList(userId, pager);
 		return list;
 	}
+	public int getIsLike(GoodsLikeDto goodsLike) {
+		int count = goodsLikeDao.selectIsLike(goodsLike);
+		return count;
+	}
+
 }
 

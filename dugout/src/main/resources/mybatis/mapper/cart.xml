@@ -20,4 +20,11 @@
 			cartCount=#{cartCount}
 		WHERE userId=#{userId} AND goodsId=#{goodsId}
 	</update>
+	
+	<delete id="deleteItem" parameterType="int">
+		DELETE 
+		FROM cart
+		WHERE goodsID = #{goodsId}
+	
+	</delete>
 </mapper>

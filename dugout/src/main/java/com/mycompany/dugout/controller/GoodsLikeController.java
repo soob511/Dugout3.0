@@ -64,4 +64,19 @@ public class GoodsLikeController {
 		return true;
 	}
 	
+	@ResponseBody
+	@PostMapping("/checkLike")
+	public boolean checkLike(int goodsId,Authentication authentication) {
+		log.info("실행");
+		String userId = authentication.getName();
+		GoodsLikeDto goodsLike = new GoodsLikeDto();
+		goodsLike.setGoodsId(goodsId);
+		goodsLike.setUserId(userId);
+		int count = goodsLikeService.getIsLike(goodsLike);
+		if(count==0||authentication==null) {
+			return false;
+		}
+		return true;
+	}
+	
 }
