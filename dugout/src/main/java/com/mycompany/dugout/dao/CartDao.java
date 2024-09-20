@@ -11,5 +11,6 @@ public interface CartDao {
 	public int addCart(CartDto item);
 	public List<CartDto> selectCartList(String userId);
 	public int updateCart(CartDto updateItem);
+	public int deleteItem(int goodsId);
 
 }

@@ -26,11 +26,11 @@
 			<div class="cart-box">
 				<input class="form-check-input checkbox" type="checkbox" value=""id="flexCheckDefault-all">
 				<label class="form-check-label all"for="flexCheckDefault">전체</label>
-				<button type="button" value="삭제" id="btnDelete">삭제</button>
+				<button type="button" value="삭제" id="btnDelete" onclick="deleteItem()">삭제</button>
 				
 				<c:forEach items="${cartItems}" var="item">
 					<div class="cart-list">
-						<input class="form-check-input" type="checkbox" id="flexCheckDefault">
+						<input class="form-check-input cart-checkbox" type="checkbox" id="flexCheckDefault" data-goods-id="${item.goodsId}">
 						<label class="form-check-label"for="flexCheckDefault"></label>
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${item.goodsId}">
 						<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"></a>		
@@ -43,7 +43,7 @@
 						<button type="button" class="btn btn-light minus" onclick="minus(this); updateCart(${item.goodsId})">-</button>
 						<input id="boxbox" class="btn btn-light cnt ${item.goodsId}" value="${item.cartCount}"/>
 						<button type="button" class="btn btn-light plus" onclick="plus(this); updateCart(${item.goodsId})">+</button>	
-						</div>			
+						</div>			                                    
 					</div>
 				</c:forEach>	
 				
@@ -103,6 +103,30 @@
 					}
 				});	
 			}
+		
+		function deleteItem(){
+			let selectCheck=[];
+			
+			 $(".cart-checkbox:checked").each(function() {
+			        selectCheck.push($(this).data("goods-id"));
+			   });
+			 console.log("선택된 항목:", selectCheck);
+			 $.ajax({
+				 url: "${pageContext.request.contextPath}/cart/deleteCart",
+				 method:"post",
+				 data: {checkList : selectCheck},
+				 traditional: true, 
+				 success: function(data){
+					 if(!data){
+					 alert("삭제할 항목을 체크해주세요");			 
+					 }else{
+					 alert("장바구니에서 삭제되었습니다.");			 
+					 location.href = "${pageContext.request.contextPath}/cart"
+					 }
+				 }
+
+			 })
+		}
 	</script>
 	<div style="clear: both;"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
