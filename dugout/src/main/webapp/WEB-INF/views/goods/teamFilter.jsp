@@ -18,6 +18,7 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css"
 	rel="stylesheet" />
+	<script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
