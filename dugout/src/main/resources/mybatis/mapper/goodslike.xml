@@ -12,6 +12,32 @@
 		AND goodsId = #{goodsId}
 	</delete>
 
+	<select id="getLikeRowsById" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM goodsLike
+		WHERE userId = #{userId}
+	</select>
 
+	<select id="getLikeItemList" resultType="Goods">
 
+    <![CDATA[
+	         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	         FROM    (
+	                     SELECT rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	                     FROM (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+							  FROM goods
+							  WHERE goodsId IN (
+							  	SELECT goodsId
+								FROM goodsLike
+								WHERE userId = #{userId}
+							  )
+	                     )
+	                   WHERE rownum <= #{pager.endRowNo}
+	             )
+	            WHERE rnum >= #{pager.startRowNo}
+	      ]]>
+</select>
+
+	
 </mapper>

@@ -1,14 +1,23 @@
 package com.mycompany.dugout.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mycompany.dugout.dto.GoodsDto;
 import com.mycompany.dugout.dto.GoodsLikeDto;
+import com.mycompany.dugout.dto.PagerDto;
 import com.mycompany.dugout.service.GoodsLikeService;
+import com.mycompany.dugout.service.GoodsService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,9 +28,21 @@ public class GoodsLikeController {
 	
 	@Autowired
 	GoodsLikeService goodsLikeService;
+	@Autowired
+	GoodsService goodsService;
 	
 	@RequestMapping("")
-	public String goodsLike() {
+	public String goodsLike(Authentication authentication, 
+								      @RequestParam(defaultValue="1") int pageNo, 
+									  HttpSession session, Model model) {
+		
+		String userId = authentication.getName();
+		int likeTotalRows = goodsLikeService.getLikeRowsById(userId);
+		PagerDto pager = new PagerDto(5, 3, likeTotalRows, pageNo);
+		session.setAttribute("pager", pager);
+
+		List<GoodsDto> likeList = goodsLikeService.getLikeItemList(userId, pager);		
+		model.addAttribute("likeList", likeList);
 		return "mypage/goodsLike";
 	}
 	
