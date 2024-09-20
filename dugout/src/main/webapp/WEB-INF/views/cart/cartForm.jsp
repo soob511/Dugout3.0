@@ -7,11 +7,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>장바구니</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	 <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/cart/cartForm.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/cart/cartForm.css"  rel="stylesheet" />
 </head>
@@ -30,7 +30,7 @@
 				
 				<c:forEach items="${cartItems}" var="item">
 					<div class="cart-list">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+						<input class="form-check-input" type="checkbox" id="flexCheckDefault">
 						<label class="form-check-label"for="flexCheckDefault"></label>
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${item.goodsId}">
 						<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"></a>		
@@ -39,12 +39,13 @@
 						<span id="product-price" data-price="${item.goodsPrice}">
 							<fmt:formatNumber value="${item.goodsPrice * item.cartCount}" pattern="#,###" />원
 						</span><br>	
-						<button type="button" class="btn btn-light minus">-</button>
-						<button id="boxbox" type="button" class="btn btn-light cnt">${item.cartCount}</button>
-						<button type="button" class="btn btn-light plus">+</button>	
+
+						<button type="button" class="btn btn-light minus" onclick="minus(this); updateCart(${item.goodsId})">-</button>
+						<input id="boxbox" class="btn btn-light cnt ${item.goodsId}" value="${item.cartCount}"/>
+						<button type="button" class="btn btn-light plus" onclick="plus(this); updateCart(${item.goodsId})">+</button>	
 						</div>			
 					</div>
-				</c:forEach>
+				</c:forEach>	
 				
 				<c:if test="${empty cartItems}">
 					<div class="empty-cart">
@@ -85,6 +86,24 @@
 			</div>
 		</aside>
 	</main>
+	<script>
+		function updateCart(id) {
+			let goodsId = id;
+			let cartCount = $("." + id).val();
+			console.log("cartCount: " + cartCount);
+			
+			const params = {goodsId, cartCount};
+			
+			$.ajax({
+				url: "${pageContext.request.contextPath}/cart/updateCart",
+				method: "post",
+			    data: params,
+				success: function(data) {
+						console.log(data);
+					}
+				});	
+			}
+	</script>
 	<div style="clear: both;"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>

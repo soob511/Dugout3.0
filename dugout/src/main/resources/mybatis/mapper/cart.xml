@@ -15,5 +15,9 @@
 		WHERE userId = #{userId}
 	</select>
 	
-	
+	<update id="updateCart" parameterType="Cart">
+		UPDATE cart SET
+			cartCount=#{cartCount}
+		WHERE userId=#{userId} AND goodsId=#{goodsId}
+	</update>
 </mapper>

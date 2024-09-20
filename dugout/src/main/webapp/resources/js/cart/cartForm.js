@@ -1,10 +1,8 @@
-$(document).ready(function () {
-
-  $(".plus").click(function () {
-    let product = $(this).closest(".cart-list");
-    let productPlus = $(this).prev(".cnt");
-    let cartCount = parseInt(productPlus.text());
-    productPlus.text(cartCount + 1);
+function plus(button) {
+    let product = $(button).closest(".cart-list");
+    let productPlus = $(button).prev(".cnt");
+    let cartCount = parseInt(productPlus.val());
+    productPlus.val(cartCount + 1);
 
     let productPrice = product.find("#product-price");
     let price = parseInt(productPrice.data("price"));
@@ -14,14 +12,14 @@ $(document).ready(function () {
     productPrice.text(price.toLocaleString() + "원");
 
     totalPriceOper();
-  });
+	}
 
-  $(".minus").click(function () {
-    let product = $(this).closest(".cart-list");
-    let productMinus = $(this).next(".cnt");
-    let cartCount = parseInt(productMinus.text());
+function minus(button) {
+    let product = $(button).closest(".cart-list");
+    let productMinus = $(button).next(".cnt");
+    let cartCount = parseInt(productMinus.val());
     if (cartCount > 1) {
-      productMinus.text(cartCount - 1);
+      productMinus.val(cartCount - 1);
       let productPrice = product.find("#product-price");
       let price = parseInt(productPrice.data("price"));
       const originPrice = parseInt(productPrice.data("price"));
@@ -30,8 +28,9 @@ $(document).ready(function () {
       productPrice.text(price.toLocaleString() + "원");
     }
     totalPriceOper();
-  });
+}
 
+$(document).ready(function () {
   $("#flexCheckDefault-all").on("click", function () {
     $(".cart-list .form-check-input").prop("checked", $(this).prop("checked"));
     totalPriceOper();

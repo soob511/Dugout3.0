@@ -76,4 +76,18 @@ public class CartController {
 		cartService.addCart(item);
 		return true;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/updateCart")
+	public String updateCart(int goodsId, int cartCount, Authentication authentication) {
+		CartDto updateItem = new CartDto();
+		
+		updateItem.setUserId(authentication.getName());
+		updateItem.setGoodsId(goodsId);
+		updateItem.setCartCount(cartCount);
+		
+		cartService.updateCart(updateItem);
+		
+		return "ok";
+	}
 }
