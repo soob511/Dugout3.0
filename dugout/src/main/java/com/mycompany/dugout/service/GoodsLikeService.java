@@ -21,4 +21,9 @@ public class GoodsLikeService {
 		
 	}
 
+	public int getIsLike(GoodsLikeDto goodsLike) {
+		int count = goodsLikeDao.selectIsLike(goodsLike);
+		return count;
+	}
+
 }

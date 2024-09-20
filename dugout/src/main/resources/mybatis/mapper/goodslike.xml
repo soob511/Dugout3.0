@@ -11,6 +11,12 @@
 		WHERE userId = #{userId}
 		AND goodsId = #{goodsId}
 	</delete>
+	<select id="selectIsLike" parameterType="GoodsLike" resultType="int">
+	    SELECT COUNT(*)
+	    FROM goodsLike
+	    WHERE userId = #{userId}
+	    AND goodsId = #{goodsId}
+	</select>
 
 
 

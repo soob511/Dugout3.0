@@ -11,4 +11,6 @@ public interface GoodsLikeDao {
 
 	public int deleteLike(GoodsLikeDto goodsLike);
 
+	public int selectIsLike(GoodsLikeDto goodsLike);
+
 }

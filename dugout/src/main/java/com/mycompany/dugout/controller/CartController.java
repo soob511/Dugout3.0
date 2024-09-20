@@ -95,10 +95,7 @@ public class CartController {
 	@ResponseBody
 	@PostMapping("/deleteCart")
 	public boolean deleteCart(int[] checkList) {
-		log.info("실행");
-		log.info(String.valueOf(checkList));
 		if(checkList==null) {
-			log.info("비었음");
 			return false;
 		}else {
 			for(int goodsId : checkList){

@@ -28,3 +28,23 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 	  })
 	  
 	});
+
+$(document).ready(function() {
+    $(".bi-heart, .bi-heart-fill").each(function() {
+        let goodsId = $(this).data("goods-id");
+        
+        $.ajax({
+            url: "goodsLike/checkLike",
+            method: "POST",
+            data: { goodsId: goodsId },
+            success: function(data) {
+                if (data) {
+                    $("i[data-goods-id='" + goodsId + "']").removeClass("bi-heart").addClass("bi-heart-fill");
+                } else {
+                    $("i[data-goods-id='" + goodsId + "']").removeClass("bi-heart-fill").addClass("bi-heart");
+                }
+            }
+        });
+    });
+});
+
