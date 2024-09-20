@@ -22,4 +22,7 @@ public class CartService {
 		return list;
 	}
 
+	public void updateCart(CartDto updateItem) {
+		cartDao.updateCart(updateItem);
+	}
 }
