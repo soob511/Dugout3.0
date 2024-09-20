@@ -157,3 +157,8 @@ nav {
     color: white;
     letter-spacing: 1px;
 }
+
+.bi-heart-fill {
+  color: #ff0004;
+  cursor: pointer;
+}

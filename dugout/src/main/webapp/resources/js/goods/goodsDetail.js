@@ -16,8 +16,6 @@ function decrease(button, goodsPrice) {
       $("#total-price").text(totalPrice.toLocaleString());
 }
 
-$(document).ready(function () {
-    $(".like-btn").click(function(){
-        alert("관심목록에 담겼습니다.");
-    })
-});
+$(document).on("click", ".bi-heart, .bi-heart-fill", function () {
+	  $(this).toggleClass("bi-heart bi-heart-fill");
+	});
