@@ -6,5 +6,4 @@ import lombok.Data;
 public class GoodsLikeDto {
 	private String userId;
 	private int goodsId;
-
 }
