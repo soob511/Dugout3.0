@@ -79,4 +79,15 @@ public class GoodsLikeController {
 		return true;
 	}
 	
+	@ResponseBody
+	@PostMapping("/deleteLike")
+	public String deleteLike(int goodsId, Authentication authentication) {
+		GoodsLikeDto goodsLike = new GoodsLikeDto();
+		
+		goodsLike.setUserId(authentication.getName());
+		goodsLike.setGoodsId(goodsId);
+		
+		goodsLikeService.deleteLike(goodsLike);
+		return "redirect:/goodsLike";
+	}
 }

@@ -51,7 +51,7 @@
 							<button type="button" class="btn-to-cart" onclick="addCart(${item.goodsId})">장바구니 담기</button>
 						</div>
 						<div class="heart-delete">
-							<button type="submit" class="btn-heart-delete">삭제</button>
+							<button type="button" class="btn-heart-delete" onclick="deleteLike(${item.goodsId})">삭제</button>
 						</div>
 					</div>
 				</section>
@@ -126,6 +126,21 @@
 				}
 			});
 		}
+		
+		function deleteLike(itemId) {
+			const params = {goodsId: itemId};
+			
+			$.ajax({
+				url: "${pageContext.request.contextPath}/goodsLike/deleteLike",
+				method: "post",
+			       data: params,
+				success: function(data) {				
+						alert("관심내역에서 삭제되었습니다.");
+						url = `${pageContext.request.contextPath}/goodsLike`;
+						location.href=url;
+					}
+				});
+			}
 	</script>
 </body>
 </html>
