@@ -190,4 +190,20 @@ public class GoodsController {
 		model.addAttribute("teams", teams);
 		return "goods/goodsManagement";
 	}
+	
+	@RequestMapping("/searchGoods")
+	public String searchGoods(String inputKeyword, Model model, HttpSession session, @RequestParam(defaultValue="1") int pageNo) {
+		session.setAttribute("keyword", inputKeyword.trim());		
+		String keyword = (String) session.getAttribute("keyword");
+		int totalRows = goodsService.getTotalRowsByKeyword(keyword);
+		session.setAttribute("totalRows", totalRows);
+		
+		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		session.setAttribute("pager", pager);
+		
+		List<GoodsDto> list = goodsService.getGoodsListByKeyword(inputKeyword, pager);
+		session.setAttribute("list", list);
+		
+		return "goods/searchGoods";
+	}
 }

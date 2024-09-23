@@ -74,4 +74,14 @@ public class GoodsService {
 		return list;
 	}
 
+	public int getTotalRowsByKeyword(String keyword) {
+		int totalRowsByKeyword = goodsDao.getTotalRowsByKeyword(keyword);
+		return totalRowsByKeyword;
+	}
+
+	public List<GoodsDto> getGoodsListByKeyword(String keyword, PagerDto pager) {
+		List<GoodsDto> list = goodsDao.getGoodsListByKeyword(keyword, pager);
+		return list;
+	}
+
 }

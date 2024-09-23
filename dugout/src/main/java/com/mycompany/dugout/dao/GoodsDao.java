@@ -34,5 +34,9 @@ public interface GoodsDao {
 	public int getLimitRows();
 
 	public List<GoodsDto> selectNewGoods(PagerDto pager);
+
+	public int getTotalRowsByKeyword(String keyword);
+
+	public List<GoodsDto> getGoodsListByKeyword(@Param("keyword")String keyword, @Param("pager")PagerDto pager);
 	
 }

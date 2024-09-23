@@ -105,3 +105,23 @@ form {
   color: black !important;
   background-color: white !important;
 }
+
+.empty-cart {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	margin-bottom:100px; 
+}
+
+.empty-cart h5 {
+	font-weight: bolder;
+	color: #CBD1D7;
+	line-height: 1.5;
+}
+
+.empty-cart  i {
+	color: #CBD1D7;
+	font-size: 85px;
+	display: block;
+	margin: 50px 0 20px;
+}
