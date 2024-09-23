@@ -79,10 +79,10 @@
 				</div>
 			</div>
 			<div class="pay-all">
-				<button type="submit" id="pay-all">전체상품주문</button>
+				<button type="submit" id="pay-all" onclick="allOrderItem()">전체상품주문</button>
 			</div>
 			<div class="pay-select">
-				<button type="submit" id="pay-select">선택상품주문</button>
+				<button type="submit" id="pay-select" onclick="orderItem()">선택상품주문</button>
 			</div>
 		</aside>
 	</main>
@@ -127,6 +127,36 @@
 
 			 })
 		}
+		
+		function orderItem(){
+			let selectCheck = [];
+
+			 $(".cart-checkbox:checked").each(function() {
+			        selectCheck.push($(this).data("goods-id"));
+			   });
+			 console.log("선택된 항목:", selectCheck);
+			 $.ajax({
+				 url: "${pageContext.request.contextPath}/order/orderItem",
+				 method:"post",
+				 data: {orderList : selectCheck},
+				 traditional: true, 
+				 success: function(data){
+					 if(!data){
+					 alert("상품을 선택해주세요");			 
+					 }else{
+					 location.href = "${pageContext.request.contextPath}/pay/payment"
+					 }
+				 }
+
+			 })			
+		} 
+		
+		function allOrderItem(){
+			  $(".cart-checkbox").prop("checked", true);
+				 
+				 orderItem();
+			 }
+
 	</script>
 	<div style="clear: both;"></div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />

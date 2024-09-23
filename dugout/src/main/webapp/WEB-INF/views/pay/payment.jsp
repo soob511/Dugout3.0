@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/payment.css"  rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/pay/payment.css"  rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -18,17 +18,17 @@
 
 			<div class="form-group">
 				<label for="address">주소</label> <input type="text" id="address"
-					name="address" value="서울 종로구 창경궁로 254 7층">
+					name="address" value="${user.userAddress}">
 			</div>
 
 			<div class="form-group">
 				<label for="name">이름</label> <input type="text" id="name"
-					name="name" value="김코사">
+					name="name" value="${user.userName}">
 			</div>
 
 			<div class="form-group">
 				<label for="phone">전화번호</label> <input type="text" id="phone"
-					name="phone" value="01098761234">
+					name="phone" value="${user.userPhone}">
 			</div>
 		</div>
 
@@ -60,6 +60,6 @@
 	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-	<script src="Payment.js"> </script>
+<!-- 	<script src="Payment.js"> </script> -->
 </body>
 </html>

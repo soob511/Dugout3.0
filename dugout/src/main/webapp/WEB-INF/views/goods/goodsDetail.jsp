@@ -71,7 +71,7 @@
 				
 			</div>
 			<div class = "product-actions d-flex">
-				<button type="button" class="like-btn col-2"><i class="bi bi-heart"></i></button>
+				<button type="button" class="like-btn col-2"> <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i></button>
 				<button class="shoppingcart-btn col-5" onclick="addCart()">장바구니</button>
 				<button type="button" class="purchase-btn col-5">구매하기</button>
 			</div>

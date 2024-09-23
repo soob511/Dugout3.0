@@ -23,7 +23,7 @@
  
 	<sec:authorize access="isAnonymous()">
     <div class="icons">
-      <a href="${pageContext.request.contextPath}/orderItem" class="myPage">
+      <a href="${pageContext.request.contextPath}/order/orderList" class="myPage">
         <img src="${pageContext.request.contextPath}/resources/image/logo/myPage.png" class="myPage-img" /><br />
         <span>마이페이지</span>
       </a>
@@ -37,7 +37,7 @@
 
 <sec:authorize access="hasRole('ROLE_USER') and !hasRole('ROLE_ADMIN')">
     <div class="icons">
-      <a href="${pageContext.request.contextPath}/orderItem" class="myPage">
+      <a href="${pageContext.request.contextPath}/order/orderList" class="myPage">
         <img src="${pageContext.request.contextPath}/resources/image/logo/myPage.png" class="myPage-img" /><br />
         <span>마이페이지</span>
       </a>
