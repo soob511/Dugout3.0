@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/payment.css"  rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/css/pay/payment.css"  rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -35,8 +35,8 @@
 		<div class="section">
 			<div class="section-title">주문 정보</div>
 			<div class="product-wrapper">
-				<img src="../common/image/teamLogo/doosanTeamLogo.png"
-					alt="Product Image" class="product-image">
+				<!-- <img src="../common/image/teamLogo/doosanTeamLogo.png"
+					alt="Product Image" class="product-image"> -->
 				<div class="product-details">
 					<div class="product-name">두산 어웨이 어센틱 유니폼</div>
 					<div class="product-options">사이즈: M &nbsp;&nbsp;&nbsp; 수량: 2개</div>
@@ -60,6 +60,6 @@
 	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-	<script src="Payment.js"> </script>
+<!-- 	<script src="Payment.js"> </script> -->
 </body>
 </html>
