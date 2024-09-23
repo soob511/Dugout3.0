@@ -48,7 +48,7 @@
 					</div>
 					<div class="heart-btns">
 						<div class="cart-to">
-							<button type="submit" class="btn-to-cart">장바구니 담기</button>
+							<button type="button" class="btn-to-cart" onclick="addCart(${item.goodsId})">장바구니 담기</button>
 						</div>
 						<div class="heart-delete">
 							<button type="submit" class="btn-heart-delete">삭제</button>
@@ -113,5 +113,19 @@
 		</div>
 	</div>
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<script>
+		function addCart(itemId) {
+		const params = {goodsId: itemId, cartCount: 1};
+		
+		$.ajax({
+			url: "${pageContext.request.contextPath}/cart/addCart",
+			method: "post",
+		       data: params,
+			success: function(data) {				
+					alert("장바구니에 담겼습니다.");
+				}
+			});
+		}
+	</script>
 </body>
 </html>

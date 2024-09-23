@@ -100,11 +100,6 @@
 			}
 			});
 		}
-		
-	/* 	function totalPrice() {
-			let totalPrice = ${goods.goodsPrice} * $("#quantity").val();
-			$("#total-price").text(totalPrice);
-		} */
 	</script>
 </body>
 </html>
