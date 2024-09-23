@@ -28,7 +28,7 @@
 			<section>
 				<div class="heart-title-box">
 					<h2 class="product-insert-title">관심 목록</h2>
-					<button type="button" class="heart-delete-all">전체 삭제</button>
+					<button type="button" class="heart-delete-all" onclick="deleteAllLikes()">전체 삭제</button>
 				</div>
 			</section>
 			
@@ -141,6 +141,18 @@
 					}
 				});
 			}
+		
+		function deleteAllLikes() {
+			$.ajax({
+				url: "${pageContext.request.contextPath}/goodsLike/deleteAllLikes",
+				method: "post",
+				success: function(data) {				
+						alert("관심내역이 전체 삭제되었습니다.");
+						url = `${pageContext.request.contextPath}/goodsLike`;
+						location.href=url;
+					}
+				});
+		}
 	</script>
 </body>
 </html>

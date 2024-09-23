@@ -38,5 +38,9 @@ public class GoodsLikeService {
 		return count;
 	}
 
+	public void deleteAllLikes(String userId) {
+		goodsLikeDao.deleteAllLikes(userId);
+	}
+
 }
 

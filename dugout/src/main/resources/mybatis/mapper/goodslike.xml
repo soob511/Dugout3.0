@@ -43,7 +43,12 @@
 	             )
 	            WHERE rnum >= #{pager.startRowNo}
 	      ]]>
-</select>
+	</select>
 
+	<delete id="deleteAllLikes" parameterType="String">
+		DELETE
+		FROM goodsLike
+		WHERE userId = #{userId}
+	</delete>
 	
 </mapper>

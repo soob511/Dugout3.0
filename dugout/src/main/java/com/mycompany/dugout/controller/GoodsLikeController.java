@@ -90,4 +90,13 @@ public class GoodsLikeController {
 		goodsLikeService.deleteLike(goodsLike);
 		return "redirect:/goodsLike";
 	}
+	
+	@ResponseBody
+	@PostMapping("/deleteAllLikes")
+	public String deleteAllLikes(Authentication authentication) {
+		String userId = authentication.getName();
+		goodsLikeService.deleteAllLikes(userId);
+		return "redirect:/goodsLike";
+	}
+	
 }
