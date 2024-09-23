@@ -18,25 +18,25 @@
 
 			<div class="form-group">
 				<label for="address">주소</label> <input type="text" id="address"
-					name="address" value="서울 종로구 창경궁로 254 7층">
+					name="address" value="${user.userAddress}">
 			</div>
 
 			<div class="form-group">
 				<label for="name">이름</label> <input type="text" id="name"
-					name="name" value="김코사">
+					name="name" value="${user.userName}">
 			</div>
 
 			<div class="form-group">
 				<label for="phone">전화번호</label> <input type="text" id="phone"
-					name="phone" value="01098761234">
+					name="phone" value="${user.userPhone}">
 			</div>
 		</div>
 
 		<div class="section">
 			<div class="section-title">주문 정보</div>
 			<div class="product-wrapper">
-				<!-- <img src="../common/image/teamLogo/doosanTeamLogo.png"
-					alt="Product Image" class="product-image"> -->
+				<img src="../common/image/teamLogo/doosanTeamLogo.png"
+					alt="Product Image" class="product-image">
 				<div class="product-details">
 					<div class="product-name">두산 어웨이 어센틱 유니폼</div>
 					<div class="product-options">사이즈: M &nbsp;&nbsp;&nbsp; 수량: 2개</div>

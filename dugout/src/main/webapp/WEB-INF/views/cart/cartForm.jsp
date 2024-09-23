@@ -150,6 +150,7 @@
 
 			 })			
 		} 
+		
 		function allOrderItem(){
 			  $(".cart-checkbox").prop("checked", true);
 				 
