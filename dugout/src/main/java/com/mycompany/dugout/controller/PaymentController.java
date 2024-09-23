@@ -10,10 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mycompany.dugout.dto.GoodsDto;
+import com.mycompany.dugout.dto.PayItemDto;
 import com.mycompany.dugout.dto.UserDto;
 import com.mycompany.dugout.security.UserDetail;
 import com.mycompany.dugout.service.GoodsService;
@@ -33,25 +34,19 @@ public class PaymentController {
 		UserDetail userDetail = (UserDetail) authentication.getPrincipal();
 		UserDto user = userDetail.getUser();
 		model.addAttribute("user",user);
-		
-		int[] orderList = (int[]) session.getAttribute("orderList");
-		List<GoodsDto> list;
-		/*for(int goodsId:orderList) {
-			list.add(goodsService.get)
-		}
-		*/
+	
 		
 		return "pay/payment";
 	}
 
 	@ResponseBody
 	@PostMapping("/orderItem")
-	public boolean orderItem(int[] orderList,HttpSession session) {
-		
-		if(orderList==null) {
+	public boolean orderItem(@RequestBody List<PayItemDto> list,HttpSession session) {
+	
+		if(list==null) {
 			return false;
 		}
-		session.setAttribute("orderList", orderList);
+		session.setAttribute("orderList", list);
 		return true;
 	}
 	

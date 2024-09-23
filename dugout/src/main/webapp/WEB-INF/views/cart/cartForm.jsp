@@ -41,7 +41,7 @@
 						</span><br>	
 
 						<button type="button" class="btn btn-light minus" onclick="minus(this); updateCart(${item.goodsId})">-</button>
-						<input id="boxbox" class="btn btn-light cnt ${item.goodsId}" value="${item.cartCount}"/>
+						<input id="boxbox" class="btn btn-light cnt product-quantity ${item.goodsId}" value="${item.cartCount}"/>
 						<button type="button" class="btn btn-light plus" onclick="plus(this); updateCart(${item.goodsId})">+</button>	
 						</div>			                                    
 					</div>
@@ -129,21 +129,35 @@
 		}
 		
 		function orderItem(){
-			let selectCheck = [];
+		    let orderList = [];
 
-			 $(".cart-checkbox:checked").each(function() {
-			        selectCheck.push($(this).data("goods-id"));
-			   });
-			 console.log("선택된 항목:", selectCheck);
+		    $(".cart-checkbox:checked").each(function() {
+		        let goodsId = $(this).data("goods-id");
+		        let goodsName = $(this).closest(".cart-list").find("#product-name").text();
+		        let goodsQuantity = parseInt($(this).closest(".cart-list").find(".product-quantity").val(), 10);
+		        let goodsPrice = $(this).closest(".cart-list").find("#product-price").data("price");
+
+		        orderList.push({
+		            goodsId: goodsId,
+		            goodsName: goodsName,
+		            goodsQuantity: goodsQuantity,
+		            goodsPrice: goodsPrice
+		        });
+		    });
+
+		    console.log(JSON.stringify(orderList, null, 2));  
+
 			 $.ajax({
 				 url: "${pageContext.request.contextPath}/order/orderItem",
 				 method:"post",
-				 data: {orderList : selectCheck},
-				 traditional: true, 
+			    contentType: "application/json",
+		        data: JSON.stringify(orderList), 
+		        traditional: true, 
 				 success: function(data){
 					 if(!data){
 					 alert("상품을 선택해주세요");			 
 					 }else{
+					console.log(data);
 					 location.href = "${pageContext.request.contextPath}/pay/payment"
 					 }
 				 }
