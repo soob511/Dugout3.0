@@ -136,7 +136,7 @@
 	        WHERE rownum <= 32
 	    )
      ]]>
-</select>
+	</select>
 
 	<select id = "selectNewGoods" parameterType="Pager" resultType="Goods" >
 	<![CDATA[
@@ -153,6 +153,32 @@
 	            where rnum >= #{startRowNo}
 	      ]]>
 	</select>
+	
+	<select id="getTotalRowsByKeyword" parameterType="String" resultType="int">
+	    <![CDATA[
+	        SELECT count(*)
+	        FROM goods
+	        WHERE goodsName LIKE '%' || #{keyword} || '%' OR goodsTeam LIKE '%' || #{keyword} || '%'
+	    ]]>
+	</select>
+
+	
+	<select id = "getGoodsListByKeyword" resultType="Goods" >
+		<![CDATA[
+	         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	         FROM    (
+	                     SELECT rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	                     FROM (
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+							  FROM goods
+							  WHERE goodsName LIKE '%' || #{keyword} || '%' OR goodsTeam LIKE '%' || #{keyword} || '%'
+	                     )
+	                   WHERE rownum <= #{pager.endRowNo}
+	             )
+	            WHERE rnum >= #{pager.startRowNo}
+	      ]]>
+	</select>
+	
 
 	
 </mapper>

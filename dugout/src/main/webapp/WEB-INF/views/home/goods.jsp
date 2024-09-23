@@ -30,9 +30,10 @@
 				</ul>
 			</div>
 			<div>
-				<form class="d-flex" role="search">
+				<form class="d-flex" method="post" action="${pageContext.request.contextPath}/goods/searchGoods">
 					<input class="form-control me-2" type="search" placeholder=""
-						aria-label="Search" />
+						aria-label="Search"
+						name="inputKeyword" />
 					<button class="search-btn" type="submit">
 						<i class="bi bi-search"></i>
 					</button>
