@@ -36,6 +36,10 @@ public class GoodsLikeController {
 								      @RequestParam(defaultValue="1") int pageNo, 
 									  HttpSession session, Model model) {
 		
+		if(authentication==null) {
+			return "user/loginForm";
+		}
+		
 		String userId = authentication.getName();
 		int likeTotalRows = goodsLikeService.getLikeRowsById(userId);
 		PagerDto pager = new PagerDto(5, 3, likeTotalRows, pageNo);

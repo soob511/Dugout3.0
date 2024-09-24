@@ -80,6 +80,10 @@ public class UserController {
 	
 	@GetMapping("userInfo")
 	public String userInfo(Model model, Authentication authentication) {
+		
+		if(authentication==null) {
+			return "user/loginForm";
+		}
 
 		UserDetail userDetail = (UserDetail) authentication.getPrincipal();
 		UserDto user = userDetail.getUser();
