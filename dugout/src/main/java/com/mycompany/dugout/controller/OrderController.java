@@ -1,5 +1,6 @@
 package com.mycompany.dugout.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -48,27 +49,21 @@ public class OrderController {
 		orderService.updateOrderStatus(currentDate);
 		
 		List<OrderDto> orderList = orderService.getOrderListById(userId);
+	
+	    List<List<OrderItemDetailDto>> orderItemList = new ArrayList<>();
+	    
+	    for (OrderDto order : orderList) {
+	        Long orderId = order.getOrderId();
+	        List<OrderItemDetailDto> orderItems = orderService.getOrderItemDetail(orderId);
+	        orderItemList.add(orderItems); 
+	    }
 
 		// 모델에 담기
 		model.addAttribute("orderList", orderList);
+		model.addAttribute("orderItemList",orderItemList);
 		
 		return "mypage/orderList";
 	}
-	
-	@ResponseBody
-	@RequestMapping("/getItemDetail")
-	public String orderList(Model model, Long orderId, HttpSession session) {
-		session.removeAttribute("orderItem");
-		List<OrderItemDetailDto> orderItem = orderService.getOrderItemDetail(orderId);
-		log.info(orderItem.toString());
-		
-		// 모델에 담기
-		session.setAttribute("orderItem", orderItem);
-		
-		return "ok";
-	}
-	
-	
 	
 	@GetMapping("/payment")
 	public String payment(Model model,Authentication authentication,HttpSession session) {

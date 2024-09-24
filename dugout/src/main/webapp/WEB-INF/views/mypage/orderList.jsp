@@ -32,64 +32,51 @@
                 <button class="recent1-year-btn">최신 1년</button>
             </div>
             
-            <c:forEach items="${orderList}" var="item">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" >
-                        <button class="accordion-button collapsed" onclick="getItemDetail(${item.orderId})" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${item.orderId}" aria-expanded="false" aria-controls="#flush-collapse${item.orderId}">
-                            <div style="width: 830px;" >
-                                <div class="purchase-item-details">
-                                    <div class="purchase-date">[ No. ${item.orderId} ]</div>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="purchase-item-price mt-2 me-5">주문일자 : <fmt:formatDate value="${item.orderDate}" pattern="yyyy.MM.dd."/>  </div>
-                                        <div class="mb-0 btn btn-dark btn-sm">
-	                                         <c:choose>
-											        <c:when test="${item.orderStatus == 0}">배송대기</c:when>
-											        <c:when test="${item.orderStatus == 1}">배송중</c:when>
-											        <c:when test="${item.orderStatus == 2}">배송완료</c:when>
-											        <c:otherwise>상태 없음</c:otherwise>
-											    </c:choose>                                       	
-										</div>
-                                    </div>
-                                    <div class="purchase-item-price">주문금액 : 총 <fmt:formatNumber value="${item.orderTotalPrice}" pattern="#,###,###"></fmt:formatNumber>원</div>
+          <c:forEach items="${orderList}" var="item" varStatus="status">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${item.orderId}" aria-expanded="false" aria-controls="flush-collapse${item.orderId}">
+                    <div style="width: 830px;">
+                        <div class="purchase-item-details">
+                            <div class="purchase-date">[ No. ${item.orderId} ]</div>
+                            <div class="d-flex justify-content-between">
+                                <div class="purchase-item-price mt-2 me-5">주문일자 : <fmt:formatDate value="${item.orderDate}" pattern="yyyy.MM.dd."/> </div>
+                                <div class="mb-0 btn btn-dark btn-sm">
+                                    <c:choose>
+                                        <c:when test="${item.orderStatus == 0}">배송대기</c:when>
+                                        <c:when test="${item.orderStatus == 1}">배송중</c:when>
+                                        <c:when test="${item.orderStatus == 2}">배송완료</c:when>
+                                        <c:otherwise>상태 없음</c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
-                        </button>
-                    </h2>
-                   <div id="flush-collapse${item.orderId}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-
-                        <div class="accordion-body">
-                   <c:forEach items="${orderItem}" var="order">
-                            <div class="purchase-item">
-                                <img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${order.goodsId}">
-                                <div class="purchase-item-details">
-                                    <div class="purchase-date">[${order.goodsTeam}] ${order.goodsName}</div>
-                                    <div class="purchase-item-price"><fmt:formatNumber value="${order.orderItemPrice}" pattern="#,###,###"></fmt:formatNumber>원 / ${order.orderItemCount}개</div>
-                                    <div class="purchase-item-price"><fmt:formatNumber value="${order.orderItemPrice * order.orderItemCount}" pattern="#,###,###"></fmt:formatNumber>원</div>
-                                </div>
-                            </div>
-                   </c:forEach>
+                            <div class="purchase-item-price">주문금액 : 총 <fmt:formatNumber value="${item.orderTotalPrice}" pattern="#,###,###"></fmt:formatNumber>원</div>
                         </div>
                     </div>
+                </button>
+            </h2>
+            <div id="flush-collapse${item.orderId}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+
+                    <c:forEach items="${orderItemList[status.index]}" var="order">
+                        <div class="purchase-item">
+                            <img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${order.goodsId}">
+                            <div class="purchase-item-details">
+                                <div class="purchase-date">[${order.goodsTeam}] ${order.goodsName}</div>
+                                <div class="purchase-item-price"><fmt:formatNumber value="${order.orderItemPrice}" pattern="#,###,###"></fmt:formatNumber>원 / ${order.orderItemCount}개</div>
+                                <div class="purchase-item-price"><fmt:formatNumber value="${order.orderItemPrice * order.orderItemCount}" pattern="#,###,###"></fmt:formatNumber>원</div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
-                
-                
-            </div>	
-            
-            </c:forEach>
+            </div>
         </div>
     </div>
-	<script>
-		function getItemDetail(orderId) {
-			$.ajax({
-				url: "${pageContext.request.contextPath}/order/getItemDetail?orderId=" + orderId,
-				method: "POST",
-				success: function(data) {
-					console.log(data);
-				}
-			});
-		}
-	</script>
+</c:forEach>
+
+        </div>
+    </div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
