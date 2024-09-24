@@ -32,11 +32,11 @@
 		WHERE o.orderId = #{orderId}
 	</select>
 
-	<update id="updateOrderStatus" parameterType="java.util.Date">
+	<update id="updateOrderStatus" parameterType="Date">
 	    UPDATE "order"
 	    SET orderStatus = CASE 
-	        WHEN (#{date} - INTERVAL '3' DAY) > orderDate THEN 2 
-	        WHEN (#{date} - INTERVAL '1' DAY) > orderDate THEN 1
+	        WHEN #{date} - 3 > orderDate THEN 2 
+	        WHEN #{date} - 1 > orderDate THEN 1
 	        ELSE 0
 	    END
 	    WHERE #{date} > orderDate
