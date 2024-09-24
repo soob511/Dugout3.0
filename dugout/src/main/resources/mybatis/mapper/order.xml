@@ -8,6 +8,7 @@
 		#{orderId},#{userId},#{orderDate},#{orderTotalPrice},#{orderStatus}
 		)
 	</insert>
+	
 	<insert id="insertOrderItem" parameterType="OrderItem">
 		INSERT INTO orderItem(
 			orderId,goodsId,orderItemPrice,orderItemCount
@@ -16,8 +17,29 @@
 		)
 	
 	</insert>
-
-
-
-
+	
+	<select id="getOrderListById" parameterType="String" resultType="Order">
+		SELECT orderId, userId, orderDate, orderTotalPrice, orderStatus
+		FROM "order"
+		WHERE userId = #{userId}
+		ORDER BY orderDate DESC
+	</select>
+	
+	<select id="getOrderItemDetail" parameterType="Long" resultType="OrderItemDetail">
+		SELECT o.orderId, o.goodsId, o.orderItemPrice, o.orderItemCount, g.goodsName, g.goodsTeam
+		FROM orderItem o
+		JOIN goods g ON o.goodsId = g.goodsId
+		WHERE o.orderId = #{orderId}
+	</select>
+	
+	
+	<update id="updateOrderStatus" parameterType="java.util.Date">
+	    UPDATE "order"
+		SET orderStatus = CASE 
+		    WHEN (TO_DATE('2024-09-24', 'YYYY-MM-DD') - INTERVAL '3' DAY) > orderDate THEN 2 
+		    WHEN (TO_DATE('2024-09-24', 'YYYY-MM-DD') - INTERVAL '1' DAY) > orderDate THEN 1
+		    ELSE orderStatus
+		END
+		WHERE  TO_DATE('2024-09-24', 'YYYY-MM-DD') > orderDate
+	</update>
 </mapper>

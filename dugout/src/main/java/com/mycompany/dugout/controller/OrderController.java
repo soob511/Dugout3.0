@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.OrderDataDto;
 import com.mycompany.dugout.dto.OrderDto;
+import com.mycompany.dugout.dto.OrderItemDetailDto;
 import com.mycompany.dugout.dto.OrderItemDto;
 import com.mycompany.dugout.dto.PayItemDto;
 import com.mycompany.dugout.dto.UserDto;
@@ -39,10 +40,35 @@ public class OrderController {
 	private CartService cartService;
 	
 	@RequestMapping("/orderList")
-	public String orderList() {
-	
+	public String orderList(Model model, Authentication authentication) {
+		String userId = authentication.getName();
+		// 배송상태(orderStatus) 확인
+		Date currentDate = new Date();		
+		//log.info("현재날짜: " + currentDate);
+		orderService.updateOrderStatus(currentDate);
+		
+		List<OrderDto> orderList = orderService.getOrderListById(userId);
+
+		// 모델에 담기
+		model.addAttribute("orderList", orderList);
+		
 		return "mypage/orderList";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/getItemDetail")
+	public String orderList(Model model, Long orderId, HttpSession session) {
+		session.removeAttribute("orderItem");
+		List<OrderItemDetailDto> orderItem = orderService.getOrderItemDetail(orderId);
+		log.info(orderItem.toString());
+		
+		// 모델에 담기
+		session.setAttribute("orderItem", orderItem);
+		
+		return "ok";
+	}
+	
+	
 	
 	@GetMapping("/payment")
 	public String payment(Model model,Authentication authentication,HttpSession session) {
@@ -82,7 +108,7 @@ public class OrderController {
 		order.setUserId(userId);
 		order.setOrderDate(new Date());
 		order.setOrderTotalPrice(totalPrice);
-		order.setOrderStatus(1);
+		order.setOrderStatus(0);
 		
 		orderService.insertOrder(order);
 		
