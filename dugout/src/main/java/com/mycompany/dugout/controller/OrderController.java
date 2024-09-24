@@ -46,6 +46,7 @@ public class OrderController {
 		if(authentication==null) {
 			return "user/loginForm";
 		}
+		
 		String userId = authentication.getName();
 		Date currentDate = new Date();		
 		orderService.updateOrderStatus(currentDate);
