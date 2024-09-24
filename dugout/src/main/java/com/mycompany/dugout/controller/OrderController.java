@@ -46,6 +46,7 @@ public class OrderController {
 		if(authentication==null) {
 			return "user/loginForm";
 		}
+		
 		String userId = authentication.getName();
 		// 배송상태(orderStatus) 확인
 		Date currentDate = new Date();		

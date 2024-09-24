@@ -125,3 +125,15 @@ form {
 	display: block;
 	margin: 50px 0 20px;
 }
+
+.dropdown-toggle{
+	border:none;
+	color:black;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+    color: black; /* 텍스트는 검정 */
+    text-decoration: none; /* 텍스트 밑줄 제거 */
+}

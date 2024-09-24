@@ -16,19 +16,38 @@
 			</p>
 		</div>
 		<div class="col-6 d-flex justify-content-end">
+			<div class="dropdown me-2">
+				<button class="btn dropdown-toggle" type="button"
+					id="dropdownMenuButton" aria-expanded="false">카테고리</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>유니폼</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>의류</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>모자</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>응원용품</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>잡화</a></li>
+				</ul>
+			</div>
 			<div class="dropdown me-3">
-  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" aria-expanded="false">
-    상품정렬
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 높은 순</a></li>
-    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 낮은 순</a></li>
-    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>많이 팔린 순</a></li>
-    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>인기 순</a></li>
-    <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
-  </ul>
-</div>
-
+				<button class="btn dropdown-toggle" type="button"
+					id="dropdownMenuButton" aria-expanded="false">상품정렬</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>가격 높은 순</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>가격 낮은 순</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>많이 팔린 순</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>인기 순</a></li>
+					<li><a class="dropdown-item" href="#"><i
+							class="bi bi-check2"></i>최신 순</a></li>
+				</ul>
+			</div>
 			<div>
 				<form class="d-flex" method="post"
 					action="${pageContext.request.contextPath}/goods/searchGoods">
@@ -103,19 +122,21 @@
 	</ul>
 </nav>
 <script>
-
-$(document).ready(function() {
-    $('.dropdown').hover(
-        function() {
-            $(this).addClass('show');
-            $(this).find('.dropdown-menu').addClass('show').stop(true, true).delay(200).slideDown(200);
-        }, 
-        function() {
-            $(this).removeClass('show');
-            $(this).find('.dropdown-menu').removeClass('show').stop(true, true).delay(200).slideUp(200);
-        }
-    );
-});
-
-
+	$(document).ready(
+			function() {
+				$('.dropdown')
+						.hover(
+								function() {
+									$(this).addClass('show');
+									$(this).find('.dropdown-menu').addClass(
+											'show').stop(true, true).delay(200)
+											.slideDown(200);
+								},
+								function() {
+									$(this).removeClass('show');
+									$(this).find('.dropdown-menu').removeClass(
+											'show').stop(true, true).delay(200)
+											.slideUp(200);
+								});
+			});
 </script>
