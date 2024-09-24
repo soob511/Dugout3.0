@@ -63,8 +63,8 @@
       
       if (firstBanner) {
     	  var reader = new FileReader();
-    	  reader.onload = function () {
-    	    previewWindow.document.getElementById("firstBannerPreview").src = reader.result;
+    	  reader.onload = function (e) {
+    	    previewWindow.document.getElementById("firstBannerPreview").src = e.reader.result;
     	  };
     	  reader.readAsDataURL(firstBanner);
     	}
@@ -72,16 +72,16 @@
       
       if (secondBanner) {
         var reader = new FileReader();
-        reader.onload = function () {
-          previewWindow.document.getElementById("secondBannerPreview").src = target.result;
+        reader.onload = function (e) {
+          previewWindow.document.getElementById("secondBannerPreview").src = e.target.result;
         };
         reader.readAsDataURL(secondBanner);
       }
       
       if (thirdBanner) {
         var reader = new FileReader();
-        reader.onload = function () {
-          previewWindow.document.getElementById("thirdBannerPreview").src = target.result;
+        reader.onload = function (e) {
+          previewWindow.document.getElementById("thirdBannerPreview").src = e.target.result;
         };
         reader.readAsDataURL(thirdBanner);
       }
