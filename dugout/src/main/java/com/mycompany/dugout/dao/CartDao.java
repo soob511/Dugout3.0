@@ -15,4 +15,5 @@ public interface CartDao {
 	public int deleteItem(int goodsId);
 	public int checkCartItemById(@Param("userId")String userId, @Param("goodsId")int goodsId);
 	public int addCount(CartDto item);
+	public int selectCartCount(String userId);
 }

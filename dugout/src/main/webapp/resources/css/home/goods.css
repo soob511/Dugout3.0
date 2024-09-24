@@ -39,7 +39,9 @@ span {
   background-color: white;
 }
 .dropdown-menu {
-  background-color: #e2e2e1;
+  border:none;
+  background-color: white;
+  
 }
 form {
   border: 1px solid black;
@@ -102,3 +104,10 @@ form {
   color: black !important;
   background-color: white !important;
 }
+
+.dropdown-toggle{
+	border:none;
+}
+
+
+

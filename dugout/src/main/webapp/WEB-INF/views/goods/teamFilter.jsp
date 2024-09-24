@@ -69,7 +69,7 @@
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
 							class="card-img-top"
 							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
-							height="150" /></a> <i class="bi bi-heart"></i>
+							height="150" /></a> <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
 						<div class="card-body">
 							<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
 							<p class="card-text">${goods.goodsCategory}</p>

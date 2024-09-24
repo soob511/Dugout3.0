@@ -76,7 +76,7 @@ html {
   right: 20px;
   top: -8px;
   background-color: #333333;
-  color: #ffffff;
+  color: #ffffff !important;
   border-radius: 50%;
   width: 24px;
   height: 24px;

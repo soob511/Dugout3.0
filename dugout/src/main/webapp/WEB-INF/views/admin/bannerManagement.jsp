@@ -41,7 +41,7 @@
         <input type="file" class="form-control" id="thirdBanner" name="thirdBanner" />
     </div>
     <div class="action-buttons">
-        <button type="button" class="preview-button">미리보기</button>
+        <button type="button" class="preview-button" onclick="openBanner()">미리보기</button>
         <button type="submit" class="save-button">저장하기</button>
     </div>
 </form>
@@ -50,5 +50,44 @@
     </div>
     </div>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+<script>
+  function openBanner() {
+   
+    var previewWindow = window.open('${pageContext.request.contextPath}/admin/previewBanner', '배너미리보기', 'width=1200,height=600');
+    
+   
+    previewWindow.onload = function() {
+      var firstBanner = document.getElementById('firstBanner').files[0];
+      var secondBanner = document.getElementById('secondBanner').files[0];
+      var thirdBanner = document.getElementById('thirdBanner').files[0];
+      
+      if (firstBanner) {
+    	  var reader = new FileReader();
+    	  reader.onload = function () {
+    	    previewWindow.document.getElementById("firstBannerPreview").src = reader.result;
+    	  };
+    	  reader.readAsDataURL(firstBanner);
+    	}
+
+      
+      if (secondBanner) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          previewWindow.document.getElementById("secondBannerPreview").src = target.result;
+        };
+        reader.readAsDataURL(secondBanner);
+      }
+      
+      if (thirdBanner) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          previewWindow.document.getElementById("thirdBannerPreview").src = target.result;
+        };
+        reader.readAsDataURL(thirdBanner);
+      }
+    };
+  }
+</script>
+
   </body>
 </html>
