@@ -30,7 +30,7 @@
       <a href="${pageContext.request.contextPath}/cart" class="cart">
         <img src="${pageContext.request.contextPath}/resources/image/logo/cart.png" class="cart-img" /><br />
         <span>장바구니</span>
-        <span class="cart-badge">0</span>
+        <span class="cart-badge"></span>
       </a>
     </div>
 </sec:authorize>
@@ -44,7 +44,7 @@
       <a href="${pageContext.request.contextPath}/cart" class="cart">
         <img src="${pageContext.request.contextPath}/resources/image/logo/cart.png" class="cart-img" /><br />
         <span>장바구니</span>
-        <span class="cart-badge">0</span>
+        <span class="cart-badge"></span>
       </a>
     </div>
 </sec:authorize>
@@ -61,3 +61,21 @@
     
   </div>
 </div>
+<script>
+	$(document).ready(function() {
+	    $.ajax({
+	        url: "${pageContext.request.contextPath}/cart/cartCount", 
+	        method: "GET",
+	        success: function(data) {
+	     
+	            if (data) {
+	            	console.log(data);
+	                $(".cart-badge").text(data); 
+	            } else {
+	                $(".cart-badge").text(0); 
+	            }
+	        }
+	 
+	    });
+	});
+</script>

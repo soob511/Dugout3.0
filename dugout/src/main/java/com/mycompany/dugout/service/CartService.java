@@ -43,4 +43,8 @@ public class CartService {
 	public void addCount(CartDto item) {
 		cartDao.addCount(item);
 	}
+
+	public int getCartCount(String userId) {
+		return cartDao.selectCartCount(userId);
+	}
 }

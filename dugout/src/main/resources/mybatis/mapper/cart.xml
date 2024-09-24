@@ -38,4 +38,11 @@
 			cartCount = cartCount + #{cartCount}
 		WHERE userId=#{userId} AND goodsId=#{goodsId}
 	</update>
+	
+	<select id="selectCartCount" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM cart
+		WHERE userId = #{userId}
+	
+	</select>
 </mapper>

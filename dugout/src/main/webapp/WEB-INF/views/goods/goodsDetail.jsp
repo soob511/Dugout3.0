@@ -95,6 +95,7 @@
 					location.href = "${pageContext.request.contextPath}/user/loginForm";
 				} else {
 					alert("장바구니에 담겼습니다.");
+					location.href = "${pageContext.request.contextPath}/goods/goodsDetail?goodsId=" + goodsId;
 				}
 			}
 			});
