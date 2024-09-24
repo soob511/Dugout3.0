@@ -25,6 +25,17 @@
 		DELETE 
 		FROM cart
 		WHERE goodsID = #{goodsId}
-	
 	</delete>
+	
+	<select id="checkCartItemById" resultType="int">
+		SELECT count(*)
+		FROM cart
+		WHERE userId = #{userId} AND goodsId = #{goodsId}
+	</select>
+	
+	<update id="addCount" parameterType="Cart">
+		UPDATE cart SET
+			cartCount = cartCount + #{cartCount}
+		WHERE userId=#{userId} AND goodsId=#{goodsId}
+	</update>
 </mapper>

@@ -30,4 +30,17 @@ public class CartService {
 		cartDao.deleteItem(goodsId);
 		
 	}
+
+	public boolean checkCartItemById(String userId, int goodsId) {
+		int flag = cartDao.checkCartItemById(userId, goodsId);
+		
+		if(flag != 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public void addCount(CartDto item) {
+		cartDao.addCount(item);
+	}
 }
