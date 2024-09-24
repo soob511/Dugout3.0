@@ -42,6 +42,10 @@ public class OrderController {
 	
 	@RequestMapping("/orderList")
 	public String orderList(Model model, Authentication authentication) {
+		
+		if(authentication==null) {
+			return "user/loginForm";
+		}
 		String userId = authentication.getName();
 		Date currentDate = new Date();		
 		orderService.updateOrderStatus(currentDate);
