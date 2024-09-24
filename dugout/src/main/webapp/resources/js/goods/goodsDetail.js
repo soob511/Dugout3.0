@@ -25,7 +25,7 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 	  let isLiked = $(this).hasClass("bi-heart-fill");
 	  
 	  $.ajax({
-		  url : "goodsLike/like",
+		  url : "/dugout/goodsLike/like",
 		  method: "post",
 		  data:   {
 			  goodsId: goodsId,
@@ -51,7 +51,7 @@ $(document).ready(function() {
     $(".bi-heart, .bi-heart-fill").each(function() {
         let goodsId = $(this).data("goods-id");
         $.ajax({
-            url: "${pageContext.request.contextPath}/goodsLike/checkLike",
+            url: "/dugout/goodsLike/checkLike",
             method: "POST",
             data: { goodsId: goodsId },
             success: function(data) {
