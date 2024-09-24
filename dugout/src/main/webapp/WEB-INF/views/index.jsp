@@ -17,8 +17,8 @@
 	   <%-- <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> --%>
 	  <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	  <jsp:include page="/WEB-INF/views/home/banner.jsp" />	
-    <main>
       <jsp:include page="/WEB-INF/views/home/teamLogoCategory.jsp" />
+    <main>
       <hr />
       <jsp:include page="/WEB-INF/views/home/goods.jsp" />
     </main>
