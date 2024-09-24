@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 import com.mycompany.dugout.dao.OrderDao;
 import com.mycompany.dugout.dto.OrderDto;
 import com.mycompany.dugout.dto.OrderItemDto;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.mycompany.dugout.dto.OrderItemDetailDto;
 
+@Slf4j
 @Service
 public class OrderService {
 	@Autowired
@@ -30,6 +34,7 @@ public class OrderService {
 	}
 
 	public void updateOrderStatus(Date date) {
+		log.info("date:" + date);
 		orderDao.updateOrderStatus(date);
 	}
 

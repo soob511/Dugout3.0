@@ -43,9 +43,7 @@ public class OrderController {
 	@RequestMapping("/orderList")
 	public String orderList(Model model, Authentication authentication) {
 		String userId = authentication.getName();
-		// 배송상태(orderStatus) 확인
 		Date currentDate = new Date();		
-		//log.info("현재날짜: " + currentDate);
 		orderService.updateOrderStatus(currentDate);
 		
 		List<OrderDto> orderList = orderService.getOrderListById(userId);
@@ -58,7 +56,6 @@ public class OrderController {
 	        orderItemList.add(orderItems); 
 	    }
 
-		// 모델에 담기
 		model.addAttribute("orderList", orderList);
 		model.addAttribute("orderItemList",orderItemList);
 		

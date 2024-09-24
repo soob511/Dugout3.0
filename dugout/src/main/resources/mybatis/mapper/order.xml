@@ -31,15 +31,14 @@
 		JOIN goods g ON o.goodsId = g.goodsId
 		WHERE o.orderId = #{orderId}
 	</select>
-	
-	
+
 	<update id="updateOrderStatus" parameterType="java.util.Date">
 	    UPDATE "order"
-		SET orderStatus = CASE 
-		    WHEN (TO_DATE('2024-09-24', 'YYYY-MM-DD') - INTERVAL '3' DAY) > orderDate THEN 2 
-		    WHEN (TO_DATE('2024-09-24', 'YYYY-MM-DD') - INTERVAL '1' DAY) > orderDate THEN 1
-		    ELSE orderStatus
-		END
-		WHERE  TO_DATE('2024-09-24', 'YYYY-MM-DD') > orderDate
+	    SET orderStatus = CASE 
+	        WHEN (#{date} - INTERVAL '3' DAY) > orderDate THEN 2 
+	        WHEN (#{date} - INTERVAL '1' DAY) > orderDate THEN 1
+	        ELSE 0
+	    END
+	    WHERE #{date} > orderDate
 	</update>
 </mapper>
