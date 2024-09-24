@@ -1,15 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>결제 페이지</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/pay/payment.css"  rel="stylesheet" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/common/header.css"
+	rel="stylesheet" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/common/footer.css"
+	rel="stylesheet" />
+<link
+	href="${pageContext.request.contextPath}/resources/css/pay/payment.css"
+	rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -35,18 +42,20 @@
 
 		<div class="section">
 			<div class="section-title">주문 정보</div>
-			<c:forEach items="${orderList}" var = "item">
-					<div class="product-wrapper">
-						<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"
-							alt="Product Image" class="product-image">
-						<div class="product-details">
-							<div class="product-name">${item.goodsName}</div>
-							<div class="product-options">${item.goodsQuantity}개</div>
-							<div class="product-price">
-							<fmt:formatNumber value="${item.goodsPrice}" pattern="#,###"/>원
-							</div>
+			<c:forEach items="${orderList}" var="item">
+				<div class="product-wrapper">
+					<img
+						src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"
+						alt="Product Image" class="product-image">
+					<div class="product-details"  data-goods-id="${item.goodsId}">
+						<div class="product-name">${item.goodsName}</div>
+						<div class="product-options">${item.goodsQuantity}개</div>
+						<div class="product-price">
+							<fmt:formatNumber value="${item.goodsPrice}" pattern="#,###" />
+							원
 						</div>
 					</div>
+				</div>
 			</c:forEach>
 		</div>
 
@@ -59,12 +68,58 @@
 				<span class="total-label">총 결제금액</span> <span class="total-value">${totalPrice}</span>
 			</div>
 		</div>
-		<a href="../main/Main.html" style="text-decoration: none;">
+		<a onclick="insertOrder()" style="text-decoration: none;">
 			<div class="pay-button">결제하기</div>
 		</a>
 	</form>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-<!-- 	<script src="Payment.js"> </script> -->
+	<!-- 	<script src="Payment.js"> </script> -->
+
+
+	<script>
+		function insertOrder() {
+				let orderList = [];
+				let totalPrice = 0;
+
+				$(".product-wrapper").each(function() {
+					let goodsId = $(this).find(".product-details").data("goods-id");
+					let goodsName = $(this).find(".product-name").text();
+					let goodsQuantity = parseInt($(this).find(".product-options").text().replace('개', ''));
+					let goodsPrice = parseInt($(this).find(".product-price").text().replace('원', '').replace(/,/g, ''));
+					
+					
+					totalPrice += goodsQuantity * goodsPrice;
+					
+					orderList.push({
+						goodsId: goodsId,
+						goodsName: goodsName,
+						goodsQuantity: goodsQuantity,
+						goodsPrice: goodsPrice
+					});
+				});
+
+				let orderData = {
+					orderList: orderList,
+					totalPrice: totalPrice
+				};
+				
+				console.log(orderData);
+
+			$.ajax({
+				url : "${pageContext.request.contextPath}/order/insertOrder",
+				method : "post",
+				contentType : "application/json",
+				data : JSON.stringify(orderData),
+				success : function(data) {
+					alert("주문이 완료되었습니다.")
+					location.href = "${pageContext.request.contextPath}/"
+				}
+
+			})
+
+		}
+	</script>
+
 </body>
 </html>

@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mycompany.dugout.dao.OrderDao" />
+<mapper namespace="com.mycompany.dugout.dao.OrderDao">
+	<insert id="insertOrder" parameterType="Order">
+		INSERT INTO "order"(
+			orderId, userId,orderDate, orderTotalPrice,orderStatus
+		)VALUES(
+		#{orderId},#{userId},#{orderDate},#{orderTotalPrice},#{orderStatus}
+		)
+	</insert>
+	<insert id="insertOrderItem" parameterType="OrderItem">
+		INSERT INTO orderItem(
+			orderId,goodsId,orderItemPrice,orderItemCount
+		)VALUES(
+		#{orderId},#{goodsId},#{orderItemPrice},#{orderItemCount}
+		)
+	
+	</insert>
+
+
+
+
+</mapper>

@@ -1,10 +1,12 @@
 package com.mycompany.dugout.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mycompany.dugout.dto.OrderDataDto;
+import com.mycompany.dugout.dto.OrderDto;
+import com.mycompany.dugout.dto.OrderItemDto;
 import com.mycompany.dugout.dto.PayItemDto;
 import com.mycompany.dugout.dto.UserDto;
 import com.mycompany.dugout.security.UserDetail;
+import com.mycompany.dugout.service.CartService;
+import com.mycompany.dugout.service.OrderService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +31,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("order")
 public class OrderController {
+	
+	@Autowired
+	private OrderService orderService;
+	
+	@Autowired
+	private CartService cartService;
 	
 	@RequestMapping("/orderList")
 	public String orderList() {
@@ -36,8 +49,6 @@ public class OrderController {
 		UserDetail userDetail = (UserDetail) authentication.getPrincipal();
 		UserDto user = userDetail.getUser();
 		model.addAttribute("user",user);
-	
-		
 		return "pay/payment";
 	}
 
@@ -57,4 +68,34 @@ public class OrderController {
 		session.setAttribute("totalPrice", totalPrice);
 		return true;
 	}
+	
+	@ResponseBody
+	@PostMapping("/insertOrder")
+	public void insertOrder(@RequestBody OrderDataDto orderData,Authentication authentication) {
+		log.info("실행");
+		List<PayItemDto> orderList = orderData.getOrderList();
+	    int totalPrice = orderData.getTotalPrice();
+		OrderDto order = new OrderDto();
+		String userId = authentication.getName();
+		Long orderId = System.currentTimeMillis();
+		order.setOrderId(orderId);
+		order.setUserId(userId);
+		order.setOrderDate(new Date());
+		order.setOrderTotalPrice(totalPrice);
+		order.setOrderStatus(1);
+		
+		orderService.insertOrder(order);
+		
+		for(PayItemDto item:orderList) {
+			OrderItemDto orderItem = new OrderItemDto();
+			orderItem.setOrderId(orderId);
+			orderItem.setGoodsId(item.getGoodsId());
+			orderItem.setOrderItemPrice(item.getGoodsPrice());
+			orderItem.setOrderItemCount(item.getGoodsQuantity());
+			orderService.insertOrderItem(orderItem);
+			cartService.deleteItem(item.getGoodsId());
+		}
+
+	}
+	
 }

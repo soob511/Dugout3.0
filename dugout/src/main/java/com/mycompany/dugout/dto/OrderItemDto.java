@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class OrderItemDto {
-	private int orderId;
+	private Long orderId;
 	private int goodsId;
 	private int orderItemPrice;
 	private int orderItemCount;
