@@ -4,7 +4,7 @@
 <div class="menu-section">
 	<h2 class="section-title">마이 페이지</h2>
 	<div class="menu-item">
-		<a href="${pageContext.request.contextPath}/orderItem">구매 내역</a>
+		<a href="${pageContext.request.contextPath}/order/orderList">구매 내역</a>
 	</div>	
 	<div class="menu-item">
 	  <a href="${pageContext.request.contextPath}/user/userInfo">회원 정보</a>
