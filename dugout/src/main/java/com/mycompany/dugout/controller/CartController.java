@@ -66,15 +66,23 @@ public class CartController {
 		if (authentication == null || !authentication.isAuthenticated()) {
 			return false;
 	    }
+		String userId = authentication.getName();
+				
+		// 해당 상품이 카트에 있는지 여부 체크
+		boolean flag = cartService.checkCartItemById(userId, goodsId);
 		
 		CartDto item = new CartDto();
-
-		String userId = authentication.getName();
+		
 		item.setUserId(userId);
 		item.setGoodsId(goodsId);
 		item.setCartCount(cartCount);
 		
-		cartService.addCart(item);
+		
+		if(!flag) {	// 해당 상품이 카트에 없으면 -> 바로 추가		
+			cartService.addCart(item);
+		} else {	// 해당 상품이 카트에 있으면 -> 갯수만큼 카트에서 수량 추가 
+			cartService.addCount(item);
+		}
 		return true;
 	}
 	
