@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,24 +35,28 @@
 
 		<div class="section">
 			<div class="section-title">주문 정보</div>
-			<div class="product-wrapper">
-				<img src="../common/image/teamLogo/doosanTeamLogo.png"
-					alt="Product Image" class="product-image">
-				<div class="product-details">
-					<div class="product-name">두산 어웨이 어센틱 유니폼</div>
-					<div class="product-options">사이즈: M &nbsp;&nbsp;&nbsp; 수량: 2개</div>
-					<div class="product-price">89,000원</div>
-				</div>
-			</div>
+			<c:forEach items="${orderList}" var = "item">
+					<div class="product-wrapper">
+						<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"
+							alt="Product Image" class="product-image">
+						<div class="product-details">
+							<div class="product-name">${item.goodsName}</div>
+							<div class="product-options">${item.goodsQuantity}개</div>
+							<div class="product-price">
+							<fmt:formatNumber value="${item.goodsPrice}" pattern="#,###"/>원
+							</div>
+						</div>
+					</div>
+			</c:forEach>
 		</div>
 
 		<div class="section">
 			<div class="section-title">최종 주문정보</div>
 			<div class="info-row">
-				<span class="info-label">즉시 구매가</span> <span class="info-value">89,000원</span>
+				<span class="info-label">즉시 구매가</span> <span class="info-value">${totalPrice}</span>
 			</div>
 			<div class="total-row">
-				<span class="total-label">총 결제금액</span> <span class="total-value">89,000원</span>
+				<span class="total-label">총 결제금액</span> <span class="total-value">${totalPrice}</span>
 			</div>
 		</div>
 		<a href="../main/Main.html" style="text-decoration: none;">

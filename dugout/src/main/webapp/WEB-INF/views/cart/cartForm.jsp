@@ -90,7 +90,7 @@
 		function updateCart(id) {
 			let goodsId = id;
 			let cartCount = $("." + id).val();
-			console.log("cartCount: " + cartCount);
+			/* console.log("cartCount: " + cartCount); */
 			
 			const params = {goodsId, cartCount};
 			
@@ -130,13 +130,16 @@
 		
 		function orderItem(){
 		    let orderList = [];
+		    let totalPrice = 0;
 
 		    $(".cart-checkbox:checked").each(function() {
 		        let goodsId = $(this).data("goods-id");
 		        let goodsName = $(this).closest(".cart-list").find("#product-name").text();
 		        let goodsQuantity = parseInt($(this).closest(".cart-list").find(".product-quantity").val(), 10);
 		        let goodsPrice = $(this).closest(".cart-list").find("#product-price").data("price");
-
+		        
+		        totalPrice += goodsQuantity *goodsPrice;
+		        	
 		        orderList.push({
 		            goodsId: goodsId,
 		            goodsName: goodsName,
@@ -146,19 +149,24 @@
 		    });
 
 		    console.log(JSON.stringify(orderList, null, 2));  
+		    
+		    let orderData={
+		        orderList: orderList,
+		        totalPrice: totalPrice
+		    }
 
 			 $.ajax({
 				 url: "${pageContext.request.contextPath}/order/orderItem",
 				 method:"post",
 			    contentType: "application/json",
-		        data: JSON.stringify(orderList), 
+		        data: JSON.stringify(orderData), 
 		        traditional: true, 
 				 success: function(data){
 					 if(!data){
 					 alert("상품을 선택해주세요");			 
 					 }else{
 					console.log(data);
-					 location.href = "${pageContext.request.contextPath}/pay/payment"
+					 location.href = "${pageContext.request.contextPath}/order/payment"
 					 }
 				 }
 
