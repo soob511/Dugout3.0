@@ -56,7 +56,7 @@
                     </div>
                 </button>
             </h2>
-            <div id="flush-collapse${item.orderId}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div id="flush-collapse${item.orderId}" class="accordion-collapse collapse">
                 <div class="accordion-body">
 
                     <c:forEach items="${orderItemList[status.index]}" var="order">
