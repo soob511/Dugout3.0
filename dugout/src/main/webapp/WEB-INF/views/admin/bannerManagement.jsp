@@ -51,28 +51,6 @@
     </div>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>
-  
-  function readURL(input, targetId) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $("#" + targetId).attr("src", e.target.result);
-      };
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-  
-  $("#firstBanner").change(function () {
-    readURL(this, "firstBannerPreview");
-  });
-  $("#secondBanner").change(function () {
-    readURL(this, "secondBannerPreview");
-  });
-  $("#thirdBanner").change(function () {
-    readURL(this, "thirdBannerPreview");
-  });
-
-
   function openBanner() {
    
     var previewWindow = window.open('${pageContext.request.contextPath}/admin/previewBanner', '배너미리보기', 'width=1200,height=600');
