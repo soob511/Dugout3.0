@@ -16,22 +16,6 @@
 			</p>
 		</div>
 		<div class="col-6 d-flex justify-content-end">
-			<div class="dropdown me-2">
-				<button class="btn dropdown-toggle" type="button"
-					id="dropdownMenuButton" aria-expanded="false">카테고리</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<li><a class="dropdown-item" href="#"><i
-							class="bi bi-check2"></i>유니폼</a></li>
-					<li><a class="dropdown-item" href="#"><i
-							class="bi bi-check2"></i>의류</a></li>
-					<li><a class="dropdown-item" href="#"><i
-							class="bi bi-check2"></i>모자</a></li>
-					<li><a class="dropdown-item" href="#"><i
-							class="bi bi-check2"></i>응원용품</a></li>
-					<li><a class="dropdown-item" href="#"><i
-							class="bi bi-check2"></i>잡화</a></li>
-				</ul>
-			</div>
 			<div class="dropdown me-3">
 				<button class="btn dropdown-toggle" type="button"
 					id="dropdownMenuButton" aria-expanded="false">상품정렬</button>
@@ -47,16 +31,6 @@
 					<li><a class="dropdown-item" href="#"><i
 							class="bi bi-check2"></i>최신 순</a></li>
 				</ul>
-			</div>
-			<div>
-				<form class="d-flex" method="post"
-					action="${pageContext.request.contextPath}/goods/searchGoods">
-					<input class="form-control me-2" type="search" placeholder=""
-						aria-label="Search" name="inputKeyword" />
-					<button class="search-btn" type="submit">
-						<i class="bi bi-search"></i>
-					</button>
-				</form>
 			</div>
 		</div>
 	</div>

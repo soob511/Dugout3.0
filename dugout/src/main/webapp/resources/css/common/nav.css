@@ -9,3 +9,8 @@ nav a {
   text-decoration: none;
   margin: 0 72px;
 }
+
+.nav-container {
+	margin: 0 auto;
+	padding: 0 100px;
+}
