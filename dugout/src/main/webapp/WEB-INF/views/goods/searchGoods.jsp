@@ -17,15 +17,16 @@
     	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	   <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	   <hr>
-    <nav>
-    </nav>
+    <div id="search-keyword"><h1>'${keyword}'에 대한 검색결과</h1></div>
+    
+    <c:if test="${totalRows != 0}">
     <section class="section-top">
       <div class="d-flex align-items-center">
           <p class="product count">
 				<span>${totalRows}</span>개의 상품 검색
 			</p>
-          <div class="col-6 d-flex justify-content-end">
-              <div class="me-3">
+          <div class="d-flex justify-content-end col-10 ms-5">
+              <div>
                   <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       상품정렬
                   </button>
@@ -37,18 +38,10 @@
                       <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
                   </ul>
               </div>
-              <div>
-                  <form class="d-flex" role="search" action="${pageContext.request.contextPath}/goods/searchGoods">
-                      <input class="form-control me-2" placeholder="" aria-label="Search" value="${keyword}" name="inputKeyword">
-                      <button class="search-btn" type="submit">
-                          <i class="bi bi-search"></i>
-                      </button>
-                  </form>
-              </div>
           </div>
       </div>        
-  </section>
-
+  	</section>
+	</c:if>
 		<div class="container d-flex justify-content-center">
 			<div class="row d-flex justify-content-start gap-4">
 				<c:forEach items="${list}" var="goods">

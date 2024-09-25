@@ -137,3 +137,11 @@ form {
     color: black; /* 텍스트는 검정 */
     text-decoration: none; /* 텍스트 밑줄 제거 */
 }
+
+#search-keyword {
+	text-align: center;
+	height: 200px;
+	color: black;
+	margin-top: 30px;
+	padding: 65px;
+}
