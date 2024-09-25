@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
   $("#main-header").load("HeaderManagement.html");
   $("#main-footer").load("../main/Footer.html");
   $("#content-section").load("../management/ProductManagement.html");
@@ -11,3 +11,4 @@ $(document).ready(function () {
     $("#content-section").load("../management/" + page);
   });
 });
+*/

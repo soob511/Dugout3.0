@@ -15,7 +15,6 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/goods/goodsManagement.css"
 	rel="stylesheet" />
-<%-- <script src="${pageContext.request.contextPath}/resources/js/goods/goodsManagement.js"></script> --%>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -30,10 +29,12 @@
 				<div class="product-insert-box">
 					<h2 class="product-insert-title">상품 관리</h2>
 				</div>
-				<div class="d-flex justify-content-end mb-3"
-					style="margin-top: 24px">
-					<input type="text" class="form-control me-2" placeholder="검색" />
-					<button class="btn btn-dark">검색</button>
+
+				<div class="d-flex justify-content-end mb-3" style="margin-top: 24px">
+				    <form method="get" action="${pageContext.request.contextPath}/goods/goodsManagement" class="d-flex">
+				        <input type="text" class="form-control me-2" id="search" name="inputKeyword" placeholder="검색" />
+				        <button class="btn btn-dark" type="submit">검색</button>
+				    </form>
 				</div>
 
 				<div class="table-responsive">
@@ -51,7 +52,7 @@
 						</thead>
 						<tbody>
 							<!-- 상품마다 개별 form -->
-							<c:forEach items="${goods}" var="goods">
+							<c:forEach items="${goods != null ? goods : searchGoods}" var="goods">
 								<form method="post" action="${pageContext.request.contextPath}/goods/updateGoods" enctype="multipart/form-data">
 									<tr>
 										<td>
