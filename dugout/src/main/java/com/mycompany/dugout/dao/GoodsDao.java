@@ -32,11 +32,15 @@ public interface GoodsDao {
 	public List<GoodsDto> selectRecommendGoods(PagerDto pager);
 
 	public int getLimitRows();
+	
+	public int getCategoryLimitRows(int categoryNum);
 
 	public List<GoodsDto> selectNewGoods(PagerDto pager);
 
 	public int getTotalRowsByKeyword(String keyword);
 
 	public List<GoodsDto> getGoodsListByKeyword(@Param("keyword")String keyword, @Param("pager")PagerDto pager);
-	
+
+	public List<GoodsDto> getCategoryGoodsList(@Param("categoryNum")int categoryNum, @Param("pager")PagerDto pager);
+
 }
