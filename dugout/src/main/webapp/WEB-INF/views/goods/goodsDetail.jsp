@@ -72,7 +72,7 @@
 			<div class = "product-actions d-flex">
 				<button type="button" class="like-btn col-2"> <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i></button>
 				<button class="shoppingcart-btn col-5" onclick="addCart()">장바구니</button>
-				<button type="button" class="purchase-btn col-5">구매하기</button>
+				<button type="button" class="purchase-btn col-5" onclick="orderItem()">구매하기</button>
 			</div>
 		</div>
 		</div>
@@ -99,6 +99,33 @@
 				}
 			}
 			});
+		}
+		
+		function orderItem() {			
+			let orderList = [{
+				goodsId: ${goods.goodsId},
+	            goodsName: "${goods.goodsName}",
+	            goodsQuantity: $("#quantity").val(),
+	            goodsPrice: ${goods.goodsPrice}
+			}];
+		    
+		    let totalPrice = $("#quantity").val() * ${goods.goodsPrice};
+		    
+		    let orderData={
+		        orderList: orderList,
+		        totalPrice: totalPrice
+		    }
+
+			 $.ajax({
+				 url: "${pageContext.request.contextPath}/order/orderItem",
+				 method:"post",
+			    contentType: "application/json",
+		        data: JSON.stringify(orderData), 
+		        traditional: true, 
+				 success: function() {
+					location.href = "${pageContext.request.contextPath}/order/payment"
+				 }
+			 })
 		}
 	</script>
 </body>
