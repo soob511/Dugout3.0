@@ -16,9 +16,10 @@
 	</select>
 
 
-	<select id="idCheck" resultType="String">
-		SELECT userId
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT count(*)
 		FROM users
+		WHERE userId = #{inputId}
 	</select>
 	
 	<update id="deleteUser" parameterType="String">
