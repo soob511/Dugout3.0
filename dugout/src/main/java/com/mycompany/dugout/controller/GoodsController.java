@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -235,5 +236,17 @@ public class GoodsController {
 	public String  previewGoodsDetail() {
 		log.info("실행");
 		return "goods/previewGoodsDetail";
+	}
+	
+	@GetMapping("/category")
+	public String category(@RequestParam int val, Model model, @RequestParam(defaultValue="1")int pageNo) {
+		int limitRows = goodsService.getCategoryLimitRows(val);
+		model.addAttribute("limitRows", limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
+		model.addAttribute("pager", pager);
+		List<GoodsDto> list =  goodsService.getCategoryGoodsList(val, pager);
+		model.addAttribute("list", list);
+		
+		return "goods/goodsCategory";
 	}
 }
