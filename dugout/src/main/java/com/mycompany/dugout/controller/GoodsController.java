@@ -206,4 +206,10 @@ public class GoodsController {
 		
 		return "goods/searchGoods";
 	}
+	
+	@RequestMapping("/previewGoodsDetail")
+	public String  previewGoodsDetail() {
+		log.info("실행");
+		return "goods/previewGoodsDetail";
+	}
 }

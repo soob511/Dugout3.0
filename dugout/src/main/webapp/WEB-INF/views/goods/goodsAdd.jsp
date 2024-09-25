@@ -9,7 +9,6 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <link href="${pageContext.request.contextPath}/resources/css/goods/goodsAdd.css"  rel="stylesheet" />
-    <script src="ProductAdd.js"></script>
   </head>
   <body id="product-insert-body">
   	 <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
@@ -54,26 +53,26 @@
           </div>
           <div class="product-group">
             <label for="mainImg">메인 이미지</label>
-            <input type="file" class="form-control" name="mainImg" />
+            <input type="file" class="form-control" name="mainImg" id="mainImg"/>
           </div>
           <div class="product-group">
             <label for="detailImg">상세 이미지</label>
-            <input type="file" class="form-control" name="detailImg" />
+            <input type="file" class="form-control" name="detailImg" id="detailImg" />
           </div>
           <div class="product-group">
             <label for="goodsName">상품이름</label>
-            <input type="text" class="form-control" name="goodsName"/>
+            <input type="text" class="form-control" name="goodsName" id="goodsName"/>
           </div>
           <div class="product-group">
             <label for="goodsPrice">가격</label>
-            <input type="number" class="form-control" name="goodsPrice" />
+            <input type="number" class="form-control" name="goodsPrice" id="goodsPrice"/>
           </div>
           <div class="product-group">
             <label for="goodsStock">재고</label>
             <input type="number" class="form-control"	name="goodsStock" />
           </div>
           <div class="action-buttons">
-            <button class="preview-button" type="submit">
+            <button class="preview-button" type="button"  onclick="openPreview()">
               미리보기
             </button>
             <button class="save-button" >
@@ -84,6 +83,52 @@
         </div>
       </section>
     </main>
+    <script>
+    	function openPreview() {
+    		let previewWindow = window.open('${pageContext.request.contextPath}/goods/previewGoodsDetail', '상품등록미리보기', 'width=1400,height=1600');
+    	       
+    	    previewWindow.onload = function() {
+    	      const mainImg = document.getElementById('mainImg').files[0];
+    	      const detailImg = document.getElementById('detailImg').files[0];
+    	      const goodsName = document.getElementById('goodsName').value;
+    	      const goodsPrice = parseInt(document.getElementById('goodsPrice').value);
+    	      const goodsTeam = document.querySelector('.team-insert-list').value;
+    	      console.log(goodsTeam);
+    	    
+    	      if(goodsName) {
+    	    	  previewWindow.document.getElementById("previewGoodsName").textContent = goodsName;
+    	      }
+    	      
+    	      if(goodsPrice) {
+    	    	  const goodsPrices = previewWindow.document.getElementsByClassName("previewGoodsPrice");
+    	    	  for (let el of goodsPrices)
+    	                el.textContent = goodsPrice.toLocaleString() + ' 원';
+    	      }
+    	      
+    	      if(goodsTeam) {
+    	    	  const goodsTeams = previewWindow.document.getElementsByClassName("previewGoodsTeam");
+    	    	  for (let el of goodsTeams)
+    	                el.textContent = goodsTeam;
+    	      }
+    	      
+    	      if (mainImg) {
+    	    	  let reader = new FileReader();
+    	    	  reader.onload = function (e) {
+    	    	    previewWindow.document.getElementById("previewMainImg").src = e.target.result;
+    	    	  };
+    	    	  reader.readAsDataURL(mainImg);
+    	    	}
+
+    	      if (detailImg) {
+    	    	  let reader = new FileReader();
+    	        reader.onload = function (e) {
+    	          previewWindow.document.getElementById("previewDetailImg").src = e.target.result;
+    	        };
+    	        reader.readAsDataURL(detailImg);
+    	      }
+    	    };		
+    	}
+    </script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </body>
 </html>
