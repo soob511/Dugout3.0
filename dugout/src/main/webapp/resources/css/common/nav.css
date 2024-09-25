@@ -2,7 +2,7 @@ nav {
   text-align: center;
   margin-bottom: 44px;
 }
-nav a:not(.dropdown-item) {
+nav a {
   font-size: 24px;
   font-weight: bold;
   color: #333333;
@@ -10,22 +10,22 @@ nav a:not(.dropdown-item) {
   margin: 0 72px;
 }
 
-.nav-container {
+.navbar-container {
 	margin: 0 auto;
 	padding: 0 100px;
 }
 
-.dropdown-toggle {
+.dropdown .dropdown-toggle {
 	font-size: 24px;
 	font-weight: bolder;
 }
 
-.dropdown-toggle i {
+.dropdown .dropdown-toggle .bi-list {
 	padding-right: 10px;
 	font-size: 26px;
 }
 
-.dropdown-toggle::after {
+.dropdown .dropdown-toggle::after {
    display: none; /* 화살표 숨기기 */
 }
 

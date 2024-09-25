@@ -2,7 +2,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/common/nav.css" rel="stylesheet" />
 
 <nav>
-    <div class="nav-container d-flex justify-content-between align-items-center">
+    <div class="navbar-container d-flex justify-content-between align-items-center">
         <div class="dropdown me-3">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"  data-bs-toggle="dropdown" aria-expanded="true">
                 <i class="bi bi-list"></i> 카테고리
