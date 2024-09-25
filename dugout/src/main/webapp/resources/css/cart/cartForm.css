@@ -9,6 +9,9 @@
 	border-bottom: 5px solid black;
 	padding-bottom: 22px;
 }
+hr{
+	color:black !important;
+}
 .cart-box{
 	float: left;
 	width: 912px;
