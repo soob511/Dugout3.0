@@ -31,4 +31,9 @@ public class UserService {
 	public void updateUser(UpdateUserDto user) {
 		userDao.updateUser(user);
 	}
+
+	public String findId(String userName, String userPhone) {
+		String userId = userDao.findId(userName,userPhone);
+		return userId;
+	}
 }

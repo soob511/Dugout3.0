@@ -17,6 +17,9 @@ h1 {
     color: black !important;
 }
 
+hr{
+	color:black !important;
+}
 .findidpage-container {
     font-family:'Pretendard-Regular';
     background-color: white;

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.UpdateUserDto;
@@ -68,8 +69,8 @@ public class UserController {
 		return flag;
 	}
 	
-	@RequestMapping("/findId")
-	public String findId() {
+	@RequestMapping("/findIdForm")
+	public String findIdForm() {
 		return "user/findId";
 	}
 	
@@ -124,6 +125,20 @@ public class UserController {
 		
 		return "redirect:/logout";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/findId")
+	public String findId(@RequestParam String userName, @RequestParam String userPhone) {
+
+	    String userId = userService.findId(userName, userPhone);
+	    if(userId==null) {
+	    	userId="null";
+	    }
+	    
+	    return userId;
+	    
+	}
+
 	
 	@GetMapping("/error")
 	public String error() {

@@ -37,4 +37,11 @@
 			userAddress = #{userAddress}
 		WHERE userId = #{userId}
 	</update>
+	
+	<select id="findId" resultType="String">
+		SELECT userId
+		FROM users
+		WHERE userName = #{userName}
+		AND userPhone = #{userPhone}
+	</select>
 </mapper>
