@@ -44,4 +44,17 @@
 		WHERE userName = #{userName}
 		AND userPhone = #{userPhone}
 	</select>
+	
+	<select id="getUserInfoByfindPassword" resultType="int">
+		SELECT count(*)
+		FROM users
+		WHERE userId = #{userId}
+	</select>
+	
+	<update id="updatePassword">
+		UPDATE users SET
+			userPassword = #{tempPassword}
+		WHERE userId=#{userId}
+	</update>
+	
 </mapper>

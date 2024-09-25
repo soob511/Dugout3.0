@@ -1,6 +1,13 @@
 package com.mycompany.dugout.service;
 
+import java.nio.file.attribute.UserPrincipal;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.dugout.dao.UserDao;
@@ -11,6 +18,9 @@ import com.mycompany.dugout.dto.UserDto;
 public class UserService {
 	@Autowired
 	private UserDao userDao;
+	
+	 @Autowired
+	    private JavaMailSender mailSender;
 
 	public void join(UserDto user) {
 		userDao.join(user);
@@ -35,5 +45,30 @@ public class UserService {
 	public String findId(String userName, String userPhone) {
 		String userId = userDao.findId(userName,userPhone);
 		return userId;
+	}
+
+	public int getUserInfoByfindPassword(String userId) {
+		int userCount = userDao.getUserInfoByfindPassword(userId);
+		return userCount;
+	}
+
+	public void sendPasswordEmail(String userId, String userEmail) {
+		 String tempPassword = UUID.randomUUID().toString().substring(0, 8);
+		 
+		 SimpleMailMessage message = new SimpleMailMessage();
+		 message.setFrom("alsdn0511@naver.com"); 
+		 message.setTo(userEmail);
+		 message.setSubject("dugout 임시 비밀번호 발급 안내");
+		 message.setText("임시 비밀번호는 " + tempPassword+ " 입니다. 로그인 후 비밀번호를 변경해주세요.");
+		 mailSender.send(message);
+		 
+		 
+		 PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		 tempPassword = passwordEncoder.encode(tempPassword);
+		 
+		 userDao.updatePassword(userId,tempPassword);
+		 
+		
+		 
 	}
 }

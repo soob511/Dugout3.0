@@ -14,4 +14,6 @@ public interface UserDao {
 	public int deleteUser(String userId);
 	public int updateUser(UpdateUserDto user);
 	public String findId(@Param("userName") String userName,@Param("userPhone") String userPhone);
+	public int getUserInfoByfindPassword(@Param("userId")String userId);
+	public int updatePassword(@Param("userId") String userId,@Param("tempPassword") String tempPassword);
 }

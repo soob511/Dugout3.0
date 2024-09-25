@@ -41,7 +41,7 @@
 			</form>
 			<div class="options">
 				<a href="${pageContext.request.contextPath}/user/loginForm">로그인</a>
-				<a href="${pageContext.request.contextPath}/user/findPassword">비밀번호
+				<a href="${pageContext.request.contextPath}/user/findPasswordForm">비밀번호
 					찾기</a>
 			</div>
 			<div id="result" style="color: #688efe; margin-top: 20px;"></div>

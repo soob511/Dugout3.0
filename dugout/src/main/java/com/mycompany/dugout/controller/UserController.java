@@ -74,8 +74,8 @@ public class UserController {
 		return "user/findId";
 	}
 	
-	@RequestMapping("/findPassword")
-	public String findPassword() {
+	@RequestMapping("/findPasswordForm")
+	public String findPasswordForm() {
 		return "user/findPassword";
 	}
 	
@@ -136,6 +136,21 @@ public class UserController {
 	    }
 	    
 	    return userId;
+	    
+	}
+	
+	@ResponseBody
+	@RequestMapping("/findPassword")
+	public boolean findPassword(@RequestParam String userId, @RequestParam String userEmail) {
+		int userCount = userService.getUserInfoByfindPassword(userId);
+		log.info(String.valueOf(userCount));
+	    if(userCount==0) {
+	    	return false;
+	    }
+	    
+	    userService.sendPasswordEmail(userId,userEmail);
+
+	    return true;
 	    
 	}
 
