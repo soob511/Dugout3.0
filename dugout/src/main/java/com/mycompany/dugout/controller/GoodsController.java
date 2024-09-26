@@ -249,4 +249,20 @@ public class GoodsController {
 		
 		return "goods/goodsCategory";
 	}
+	
+	@GetMapping("/sortingGoods")
+	public String sortingGoods(@RequestParam String kind, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
+
+		model.addAttribute("limitRows", 32);
+		PagerDto pager = new PagerDto(16, 5, 32, pageNo);
+		model.addAttribute("pager", pager);
+		List<GoodsDto> list =  goodsService.getSortedGoodsList(kind, sort, pager);
+		model.addAttribute("list", list);
+
+		String url ="goods/bestGoods";
+		
+		if(kind.equals("new")) {url = "goods/newGoods";} 
+		else if(kind.equals("rec")) {url = "goods/recommendGoods";} 
+		return url;	
+		}
 }

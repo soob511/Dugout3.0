@@ -1,6 +1,8 @@
 package com.mycompany.dugout.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,4 +95,15 @@ public class GoodsService {
 		List<GoodsDto> list = goodsDao.getCategoryGoodsList(categoryNum, pager);
 		return list;
 	}
-}
+
+	public List<GoodsDto> getSortedGoodsList(String kind, String sort, PagerDto pager) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("kind", kind);
+		params.put("sort", sort);
+		params.put("pager", pager);
+
+		List<GoodsDto> list = goodsDao.getSortedGoodsList(params);
+		return list;
+	    }
+	}
+

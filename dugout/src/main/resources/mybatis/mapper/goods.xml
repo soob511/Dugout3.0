@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mycompany.dugout.dao.GoodsDao">
-	<select id = "selectGoodsList" parameterType="Pager" resultType="Goods" >
+	<select id="selectGoodsList" parameterType="Pager"
+		resultType="Goods">
 		<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 	         from    (
@@ -16,34 +17,38 @@
 	            where rnum >= #{startRowNo}
 	      ]]>
 	</select>
-	
+
 	<select id="getImg" parameterType="int" resultType="Goods">
-		SELECT goodsmaindata, goodsmaintype, goodsDetailData, goodsDetailType
-		FROM goods
+		SELECT
+		goodsmaindata, goodsmaintype, goodsDetailData, goodsDetailType
+		FROM
+		goods
 		WHERE goodsId = #{goodsId}
 	</select>
-	
+
 	<insert id="insertGoods" parameterType="Goods">
-		<selectKey keyProperty="goodsId" resultType="int" order="BEFORE">
+		<selectKey keyProperty="goodsId" resultType="int"
+			order="BEFORE">
 			SELECT seq_goodsId.nextval from dual
 		</selectKey>
-		INSERT INTO goods(goodsId,goodsName,goodsPrice,goodsTeam,goodsCategory,goodsStock,goodsStatus,
+		INSERT INTO
+		goods(goodsId,goodsName,goodsPrice,goodsTeam,goodsCategory,goodsStock,goodsStatus,
 		goodsMainData,goodsMainName,goodsMainType,goodsDetailData,goodsDetailName,goodsDetailType,
 		goodsRegDate,goodsLikeCount,goodsSaleCount
 		)VALUES(
-			#{goodsId},#{goodsName},#{goodsPrice},#{goodsTeam},#{goodsCategory},#{goodsStock},1,#{goodsMainData},
-			#{goodsMainName},#{goodsMainType},#{goodsDetailData},#{goodsDetailName},#{goodsDetailType},
-			sysdate,0,0
+		#{goodsId},#{goodsName},#{goodsPrice},#{goodsTeam},#{goodsCategory},#{goodsStock},1,#{goodsMainData},
+		#{goodsMainName},#{goodsMainType},#{goodsDetailData},#{goodsDetailName},#{goodsDetailType},
+		sysdate,0,0
 		)
 	</insert>
-	
-	
+
+
 	<select id="getTotalRows" resultType="int">
 		SELECT count(*)
 		FROM goods
 		WHERE goodsStatus != 2 
 	</select>
-	
+
 	<select id="getTeamList" resultType="Goods">
 		<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
@@ -60,47 +65,52 @@
 	            where rnum >= #{pager.startRowNo}
 	      ]]>
 	</select>
-	
+
 	<select id="getTeamRows" parameterType="String" resultType="int">
 		SELECT count(*)
 		FROM goods
 		WHERE goodsTeam = #{goodsTeam}
 		AND goodsStatus != 2 
 	</select>
-	
-	<select id="selectGoodsDetail" parameterType="int" resultType="Goods">
-		select goodsId, goodsName, goodsTeam, goodsPrice, goodsCategory, goodsStock, goodsStatus
+
+	<select id="selectGoodsDetail" parameterType="int"
+		resultType="Goods">
+		select goodsId, goodsName, goodsTeam, goodsPrice,
+		goodsCategory, goodsStock, goodsStatus
 		from goods
 		where goodsId = #{goodsId}
 		AND goodsStatus != 2 
 	</select>
-	
+
 	<update id="updateGoods" parameterType="Goods">
 		UPDATE goods set
-			goodsId=#{goodsId},
-			goodsName = #{goodsName},
-			goodsTeam = #{goodsTeam},
-			goodsPrice = #{goodsPrice},
-			goodsCategory = #{goodsCategory},
-			goodsStock = #{goodsStock},
-			goodsStatus = #{goodsStatus}
-			<if test = "goodsMainName!=null">
+		goodsId=#{goodsId},
+		goodsName = #{goodsName},
+		goodsTeam = #{goodsTeam},
+		goodsPrice = #{goodsPrice},
+		goodsCategory = #{goodsCategory},
+		goodsStock = #{goodsStock},
+		goodsStatus = #{goodsStatus}
+		<if test="goodsMainName!=null">
 			,
 			goodsMainName = #{goodsMainName},
-			goodsMainType = #{goodsMainType},
+			goodsMainType =
+			#{goodsMainType},
 			goodsMainData = #{goodsMainData}
-			</if>
-			<if test = "goodsDetailName!=null">
+		</if>
+		<if test="goodsDetailName!=null">
 			,
 			goodsDetailName = #{goodsDetailName},
-			goodsDetailType = #{goodsDetailType},
+			goodsDetailType =
+			#{goodsDetailType},
 			goodsDetailData = #{goodsDetailData}
-			</if>
+		</if>
 		WHERE goodsId=#{goodsId}
-	
+
 	</update>
-	
-	<select id = "selectBestGoods" parameterType="Pager" resultType="Goods" >
+
+	<select id="selectBestGoods" parameterType="Pager"
+		resultType="Goods">
 	<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
 	         from    (
@@ -116,8 +126,9 @@
 	            where rnum >= #{startRowNo}
 	      ]]>
 	</select>
-	
-	<select id = "selectRecommendGoods" parameterType="Pager" resultType="Goods" >
+
+	<select id="selectRecommendGoods" parameterType="Pager"
+		resultType="Goods">
 	<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
 	         from    (
@@ -133,7 +144,7 @@
 	            where rnum >= #{startRowNo}
 	      ]]>
 	</select>
-	
+
 	<select id="getLimitRows" resultType="int">
 	<![CDATA[
 	    SELECT count(*)
@@ -144,8 +155,9 @@
 	    )
      ]]>
 	</select>
-	
-	<select id="getCategoryLimitRows" parameterType="int" resultType="int">
+
+	<select id="getCategoryLimitRows" parameterType="int"
+		resultType="int">
 	<![CDATA[
 	    SELECT count(*)
 	    FROM goods
@@ -159,7 +171,8 @@
      ]]>
 	</select>
 
-	<select id = "selectNewGoods" parameterType="Pager" resultType="Goods" >
+	<select id="selectNewGoods" parameterType="Pager"
+		resultType="Goods">
 	<![CDATA[
 	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
 	         from    (
@@ -175,8 +188,9 @@
 	            where rnum >= #{startRowNo}
 	      ]]>
 	</select>
-	
-	<select id="getTotalRowsByKeyword" parameterType="String" resultType="int">
+
+	<select id="getTotalRowsByKeyword" parameterType="String"
+		resultType="int">
 	    <![CDATA[
 	        SELECT count(*)
 	        FROM goods
@@ -184,8 +198,8 @@
 	    ]]>
 	</select>
 
-	
-	<select id = "getGoodsListByKeyword" resultType="Goods" >
+
+	<select id="getGoodsListByKeyword" resultType="Goods">
 		<![CDATA[
 	         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 	         FROM    (
@@ -200,7 +214,8 @@
 	            WHERE rnum >= #{pager.startRowNo}
 	      ]]>
 	</select>
-	<select id = "getCategoryGoodsList" parameterType="Pager" resultType="Goods" >
+
+	<select id="getCategoryGoodsList" resultType="Goods">
 		<![CDATA[
 	         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 	         FROM    (
@@ -221,7 +236,40 @@
 	            WHERE rnum >= #{pager.startRowNo}
 	      ]]>
 	</select>
-	
 
-	
+
+	 <select id="getSortedGoodsList" resultType="Goods">
+	        SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+	        FROM (
+	            SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus, ROWNUM as rn
+	            FROM (
+	                SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,
+	                	       goodsRegDate, goodsSaleCount, goodsLikeCount
+	                FROM (
+		                SELECT goodsid, goodsname, goodsteam, goodsprice, goodscategory, goodsstock, goodsstatus,
+						           goodsRegDate, goodsSaleCount, goodsLikeCount
+						FROM (
+						    SELECT goodsid, goodsname, goodsteam, goodsprice, goodscategory, goodsstock, goodsstatus,
+						                goodsRegDate, goodsSaleCount, goodsLikeCount
+						    FROM goods
+						    ORDER BY
+						        <if test="kind == 'new'">goodsRegDate DESC</if>
+						        <if test="kind == 'best'">goodsSaleCount DESC</if>
+						        <if test="kind == 'rec'">goodsLikeCount DESC</if>
+						        <if test="kind == 'all'"></if>
+						)
+						WHERE ROWNUM <![CDATA[<]]>= 32
+					)
+	                ORDER BY
+	                	<if test="sort == '가격높은순'">goodsPrice DESC</if>
+	                	<if test="sort == '가격낮은순'">goodsPrice ASC</if>
+	                	<if test="sort == '많이팔린순'">goodsSaleCount DESC</if>
+	                	<if test="sort == '인기순'">goodsLikeCount DESC</if>
+	                	<if test="sort == '최신순'">goodsRegDate DESC</if>
+	            )
+	            WHERE ROWNUM <![CDATA[<]]>= #{pager.endRowNo}
+	        )
+	        WHERE rn <![CDATA[>]]>= #{pager.startRowNo}
+	</select> 
+
 </mapper>
