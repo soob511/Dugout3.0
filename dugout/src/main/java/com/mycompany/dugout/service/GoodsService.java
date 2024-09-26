@@ -71,8 +71,8 @@ public class GoodsService {
 		return limitRows;
 	}
 	
-	public int getCategoryLimitRows(int categoryNum) {
-		int limitRows = goodsDao.getCategoryLimitRows(categoryNum);
+	public int getCategoryLimitRows(String val) {
+		int limitRows = goodsDao.getCategoryLimitRows(val);
 		return limitRows;
 	}
 
@@ -91,8 +91,8 @@ public class GoodsService {
 		return list;
 	}
 
-	public List<GoodsDto> getCategoryGoodsList(int categoryNum, PagerDto pager) {
-		List<GoodsDto> list = goodsDao.getCategoryGoodsList(categoryNum, pager);
+	public List<GoodsDto> getCategoryGoodsList(String val, PagerDto pager) {
+		List<GoodsDto> list = goodsDao.getCategoryGoodsList(val, pager);
 		return list;
 	}
 
@@ -105,5 +105,10 @@ public class GoodsService {
 		List<GoodsDto> list = goodsDao.getSortedGoodsList(params);
 		return list;
 	    }
+
+	public List<GoodsDto> getSortedCategory(String category, String sort, PagerDto pager) {
+		List<GoodsDto> list = goodsDao.getSortedCategory(category, sort, pager);
+		return list;
+	}
 	}
 

@@ -34,51 +34,26 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
     <jsp:include page="/WEB-INF/views/common/nav.jsp" />
     <hr />
 
-    <section class="section-top">
-      <div class="d-flex align-items-center">
-        <div class="col-6">
-          <p class="product count"><span>${limitRows}</span>개의 상품 검색</p>
+      <section class="section-top">
+        <div class="d-flex align-items-center">
+            <div class="col-6">
+                <p class="product count">
+                    <span>${limitRows}</span>개의 상품 검색
+                </p>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <div class="dropdown me-3">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">상품정렬</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${category}&sort=가격높은순">가격 높은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${category}&sort=가격낮은순">가격 낮은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${category}&sort=많이팔린순">많이 팔린 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${category}&sort=인기순">인기 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${category}&sort=최신순">최신 순</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-6 d-flex justify-content-end">
-          <div class="dropdown me-3">
-            <button
-              class="btn dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              aria-expanded="false"
-            >
-              상품정렬
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="bi bi-check2"></i>가격 높은 순</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="bi bi-check2"></i>가격 낮은 순</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="bi bi-check2"></i>많이 팔린 순</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="bi bi-check2"></i>인기 순</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="bi bi-check2"></i>최신 순</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
 
     <div class="container d-flex justify-content-center">
@@ -119,7 +94,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         <li class="page-item">
           <a
             class="page-link"
-            href="?pageNo=1&val=${param.val}"
+            href="?pageNo=1&category=${category}&sort=${param.sort}"
             aria-label="First"
           >
             <span aria-hidden="true"
@@ -132,7 +107,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           <c:if test="${pager.groupNo>1}">
             <a
               class="page-link"
-              href="?pageNo=${pager.startPageNo - 1}&val=${param.val}"
+              href="?pageNo=${pager.startPageNo - 1}category=${category}&sort=${param.sort}"
               aria-label="Previous"
             >
               <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
@@ -148,12 +123,12 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         >
           <c:if test="${pager.pageNo == i}">
             <li class="page-item active">
-              <a href="?pageNo=${i}&val=${param.val}" class="page-link">${i}</a>
+              <a href="?pageNo=${i}&category=${category}&sort=${param.sort}" class="page-link">${i}</a>
             </li>
           </c:if>
           <c:if test="${pager.pageNo != i}">
             <li class="page-item">
-              <a href="?pageNo=${i}&val=${param.val}" class="page-link">${i}</a>
+              <a href="?pageNo=${i}&category=${category}&sort=${param.sort}" class="page-link">${i}</a>
             </li>
           </c:if>
         </c:forEach>
@@ -162,7 +137,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           <c:if test="${pager.groupNo<pager.totalGroupNo}">
             <a
               class="page-link"
-              href="?pageNo=${pager.endPageNo + 1}&val=${param.val}"
+              href="?pageNo=${pager.endPageNo + 1}&category=${category}&sort=${param.sort}"
               aria-label="Next"
             >
               <span aria-hidden="true"
@@ -175,7 +150,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         <li class="page-item">
           <a
             class="page-link"
-            href="?pageNo=${pager.totalPageNo}&val=${param.val}"
+            href="?pageNo=${pager.totalPageNo}&category=${category}&sort=${param.sort}"
             aria-label="Last"
           >
             <span aria-hidden="true"

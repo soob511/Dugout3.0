@@ -8,11 +8,11 @@
                 <i class="bi bi-list"></i> 카테고리
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?val=1">유니폼</a></li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?val=2">의류</a></li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?val=3">모자</a></li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?val=4">응원용품</a></li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?val=5">잡화</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?category=유니폼">유니폼</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?category=의류">의류</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?category=모자">모자</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?category=응원용품">응원용품</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/category?category=잡화">잡화</a></li>
             </ul>
         </div>
 

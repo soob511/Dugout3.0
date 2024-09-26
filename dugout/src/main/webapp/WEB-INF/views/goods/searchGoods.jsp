@@ -21,26 +21,26 @@
     
     <c:if test="${totalRows != 0}">
     <section class="section-top">
-      <div class="d-flex align-items-center">
-          <p class="product count">
-				<span>${totalRows}</span>개의 상품 검색
-			</p>
-          <div class="d-flex justify-content-end col-10 ms-5">
-              <div>
-                  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      상품정렬
-                  </button>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 높은 순</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>가격 낮은 순</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>많이 팔린 순</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>인기 순</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="bi bi-check2"></i>최신 순</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>        
-  	</section>
+        <div class="d-flex align-items-center">
+            <div class="col-6">
+                <p class="product count">
+                    <span>${limitRows}</span>개의 상품 검색
+                </p>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <div class="dropdown me-3">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">상품정렬</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=가격높은순">가격 높은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=가격낮은순">가격 낮은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=많이팔린순">많이 팔린 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=인기순">인기 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=최신순">최신 순</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 	</c:if>
 		<div class="container d-flex justify-content-center">
 			<div class="row d-flex justify-content-start gap-4">
