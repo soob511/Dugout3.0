@@ -10,13 +10,6 @@
   <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-        <link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/common/header.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/common/footer.css"
-	rel="stylesheet" />
 <link
 	href="${pageContext.request.contextPath}/resources/css/pay/payment.css"
 	rel="stylesheet" />
