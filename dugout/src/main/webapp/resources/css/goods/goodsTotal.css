@@ -134,8 +134,8 @@ form {
 .dropdown-toggle:hover,
 .dropdown-toggle:focus,
 .dropdown-toggle:active {
-    color: black; /* 텍스트는 검정 */
-    text-decoration: none; /* 텍스트 밑줄 제거 */
+    color: black;
+    text-decoration: none; 
 }
 
 #search-keyword {
@@ -145,3 +145,12 @@ form {
 	margin-top: 30px;
 	padding: 65px;
 }
+
+#card-img{
+    transition: transform 0.3s ease; 
+}
+
+#card-img:hover{
+    transform: scale(1.1); 
+}
+ 

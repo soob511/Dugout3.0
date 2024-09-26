@@ -9,6 +9,7 @@
 	                     from (
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 							  FROM goods
+							  WHERE goodsStatus != 2 
 	                     )
 	                   where rownum <= #{endRowNo}
 	             )
@@ -40,6 +41,7 @@
 	<select id="getTotalRows" resultType="int">
 		SELECT count(*)
 		FROM goods
+		WHERE goodsStatus != 2 
 	</select>
 	
 	<select id="getTeamList" resultType="Goods">
@@ -51,6 +53,7 @@
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 							  FROM goods
 							  where goodsTeam=#{goodsTeam}
+							  AND  goodsStatus != 2 
 	                     )
 	                   where rownum <= #{pager.endRowNo}
 	             )
@@ -62,12 +65,14 @@
 		SELECT count(*)
 		FROM goods
 		WHERE goodsTeam = #{goodsTeam}
+		AND goodsStatus != 2 
 	</select>
 	
 	<select id="selectGoodsDetail" parameterType="int" resultType="Goods">
 		select goodsId, goodsName, goodsTeam, goodsPrice, goodsCategory, goodsStock, goodsStatus
 		from goods
 		where goodsId = #{goodsId}
+		AND goodsStatus != 2 
 	</select>
 	
 	<update id="updateGoods" parameterType="Goods">
@@ -103,6 +108,7 @@
 	                     from (
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
 							  FROM goods
+							  WHERE goodsStatus != 2  
 							  ORDER BY goodsSaleCount desc
 	                     )
 	                   where rownum <= #{endRowNo}
@@ -119,6 +125,7 @@
 	                     from (
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
 							  FROM goods
+							   WHERE goodsStatus != 2  
 							  ORDER BY goodsLikecount desc
 	                     )
 	                   where rownum <= #{endRowNo}
@@ -160,6 +167,7 @@
 	                     from (
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
 							  FROM goods
+							  WHERE goodsStatus != 2 
 							  ORDER BY goodsRegDate desc
 	                     )
 	                   where rownum <= #{endRowNo}
