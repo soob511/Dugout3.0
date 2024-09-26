@@ -8,14 +8,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 <link
 	href="${pageContext.request.contextPath}/resources/css/goods/goodsManagement.css"
 	rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" /> 
@@ -96,7 +96,7 @@
 											</div>
 										</td>
 										<td>
-											<button type="submit" class="btn btn-dark">수정하기</button>
+											<button type="submit" class="btn btn-dark" id="goodsUpdateBtn">수정하기</button>
 										</td>
 									</tr>
 								</form>
@@ -145,6 +145,39 @@
 			</div>
 		</div>
 	</div>
+	
+		<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">상품수정</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>상품이 수정되었습니다.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	
+	<script >
+	$(document).ready(function(){
+		$("#goodsUpdateBtn").click(function(){
+			  $('.modal').modal('show');
+		})
+})
+	
+	
+	
+	</script>
+	
 </body>
 </html>

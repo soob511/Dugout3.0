@@ -15,7 +15,7 @@
     <link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/admin/bannerManagement.css"  rel="stylesheet" />
-<!--     <script src="BannerManagement.js"></script> -->
+<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
   </head>
   <body>
   <jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -42,15 +42,42 @@
     </div>
     <div class="action-buttons">
         <button type="button" class="preview-button" onclick="openBanner()">미리보기</button>
-        <button type="submit" class="save-button">저장하기</button>
+        <button type="submit" class="save-button" id="bannerSaveBtn">저장하기</button>
     </div>
 </form>
 
     
     </div>
     </div>
+    	
+		<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">배너등록</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>배너가 등록되었습니다.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+    
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>
+	$(document).ready(function(){
+			$("#bannerSaveBtn").click(function(){
+				  $('.modal').modal('show');	  
+			})
+	})
+
   function openBanner() {
    
     var previewWindow = window.open('${pageContext.request.contextPath}/admin/previewBanner', '배너미리보기', 'width=1200,height=600');
