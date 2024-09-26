@@ -25,8 +25,46 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<jsp:include page="/WEB-INF/views/common/nav.jsp" />
-	<hr>
+    <c:choose>
+    <c:when test="${goodsTeam == '국가대표'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/국가대표배너.png" alt="기아 팀 이미지" />
+        </c:when>
+        <c:when test="${goodsTeam == '엘지 트윈스'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/LG배너.png" alt="기아 팀 이미지" />
+        </c:when>
+          <c:when test="${goodsTeam == '케이티 위즈'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/KT배너.png" alt="기아 팀 이미지" />
+        </c:when>
+          <c:when test="${goodsTeam == 'SSG 랜더스'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/SSG배너.png" alt="기아 팀 이미지" />
+        </c:when>
+          <c:when test="${goodsTeam == '엔씨 다이노스'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/NC배너.png" alt="기아 팀 이미지" />
+        </c:when>
+          <c:when test="${goodsTeam == '두산 베어스'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/두산배너.png" alt="기아 팀 이미지" />
+        </c:when>
+        <c:when test="${goodsTeam == '기아 타이거즈'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/기아배너.png" alt="기아 팀 이미지" />
+        </c:when>
+         <c:when test="${goodsTeam == '롯데 자이언츠'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/롯데배너.png" alt="기아 팀 이미지" />
+        </c:when>
+         <c:when test="${goodsTeam == '삼성 라이온즈'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/삼성배너.png" alt="기아 팀 이미지" />
+        </c:when>
+         <c:when test="${goodsTeam == '한화 이글스'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/한화배너.png" alt="기아 팀 이미지" />
+        </c:when>
+         <c:when test="${goodsTeam == '키움 히어로즈'}">
+            <img id="teamImg" src="${pageContext.request.contextPath}/resources/image/banner/키움배너.png" alt="기아 팀 이미지" />
+        </c:when>
+    </c:choose>
 	<jsp:include page="/WEB-INF/views/home/teamLogoCategory.jsp" />
+	
+	
+	
+	
 	<section
 		class="d-flex justify-content-between align-items-center section-top">
 		<div>
