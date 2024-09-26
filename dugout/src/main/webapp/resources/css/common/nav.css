@@ -15,17 +15,23 @@ nav a {
 	padding: 0 100px;
 }
 
-.dropdown .dropdown-toggle {
+.categorys .dropdown-toggle {
 	font-size: 24px;
 	font-weight: bolder;
 }
 
-.dropdown .dropdown-toggle .bi-list {
+.categorys .dropdown-item {
+	text-align: center;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.categorys .dropdown-toggle .bi-list {
 	padding-right: 10px;
 	font-size: 26px;
 }
 
-.dropdown .dropdown-toggle::after {
+.categorys .dropdown-toggle::after {
    display: none; /* 화살표 숨기기 */
 }
 

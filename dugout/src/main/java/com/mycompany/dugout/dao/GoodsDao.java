@@ -1,6 +1,7 @@
 package com.mycompany.dugout.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -42,5 +43,7 @@ public interface GoodsDao {
 	public List<GoodsDto> getGoodsListByKeyword(@Param("keyword")String keyword, @Param("pager")PagerDto pager);
 
 	public List<GoodsDto> getCategoryGoodsList(@Param("categoryNum")int categoryNum, @Param("pager")PagerDto pager);
+
+	public List<GoodsDto> getSortedGoodsList(Map<String, Object> params);
 
 }
