@@ -7,13 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>결제 페이지</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link
-	href="${pageContext.request.contextPath}/resources/css/common/header.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/common/footer.css"
-	rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 <link
 	href="${pageContext.request.contextPath}/resources/css/pay/payment.css"
 	rel="stylesheet" />
@@ -47,7 +43,7 @@
 					<img
 						src="${pageContext.request.contextPath}/goods/getImg?goodsId=${item.goodsId}"
 						alt="Product Image" class="product-image">
-					<div class="product-details"  data-goods-id="${item.goodsId}">
+					<div class="product-details" data-goods-id="${item.goodsId}">
 						<div class="product-name">${item.goodsName}</div>
 						<div class="product-options">${item.goodsQuantity}개</div>
 						<div class="product-price">
@@ -72,12 +68,36 @@
 			<div class="pay-button">결제하기</div>
 		</a>
 	</form>
+
+	<div class="modal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">결제</h5>
+				</div>
+				<div class="modal-body">
+					<p>주문이 완료되었습니다.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-	<!-- 	<script src="Payment.js"> </script> -->
-
-
 	<script>
+	
+	$(document).ready(function(){
+		$(".btn-secondary").click(function(){
+				
+			location.href = "${pageContext.request.contextPath}/"
+
+		})
+
+	})
 		function insertOrder() {
 				let orderList = [];
 				let totalPrice = 0;
@@ -112,8 +132,7 @@
 				contentType : "application/json",
 				data : JSON.stringify(orderData),
 				success : function(data) {
-					alert("주문이 완료되었습니다.")
-					location.href = "${pageContext.request.contextPath}/"
+					$('.modal').modal('show');
 				}
 
 			})
