@@ -67,6 +67,9 @@ hr {
 	border-radius: 20px;
 }
 
+
+
+
 .purchase-item {
 	display: grid;
 	grid-template-columns: 100px 1fr;

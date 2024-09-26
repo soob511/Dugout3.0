@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.dugout.dto.OrderDataDto;
@@ -41,8 +42,8 @@ public class OrderController {
 	private CartService cartService;
 	
 	@RequestMapping("/orderList")
-	public String orderList(Model model, Authentication authentication) {
-		
+	public String orderList(Model model, Authentication authentication,@RequestParam(defaultValue = "6") int recentMonth) {
+
 		if(authentication==null) {
 			return "user/loginForm";
 		}
@@ -51,7 +52,7 @@ public class OrderController {
 		Date currentDate = new Date();		
 		orderService.updateOrderStatus(currentDate);
 		
-		List<OrderDto> orderList = orderService.getOrderListById(userId);
+		List<OrderDto> orderList = orderService.getOrderListById(userId,recentMonth);
 	
 	    List<List<OrderItemDetailDto>> orderItemList = new ArrayList<>();
 	    
