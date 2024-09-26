@@ -156,18 +156,12 @@
      ]]>
 	</select>
 
-	<select id="getCategoryLimitRows" parameterType="int"
+	<select id="getCategoryLimitRows" parameterType="String"
 		resultType="int">
 	<![CDATA[
 	    SELECT count(*)
 	    FROM goods
-        WHERE goodsCategory = CASE
-            WHEN #{categoryNum} = 1 THEN '유니폼'
-            WHEN #{categoryNum} = 2 THEN '의류'
-            WHEN #{categoryNum} = 3 THEN '모자'
-            WHEN #{categoryNum} = 4 THEN '응원용품'
-            ELSE '잡화'
-        END
+        WHERE goodsCategory = #{categoryNum}
      ]]>
 	</select>
 
@@ -223,20 +217,13 @@
 	                     FROM (
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 							  FROM goods
-							  WHERE goodsCategory = CASE
-						            WHEN #{categoryNum} = 1 THEN '유니폼'
-						            WHEN #{categoryNum} = 2 THEN '의류'
-						            WHEN #{categoryNum} = 3 THEN '모자'
-						            WHEN #{categoryNum} = 4 THEN '응원용품'
-						            ELSE '잡화'
-						       END
+							  WHERE goodsCategory = #{categoryNum}
 	                     )
 	                   WHERE rownum <= #{pager.endRowNo}
 	             )
 	            WHERE rnum >= #{pager.startRowNo}
 	      ]]>
 	</select>
-
 
 	 <select id="getSortedGoodsList" resultType="Goods">
 	        SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
@@ -271,5 +258,25 @@
 	        )
 	        WHERE rn <![CDATA[>]]>= #{pager.startRowNo}
 	</select> 
-
+	
+	<select id="getSortedCategory" resultType="Goods">
+         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+         FROM    (
+                     SELECT rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+                     FROM (
+                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+						  FROM goods
+						  WHERE goodsCategory = #{category}
+						  ORDER BY
+		                	<if test="sort == '가격높은순'">goodsPrice DESC</if>
+		                	<if test="sort == '가격낮은순'">goodsPrice ASC</if>
+		                	<if test="sort == '많이팔린순'">goodsSaleCount DESC</if>
+		                	<if test="sort == '인기순'">goodsLikeCount DESC</if>
+		                	<if test="sort == '최신순'">goodsRegDate DESC</if>
+                     )
+                   WHERE rownum <![CDATA[<]]>= #{pager.endRowNo}
+             )
+            WHERE rnum <![CDATA[>]]>= #{pager.startRowNo}
+	</select>
+	
 </mapper>

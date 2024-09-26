@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -239,14 +240,14 @@ public class GoodsController {
 	}
 	
 	@GetMapping("/category")
-	public String category(@RequestParam int val, Model model, @RequestParam(defaultValue="1")int pageNo) {
-		int limitRows = goodsService.getCategoryLimitRows(val);
+	public String category(@RequestParam String category, Model model, @RequestParam(defaultValue="1")int pageNo) {
+		int limitRows = goodsService.getCategoryLimitRows(category);
 		model.addAttribute("limitRows", limitRows);
 		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
 		model.addAttribute("pager", pager);
-		List<GoodsDto> list =  goodsService.getCategoryGoodsList(val, pager);
+		List<GoodsDto> list =  goodsService.getCategoryGoodsList(category, pager);
 		model.addAttribute("list", list);
-		
+		model.addAttribute("category", category);
 		return "goods/goodsCategory";
 	}
 	
@@ -265,4 +266,18 @@ public class GoodsController {
 		else if(kind.equals("rec")) {url = "goods/recommendGoods";} 
 		return url;	
 		}
+	
+	@GetMapping("/sortingCategory")
+	public String sortingCategory(@RequestParam String category, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
+	model.addAttribute("category", category);
+	int limitRows = goodsService.getCategoryLimitRows(category);
+	model.addAttribute("limitRows", limitRows);
+	PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
+	model.addAttribute("pager", pager);
+	List<GoodsDto> list =  goodsService.getSortedCategory(category, sort, pager);
+	model.addAttribute("list", list);
+
+	return"goods/goodsCategory";
+	}
+	
 }

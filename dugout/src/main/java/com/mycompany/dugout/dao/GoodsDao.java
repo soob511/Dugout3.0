@@ -34,7 +34,7 @@ public interface GoodsDao {
 
 	public int getLimitRows();
 	
-	public int getCategoryLimitRows(int categoryNum);
+	public int getCategoryLimitRows(String val);
 
 	public List<GoodsDto> selectNewGoods(PagerDto pager);
 
@@ -42,8 +42,10 @@ public interface GoodsDao {
 
 	public List<GoodsDto> getGoodsListByKeyword(@Param("keyword")String keyword, @Param("pager")PagerDto pager);
 
-	public List<GoodsDto> getCategoryGoodsList(@Param("categoryNum")int categoryNum, @Param("pager")PagerDto pager);
+	public List<GoodsDto> getCategoryGoodsList(@Param("categoryNum")String val, @Param("pager")PagerDto pager);
 
 	public List<GoodsDto> getSortedGoodsList(Map<String, Object> params);
+
+	public List<GoodsDto> getSortedCategory(@Param("category")String category, @Param("sort")String sort, @Param("pager")PagerDto pager);
 
 }
