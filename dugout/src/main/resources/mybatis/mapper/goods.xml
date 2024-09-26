@@ -108,6 +108,12 @@
 		WHERE goodsId=#{goodsId}
 
 	</update>
+	
+	<update id="addSaleCount" parameterType="int">
+		UPDATE goods SET
+		goodsSaleCount = goodsSaleCount + ${count}
+		WHERE goodsId=#{goodsId}
+	</update>
 
 	<select id="selectBestGoods" parameterType="Pager"
 		resultType="Goods">

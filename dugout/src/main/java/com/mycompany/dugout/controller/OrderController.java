@@ -26,6 +26,7 @@ import com.mycompany.dugout.dto.PayItemDto;
 import com.mycompany.dugout.dto.UserDto;
 import com.mycompany.dugout.security.UserDetail;
 import com.mycompany.dugout.service.CartService;
+import com.mycompany.dugout.service.GoodsService;
 import com.mycompany.dugout.service.OrderService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,9 @@ public class OrderController {
 	
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private GoodsService goodsService;
 	
 	@RequestMapping("/orderList")
 	public String orderList(Model model, Authentication authentication,@RequestParam(defaultValue = "6") int recentMonth) {
@@ -118,8 +122,7 @@ public class OrderController {
 			orderItem.setOrderItemCount(item.getGoodsQuantity());
 			orderService.insertOrderItem(orderItem);
 			cartService.deleteItem(item.getGoodsId());
+			goodsService.addSaleCount(item.getGoodsId(), item.getGoodsQuantity());
 		}
-
-	}
-	
+	}	
 }

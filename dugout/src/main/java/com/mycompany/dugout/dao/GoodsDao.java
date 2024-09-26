@@ -50,4 +50,6 @@ public interface GoodsDao {
 
 	public List<GoodsDto> getSortedKeyword(@Param("keyword")String keyword, @Param("sort")String sort, @Param("pager")PagerDto pager);
 
+	public int addSaleCount(@Param("goodsId")int goodsId, @Param("count")int count);
+
 }

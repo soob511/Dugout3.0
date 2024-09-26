@@ -115,5 +115,9 @@ public class GoodsService {
 		List<GoodsDto> list = goodsDao.getSortedKeyword(keyword, sort, pager);
 		return list;
 	}
+
+	public void addSaleCount(int goodsId, int count) {
+		goodsDao.addSaleCount(goodsId, count);	
 	}
+}
 
