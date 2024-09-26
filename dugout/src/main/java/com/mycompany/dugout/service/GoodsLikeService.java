@@ -47,5 +47,10 @@ public class GoodsLikeService {
 		
 	}
 
+	public void minusLikeCount(int goodsId) {
+		goodsLikeDao.updateMinusLikeCount(goodsId);
+		
+	}
+
 }
 

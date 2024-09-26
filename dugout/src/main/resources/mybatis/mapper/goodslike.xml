@@ -57,4 +57,11 @@
 		WHERE goodsId = #{goodsId}
 	</update>
 	
+	<update id="updateMinusLikeCount">
+		UPDATE goods
+		SET goodsLikeCount = goodsLikeCount - 1
+		WHERE goodsId = #{goodsId}
+	
+	</update>
+	
 </mapper>

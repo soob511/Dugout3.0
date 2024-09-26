@@ -18,4 +18,5 @@ public interface GoodsLikeDao {
 	public int selectIsLike(GoodsLikeDto goodsLike);
 	public int deleteAllLikes(String userId);
 	public int updateAddLikeCount(int goodsId);
+	public int updateMinusLikeCount(int goodsId);
 }

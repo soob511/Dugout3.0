@@ -65,6 +65,7 @@ public class GoodsLikeController {
 			goodsLikeService.addLikeCount(goodsId);
 		}else {
 			goodsLikeService.deleteLike(goodsLike);
+			goodsLikeService.minusLikeCount(goodsId);
 		}
 		return true;
 	}
@@ -93,14 +94,21 @@ public class GoodsLikeController {
 		goodsLike.setGoodsId(goodsId);
 		
 		goodsLikeService.deleteLike(goodsLike);
+		goodsLikeService.minusLikeCount(goodsId);
 		return "redirect:/goodsLike";
 	}
 	
 	@ResponseBody
 	@PostMapping("/deleteAllLikes")
-	public String deleteAllLikes(Authentication authentication) {
+	public String deleteAllLikes(Authentication authentication,@RequestParam int[] goodsIds) {
 		String userId = authentication.getName();
 		goodsLikeService.deleteAllLikes(userId);
+		
+		for(int goodsId: goodsIds) {
+			log.info(String.valueOf(goodsId));
+			goodsLikeService.minusLikeCount(goodsId);
+		}
+		
 		return "redirect:/goodsLike";
 	}
 	
