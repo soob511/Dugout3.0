@@ -2,11 +2,11 @@ $(document).ready(function() {
     $("#main-header").load("../main/Header.html");
     $("#main-footer").load("../main/Footer.html");
     
-    $("#userID, #email").on("input", function() {
+    $("#userID, #phone").on("input", function() {
         var userID = $("#userID").val().trim();
-        var name = $("#email").val().trim();
+        var phone = $("#phone").val().trim();
 
-        if (userID !== "" && name !== "") {
+        if (userID !== "" && phone !== "") {
             $(".findPassword-btn").prop("disabled", false);
         } else {
             $(".findPassword-btn").prop("disabled", true);

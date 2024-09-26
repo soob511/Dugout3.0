@@ -141,10 +141,10 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping("/findPassword")
-	public boolean findPassword(@RequestParam String userId, @RequestParam String userEmail) {
-		int userCount = userService.getUserInfoByfindPassword(userId);
-		log.info(String.valueOf(userCount));
-	    if(userCount==0) {
+	public boolean findPassword(@RequestParam String userId, @RequestParam String userPhone) {
+		String userEmail = userService.getUserInfoByfindPassword(userId,userPhone);
+		log.info(userEmail);
+	    if(userEmail==null) {
 	    	return false;
 	    }
 	    
