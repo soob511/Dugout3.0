@@ -6,6 +6,7 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 <script
 	src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
 <section class="section-top">
@@ -95,6 +96,29 @@
 		</a></li>
 	</ul>
 </nav>
+
+		
+		<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">관심상품 추가</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 <script>
 	$(document).ready(
 			function() {

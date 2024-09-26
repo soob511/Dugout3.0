@@ -19,9 +19,11 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 				  location.href = "user/loginForm";
 			  }else{ 
 				  if(isLiked){
-					  alert("관심목록에 추가되었습니다.");			  
+					  $(".modal-body p").text("관심목록에 등록되었습니다.");		
+					  $('.modal').modal('show');	  
 				  }else{
-					  alert("관심목록에서 해제되었습니다.");			  
+					  $(".modal-body p").text("관심목록에서 해제되었습니다.");		
+					  $('.modal').modal('show');			  
 				  }
 			   }
 		  }
