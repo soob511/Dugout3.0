@@ -48,4 +48,6 @@ public interface GoodsDao {
 
 	public List<GoodsDto> getSortedCategory(@Param("category")String category, @Param("sort")String sort, @Param("pager")PagerDto pager);
 
+	public List<GoodsDto> getSortedKeyword(@Param("keyword")String keyword, @Param("sort")String sort, @Param("pager")PagerDto pager);
+
 }
