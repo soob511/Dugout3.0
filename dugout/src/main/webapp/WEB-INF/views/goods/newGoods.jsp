@@ -120,8 +120,6 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">관심상품 추가</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p></p>

@@ -55,8 +55,6 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">배너등록</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p>배너가 등록되었습니다.</p>

@@ -119,8 +119,6 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">관심상품 삭제</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="modalLike-body">
 					<p></p>
@@ -138,8 +136,6 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">장바구니 추가</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
 				</div>
 				<div class="modal-body" id="modalCart-body">
 					<p></p>

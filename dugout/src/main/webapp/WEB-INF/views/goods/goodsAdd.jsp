@@ -89,8 +89,6 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">상품등록</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p>상품이 등록되었습니다.</p>
