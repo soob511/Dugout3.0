@@ -41,7 +41,7 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 					  $("#modalLike-body p").text("관심목록에 등록되었습니다.");		
 					  $('#modalLike').modal('show');		  
 				  }else{
-					  $("#modalLike-body p").text("관심목록에 등록되었습니다.");		
+					  $("#modalLike-body p").text("관심목록에서 삭제 되었습니다.");		
 					  $('#modalLike').modal('show');		  
 				  }
 			   }

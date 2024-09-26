@@ -130,7 +130,7 @@
 					<p></p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" id="modalCratBtn"
+					<button type="button" class="btn btn-secondary" id="modalCartBtn"
 						data-bs-dismiss="modal">닫기</button>
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 	<script>
 	
 	$(document).ready(function(){
-		$("#modalCratBtn").click(function(){
+		$("#modalCartBtn").click(function(){
 				
 			location.href = "${pageContext.request.contextPath}/goods/goodsDetail?goodsId=" + goodsId;
 
