@@ -13,9 +13,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/mypage/userInfo.js"></script>
-	<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/resources/css/mypage/userInfo.css"  rel="stylesheet" />
+			<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 </head>
 
 <body>
@@ -27,7 +26,7 @@
 			<div class="product-insert-box">
 				<h2 class="product-insert-title">회원 정보</h2>
 			</div>
-			<form class="membership board" method="post" action="updateUser">
+			<form class="membership board" >
 				<div class="member-id ">
 					<span>아이디</span> 
 					<input type="text" class="form-control" id="inputId" value="${user.userId}" name="userId"  readonly>
@@ -61,13 +60,75 @@
 					<button type="button" class="searchAddress" onclick="searchAddress()">주소검색</button>
 				</div>
 				<div></div>
-				<button type="submit" class="btnMember" disabled>회원정보 수정</button>
+				<button type="button" class="btnMember" onclick="updateUser()" disabled>회원정보 수정</button>
 				<br>
 				<button type="button" class="withdrawal-btn" onclick="deleteUser()">회원탈퇴</button>
 			</form>
 		</div>
 	</div>
+	
+	<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">회원정보 수정</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>회원정보 수정이 완료 되었습니다.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal" >확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	<script>
+		$(document).ready(function(){
+			$(".btn-secondary").click(function(){
+					
+				location.href = "${pageContext.request.contextPath}/user/userInfo";
+
+			})
+
+		})
+		
+		function updateUser(){
+			let userId = $("#inputId").val();
+			let userPassword=$("#inputPassword").val();
+			let userName=$("#inputName").val();
+			let userPhone=$("#inputPhone").val();
+			let userAddress=$("#inputAddress").val();
+			let userEmail=$("#inputEmail").val();
+			
+			  let userData = {
+				        userId: userId,
+				        userPassword: userPassword,
+				        userName: userName,
+				        userPhone: userPhone,
+				        userAddress: userAddress,
+				        userEmail: userEmail
+				    };
+			
+			$.ajax({
+				
+				url:"${pageContext.request.contextPath}/user/updateUser",
+				method:"post",
+		        contentType: "application/json", 
+		        data: JSON.stringify(userData),
+				success:function(response){
+					 $('.modal').modal('show');
+				}
+				
+			})
+		}
+		
 		function deleteUser() {		
 			$.ajax({
 				url: "deleteUser",
@@ -79,6 +140,5 @@
 			});
 		}
 	</script>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.mycompany.dugout.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -95,7 +98,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateUser")
-	public String updateUser(UpdateUserDto form) {
+	public void updateUser(@RequestBody UpdateUserDto form, HttpServletResponse response) {
 		UpdateUserDto user = new UpdateUserDto();
 		
 		user.setUserId(form.getUserId());
@@ -115,7 +118,8 @@ public class UserController {
 				new UsernamePasswordAuthenticationToken(userDetail, null, userDetail.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		
-		return "redirect:/user/userInfo";
+		response.setStatus(HttpServletResponse.SC_OK);
+
 	}
 	
 	@PostMapping("/deleteUser")
