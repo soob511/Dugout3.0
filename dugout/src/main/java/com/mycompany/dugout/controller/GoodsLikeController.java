@@ -62,6 +62,7 @@ public class GoodsLikeController {
 		goodsLike.setGoodsId(goodsId);		
 		if(isLiked) {
 			goodsLikeService.addLike(goodsLike);
+			goodsLikeService.addLikeCount(goodsId);
 		}else {
 			goodsLikeService.deleteLike(goodsLike);
 		}

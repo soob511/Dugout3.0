@@ -42,5 +42,10 @@ public class GoodsLikeService {
 		goodsLikeDao.deleteAllLikes(userId);
 	}
 
+	public void addLikeCount(int goodsId) {
+		goodsLikeDao.updateAddLikeCount(goodsId);
+		
+	}
+
 }
 
