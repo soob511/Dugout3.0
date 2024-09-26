@@ -18,6 +18,7 @@
 		<link href="${pageContext.request.contextPath}/resources/css/common/header.css"  rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/resources/css/common/footer.css"  rel="stylesheet" />
 		<link href="${pageContext.request.contextPath}/resources/css/mypage/goodsLike.css"  rel="stylesheet" />
+		<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 	</head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -112,8 +113,52 @@
 			</c:if>
 		</div>
 	</div>
+	
+		<div class="modal" tabindex="-1" id="modalLike">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">관심상품 삭제</h5>
+				</div>
+				<div class="modal-body" id="modalLike-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="modalLikeBtn"
+						data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" tabindex="-1" id="modalCart">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">장바구니 추가</h5>
+				</div>
+				<div class="modal-body" id="modalCart-body">
+					<p></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="modalCartBtn"
+						data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>
+
+$(document).ready(function(){
+	$("#modalLikeBtn").click(function(){
+			
+		location.href = "${pageContext.request.contextPath}/goodsLike";
+
+	})
+
+})
 		function addCart(itemId) {
 		const params = {goodsId: itemId, cartCount: 1};
 		
@@ -122,7 +167,8 @@
 			method: "post",
 		       data: params,
 			success: function(data) {				
-					alert("장바구니에 담겼습니다.");
+				$("#modalCart-body p").text("장바구니에 담겼습니다.");		
+				  $('#modalCart').modal('show');	  
 				}
 			});
 		}
@@ -135,9 +181,8 @@
 				method: "post",
 			       data: params,
 				success: function(data) {				
-						alert("관심내역에서 삭제되었습니다.");
-						url = `${pageContext.request.contextPath}/goodsLike`;
-						location.href=url;
+					  $("#modalLike-body p").text("관심목록에서 삭제 되었습니다.");		
+					  $('#modalLike').modal('show');		
 					}
 				});
 			}
@@ -147,9 +192,8 @@
 				url: "${pageContext.request.contextPath}/goodsLike/deleteAllLikes",
 				method: "post",
 				success: function(data) {				
-						alert("관심내역이 전체 삭제되었습니다.");
-						url = `${pageContext.request.contextPath}/goodsLike`;
-						location.href=url;
+					  $("#modalLike-body p").text("관심목록이 전체 삭제 되었습니다.");		
+					  $('#modalLike').modal('show');		
 					}
 				});
 		}

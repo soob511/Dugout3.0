@@ -47,9 +47,9 @@ public class UserService {
 		return userId;
 	}
 
-	public int getUserInfoByfindPassword(String userId) {
-		int userCount = userDao.getUserInfoByfindPassword(userId);
-		return userCount;
+	public String getUserInfoByfindPassword(String userId, String userPhone) {
+		String userEmail = userDao.getUserInfoByfindPassword(userId,userPhone);
+		return userEmail;
 	}
 
 	public void sendPasswordEmail(String userId, String userEmail) {

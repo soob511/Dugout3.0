@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link
 	href="${pageContext.request.contextPath}/resources/css/home/goods.css"
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 <script
 	src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
 <section class="section-top">
@@ -49,7 +51,8 @@
 				<div class="card-body">
 					<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
 					<p class="card-text">${goods.goodsCategory}</p>
-					<p class="card-text2">${goods.goodsPrice}원</p>
+					<p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}"
+								pattern="###,###" /></span> <span>원</span></p>
 				</div>
 			</div>
 		</c:forEach>
@@ -95,6 +98,27 @@
 		</a></li>
 	</ul>
 </nav>
+
+		
+		<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">관심상품 추가</h5>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 <script>
 	$(document).ready(
 			function() {

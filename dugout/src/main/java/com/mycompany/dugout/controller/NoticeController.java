@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,6 +57,7 @@ public class NoticeController {
 		return "notice/noticeForm";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/writeNotice")
 	public String writeNotice(NoticeDto form) throws Exception {
 		NoticeDto notice = new NoticeDto();
@@ -66,6 +68,7 @@ public class NoticeController {
 		return "redirect:/notice/noticeList";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/updateNotice")
 	public String updateNotice(int noticeId, Model model) {
 		NoticeDto notice = noticeService.getNoticeDetail(noticeId);
@@ -79,6 +82,7 @@ public class NoticeController {
 		return "redirect:/notice/noticeDetail?noticeId=" + form.getNoticeId();
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/deleteNotice")
 	public String deleteNotice(int noticeId) {
 		noticeService.deleteNotice(noticeId);

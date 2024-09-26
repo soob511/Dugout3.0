@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -38,8 +39,11 @@
 		<hr class="m-0" />		
 		<div class="btn-container">
 			<a href="noticeList?pageNo=${pager.pageNo}" class="btn-list">목록</a>
+			
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
 			<a href="updateNotice?noticeId=${notice.noticeId}" class="btn-update">수정</a>
 			<a href="deleteNotice?noticeId=${notice.noticeId}" class="btn-delete">삭제</a>
+			</sec:authorize>
 		</div>
 	</div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />

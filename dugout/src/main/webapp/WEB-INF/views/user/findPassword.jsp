@@ -30,8 +30,8 @@
 						class="form-control" placeholder="아이디를 입력하세요">
 				</div>
 				<div class="form-group">
-					<label for="email">이메일</label> <input type="text" id="email"
-						class="form-control" placeholder="이름을 입력하세요">
+					<label for="phone">전화번호</label> <input type="text" id="phone"
+						class="form-control" placeholder="전화번호를 입력하세요">
 				</div>
 				<button type="button" class="findPassword-btn" onclick="findPassword()" disabled>확인</button>
 			</form>
@@ -46,8 +46,6 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title">비밀번호 찾기</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p></p>
@@ -67,7 +65,7 @@
 		function findPassword(){
 			
 			let userId = $("#userID").val();
-			let userEmail = $("#email").val();
+			let userPhone = $("#phone").val();
 			
 			
 			$.ajax({
@@ -75,7 +73,7 @@
 				url : "${pageContext.request.contextPath}/user/findPassword",
 				method : "post",
 				data : {
-					userId, userEmail
+					userId, userPhone
 				},
 				
 				success : function(data){

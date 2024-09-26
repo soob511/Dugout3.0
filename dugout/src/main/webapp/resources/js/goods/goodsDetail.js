@@ -33,13 +33,16 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 		  },
 		  success:function(data){
 			  if(!data){
-				  alert("로그인 후 이용하시기 바랍니다.");
+				  $("#modalLike-body p").text("로그인후 이용하시기 바랍니다.");		
+				  $('#modalLike').modal('show');	
 				  location.href = "user/loginForm";
 			  }else{ 
 				  if(isLiked){
-					  alert("관심목록에 추가되었습니다.");			  
+					  $("#modalLike-body p").text("관심목록에 등록되었습니다.");		
+					  $('#modalLike').modal('show');		  
 				  }else{
-					  alert("관심목록에서 해제되었습니다.");			  
+					  $("#modalLike-body p").text("관심목록에서 삭제 되었습니다.");		
+					  $('#modalLike').modal('show');		  
 				  }
 			   }
 		  }

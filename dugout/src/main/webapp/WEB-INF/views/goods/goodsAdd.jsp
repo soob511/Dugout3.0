@@ -9,6 +9,7 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <link href="${pageContext.request.contextPath}/resources/css/goods/goodsAdd.css"  rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
   </head>
   <body id="product-insert-body">
   	 <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
@@ -75,15 +76,39 @@
             <button class="preview-button" type="button"  onclick="openPreview()">
               미리보기
             </button>
-            <button class="save-button" >
+            <button class="save-button"  id = "goodsSaveBtn"> 
               저장하기
             </button>
           </div>
         </form>
         </div>
       </section>
+      
+      <div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">상품등록</h5>
+					</div>
+					<div class="modal-body">
+						<p>상품이 등록되었습니다.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" 
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+      
     </main>
     <script>
+	$(document).ready(function(){
+		$("#goodsSaveBtn").click(function(){
+			  $('.modal').modal('show');
+		})
+})
+    
     	function openPreview() {
     		let previewWindow = window.open('${pageContext.request.contextPath}/goods/previewGoodsDetail', '상품등록미리보기', 'width=1400,height=1600');
     	       

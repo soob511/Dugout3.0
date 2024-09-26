@@ -45,10 +45,11 @@
 		AND userPhone = #{userPhone}
 	</select>
 	
-	<select id="getUserInfoByfindPassword" resultType="int">
-		SELECT count(*)
+	<select id="getUserInfoByfindPassword" resultType="String">
+		SELECT userEmail
 		FROM users
 		WHERE userId = #{userId}
+		AND userPhone = #{userPhone}
 	</select>
 	
 	<update id="updatePassword">

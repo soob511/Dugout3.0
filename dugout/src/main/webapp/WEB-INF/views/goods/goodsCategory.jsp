@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,15 +11,17 @@
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
-    <link href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css" rel="stylesheet" />
-    <script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
+
+	<link href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css"  rel="stylesheet" />
+	<script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
+	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
+
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <jsp:include page="/WEB-INF/views/common/nav.jsp" />
     <hr>
-    <nav></nav>
-    
+
     <section class="section-top">
         <div class="d-flex align-items-center">
             <div class="col-6">
@@ -42,22 +45,23 @@
     </section>
 
     <div class="container d-flex justify-content-center">
-        <div class="row d-flex justify-content-start gap-4">
-            <c:forEach items="${list}" var="goods">
-                <div class="card col-3" style="width: 300px; height: 500px">
-                    <a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}">
-                        <img class="card-img-top" src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}" height="150" />
-                    </a>
-                    <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
-                    <div class="card-body">
-                        <p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-                        <p class="card-text">${goods.goodsCategory}</p>
-                        <p class="card-text2">${goods.goodsPrice}원</p>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-    </div>
+		<div class="row d-flex justify-content-start gap-4">
+			<c:forEach items="${list}" var="goods">
+				<div class="card col-3" style="width: 300px; height: 500px">
+					<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
+						class="card-img-top"
+						src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
+						height="150" /></a> <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
+					<div class="card-body">
+						<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
+						<p class="card-text">${goods.goodsCategory}</p>
+						<p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}"
+							pattern="###,###" /></span> <span>원</span></p>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
 
     <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination">
@@ -92,7 +96,24 @@
             </li>
         </ul>
     </nav>
-
+    	<div class="modal" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">관심상품 추가</h5>
+					</div>
+					<div class="modal-body">
+						<p></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+     
+     
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
