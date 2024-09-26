@@ -83,7 +83,7 @@ public class OrderController {
 	    int totalPrice = (int) map.get("totalPrice");
 		
 		
-		if(orderList==null) {
+		if(orderList==null||totalPrice==0) {
 			return false;
 		}
 		

@@ -15,7 +15,8 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 		  },
 		  success:function(data){
 			  if(!data){
-				  alert("로그인 후 이용하시기 바랍니다.");
+				  $(".modal-body p").text("로그인후 이용하시기 바랍니다.");		
+				  $('.modal').modal('show');	
 				  location.href = "user/loginForm";
 			  }else{ 
 				  if(isLiked){
