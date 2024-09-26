@@ -110,5 +110,10 @@ public class GoodsService {
 		List<GoodsDto> list = goodsDao.getSortedCategory(category, sort, pager);
 		return list;
 	}
+
+	public List<GoodsDto> getSortedKeyword(String keyword, String sort, PagerDto pager) {
+		List<GoodsDto> list = goodsDao.getSortedKeyword(keyword, sort, pager);
+		return list;
+	}
 	}
 

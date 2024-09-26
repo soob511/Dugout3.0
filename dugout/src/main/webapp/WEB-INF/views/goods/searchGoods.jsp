@@ -24,18 +24,18 @@
         <div class="d-flex align-items-center">
             <div class="col-6">
                 <p class="product count">
-                    <span>${limitRows}</span>개의 상품 검색
+                    <span>${totalRows}</span>개의 상품 검색
                 </p>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="dropdown me-3">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="true">상품정렬</button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=가격높은순">가격 높은 순</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=가격낮은순">가격 낮은 순</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=많이팔린순">많이 팔린 순</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=인기순">인기 순</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingCategory?category=${goods.goodsCategory}&sort=최신순">최신 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingSearch?keyword=${keyword}&sort=가격높은순">가격 높은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingSearch?keyword=${keyword}&sort=가격낮은순">가격 낮은 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingSearch?keyword=${keyword}&sort=많이팔린순">많이 팔린 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingSearch?keyword=${keyword}&sort=인기순">인기 순</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingSearch?keyword=${keyword}&sort=최신순">최신 순</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,13 +71,13 @@
 		<nav aria-label="Page navigation example"
 			class="d-flex justify-content-center">
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="?pageNo=1&inputKeyword=${param.inputKeyword}"
+				<li class="page-item"><a class="page-link" href="?pageNo=1&keyword=${keyword}&sort=${param.sort}"
 					aria-label="First"> <span aria-hidden="true"><i
 							class="bi bi-chevron-double-left"></i></span>
 				</a></li>
 
 				<li class="page-item"><c:if test="${pager.groupNo>1}">
-						<a class="page-link" href="?pageNo=${pager.startPageNo - 1}&inputKeyword=${param.inputKeyword}"
+						<a class="page-link" href="?pageNo=${pager.startPageNo - 1}&keyword=${keyword}&sort=${param.sort}"
 							aria-label="Previous"> <span aria-hidden="true"><i
 								class="bi bi-chevron-left"></i></span>
 						</a>
@@ -86,24 +86,24 @@
 				<c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}"
 					step="1" var="i">
 					<c:if test="${pager.pageNo == i}">
-						<li class="page-item active"><a href="?pageNo=${i}&inputKeyword=${param.inputKeyword}"
+						<li class="page-item active"><a href="?pageNo=${i}&keyword=${keyword}&sort=${param.sort}"
 							class="page-link">${i}</a></li>
 					</c:if>
 					<c:if test="${pager.pageNo != i}">
-						<li class="page-item"><a href="?pageNo=${i}&inputKeyword=${param.inputKeyword}"
+						<li class="page-item"><a href="?pageNo=${i}&keyword=${keyword}&sort=${param.sort}"
 							class="page-link">${i}</a></li>
 					</c:if>
 				</c:forEach>
 				<li class="page-item"><c:if
 						test="${pager.groupNo<pager.totalGroupNo}">
-						<a class="page-link" href="?pageNo=${pager.endPageNo + 1}&inputKeyword=${param.inputKeyword}"
+						<a class="page-link" href="?pageNo=${pager.endPageNo + 1}&keyword=${keyword}&sort=${param.sort}"
 							aria-label="Next"> <span aria-hidden="true"><i
 								class="bi bi-chevron-right"></i></span>
 						</a>
 					</c:if></li>
 
 				<li class="page-item"><a class="page-link"
-					href="?pageNo=${pager.totalPageNo}&inputKeyword=${param.inputKeyword}" aria-label="Last"> <span
+					href="?pageNo=${pager.totalPageNo}&keyword=${keyword}&sort=${param.sort}" aria-label="Last"> <span
 						aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
 				</a></li>
 			</ul>

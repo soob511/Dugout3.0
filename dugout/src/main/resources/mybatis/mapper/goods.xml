@@ -279,4 +279,24 @@
             WHERE rnum <![CDATA[>]]>= #{pager.startRowNo}
 	</select>
 	
+	<select id="getSortedKeyword" resultType="Goods">
+         SELECT  goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+         FROM    (
+                     SELECT rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+                     FROM (
+                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
+						  FROM goods
+						  WHERE goodsName LIKE '%' || #{keyword} || '%' OR goodsTeam LIKE '%' || #{keyword} || '%'
+						  ORDER BY
+		                	<if test="sort == '가격높은순'">goodsPrice DESC</if>
+		                	<if test="sort == '가격낮은순'">goodsPrice ASC</if>
+		                	<if test="sort == '많이팔린순'">goodsSaleCount DESC</if>
+		                	<if test="sort == '인기순'">goodsLikeCount DESC</if>
+		                	<if test="sort == '최신순'">goodsRegDate DESC</if>
+                     )
+                   WHERE rownum <![CDATA[<]]>= #{pager.endRowNo}
+             )
+            WHERE rnum <![CDATA[>]]>= #{pager.startRowNo}
+	</select>
+	
 </mapper>

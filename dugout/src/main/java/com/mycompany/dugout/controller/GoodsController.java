@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -127,6 +126,12 @@ public class GoodsController {
 		return "redirect:/goods/goodsManagement";
 	}
 	
+	@RequestMapping("/previewGoodsDetail")
+	public String  previewGoodsDetail() {
+		log.info("실행");
+		return "goods/previewGoodsDetail";
+	}
+	
 	@RequestMapping("/teamFilter")
 	public String teamFilter(String goodsTeam,Model model,@RequestParam(defaultValue="1")int pageNo) {
 		int teamRows = goodsService.getTeamRows(goodsTeam);
@@ -181,6 +186,7 @@ public class GoodsController {
 	if (inputKeyword == null) {
 			log.info("키워드:" + session.getAttribute("keywords"));
 			int totalRows = goodsService.getTotalRows();
+			session.setAttribute("totalRows", totalRows);
 			PagerDto pager = new PagerDto(10, 5, totalRows, pageNo);
 			session.setAttribute("pager", pager);
 			
@@ -215,6 +221,21 @@ public class GoodsController {
 		return "goods/searchGoods";
 	}
 	
+	@GetMapping("/sortingSearch")
+	public String sortingSearch(@RequestParam String keyword, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
+		int totalRows = goodsService.getTotalRowsByKeyword(keyword);
+		model.addAttribute("totalRows", totalRows);
+		
+		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		model.addAttribute("pager", pager);
+		
+		List<GoodsDto> list =  goodsService.getSortedKeyword(keyword, sort, pager);
+		model.addAttribute("list", list);
+
+		return "goods/searchGoods";
+	}
+	
+	
 	@RequestMapping("/searchGoodsManagement")
 	public String searchGoodsManagement(@RequestParam String inputKeyword, Model model, HttpSession session, @RequestParam(defaultValue="1") int pageNo) {
 		log.info("keywords: " + inputKeyword);
@@ -234,11 +255,7 @@ public class GoodsController {
 	    return "goods/goodsManagement";
 	}
 	
-	@RequestMapping("/previewGoodsDetail")
-	public String  previewGoodsDetail() {
-		log.info("실행");
-		return "goods/previewGoodsDetail";
-	}
+	
 	
 	@GetMapping("/category")
 	public String category(@RequestParam String category, Model model, @RequestParam(defaultValue="1")int pageNo) {
@@ -252,9 +269,21 @@ public class GoodsController {
 		return "goods/goodsCategory";
 	}
 	
+	@GetMapping("/sortingCategory")
+		public String sortingCategory(@RequestParam String category, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
+		model.addAttribute("category", category);
+		int limitRows = goodsService.getCategoryLimitRows(category);
+		model.addAttribute("limitRows", limitRows);
+		PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
+		model.addAttribute("pager", pager);
+		List<GoodsDto> list =  goodsService.getSortedCategory(category, sort, pager);
+		model.addAttribute("list", list);
+	
+		return"goods/goodsCategory";
+	}
+	
 	@GetMapping("/sortingGoods")
 	public String sortingGoods(@RequestParam String kind, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
-
 		model.addAttribute("limitRows", 32);
 		PagerDto pager = new PagerDto(16, 5, 32, pageNo);
 		model.addAttribute("pager", pager);
@@ -266,19 +295,5 @@ public class GoodsController {
 		if(kind.equals("new")) {url = "goods/newGoods";} 
 		else if(kind.equals("rec")) {url = "goods/recommendGoods";} 
 		return url;	
-		}
-	
-	@GetMapping("/sortingCategory")
-	public String sortingCategory(@RequestParam String category, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
-	model.addAttribute("category", category);
-	int limitRows = goodsService.getCategoryLimitRows(category);
-	model.addAttribute("limitRows", limitRows);
-	PagerDto pager = new PagerDto(16, 5, limitRows, pageNo);
-	model.addAttribute("pager", pager);
-	List<GoodsDto> list =  goodsService.getSortedCategory(category, sort, pager);
-	model.addAttribute("list", list);
-
-	return"goods/goodsCategory";
 	}
-	
 }
