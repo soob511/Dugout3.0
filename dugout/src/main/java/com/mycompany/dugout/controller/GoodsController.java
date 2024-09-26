@@ -135,6 +135,7 @@ public class GoodsController {
 	@RequestMapping("/teamFilter")
 	public String teamFilter(String goodsTeam,Model model,@RequestParam(defaultValue="1")int pageNo) {
 		int teamRows = goodsService.getTeamRows(goodsTeam);
+		model.addAttribute("goodsTeam", goodsTeam);
 		model.addAttribute("teamRows",teamRows);
 		PagerDto pager = new PagerDto(16,5, teamRows, pageNo);
 		model.addAttribute("pager",pager);
