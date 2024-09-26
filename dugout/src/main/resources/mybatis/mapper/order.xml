@@ -18,12 +18,14 @@
 	
 	</insert>
 	
-	<select id="getOrderListById" parameterType="String" resultType="Order">
-		SELECT orderId, userId, orderDate, orderTotalPrice, orderStatus
-		FROM "order"
-		WHERE userId = #{userId}
-		ORDER BY orderDate DESC
-	</select>
+	<select id="getOrderListById" resultType="Order">
+    SELECT orderId, userId, orderDate, orderTotalPrice, orderStatus
+    FROM "order"
+    WHERE userId = #{userId}
+      AND orderDate >= ADD_MONTHS(SYSDATE, -#{recentMonth})
+    ORDER BY orderDate DESC
+</select>
+
 	
 	<select id="getOrderItemDetail" parameterType="Long" resultType="OrderItemDetail">
 		SELECT o.orderId, o.goodsId, o.orderItemPrice, o.orderItemCount, g.goodsName, g.goodsTeam

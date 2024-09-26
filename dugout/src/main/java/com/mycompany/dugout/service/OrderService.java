@@ -28,8 +28,8 @@ public class OrderService {
 		orderDao.insertOrderItem(orderItem);		
 	}
 
-	public List<OrderDto> getOrderListById(String userId) {
-		List<OrderDto> orderList = orderDao.getOrderListById(userId);
+	public List<OrderDto> getOrderListById(String userId, int recentMonth) {
+		List<OrderDto> orderList = orderDao.getOrderListById(userId,recentMonth);
 		return orderList;
 	}
 

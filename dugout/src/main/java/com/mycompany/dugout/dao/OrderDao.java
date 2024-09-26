@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.mycompany.dugout.dto.OrderDto;
 import com.mycompany.dugout.dto.OrderItemDto;
@@ -16,7 +17,7 @@ public interface OrderDao {
 
 	public int insertOrderItem(OrderItemDto orderItem);
 
-	public List<OrderDto> getOrderListById(String userId);
+	public List<OrderDto> getOrderListById(@Param("userId") String userId,@Param("recentMonth") int recentMonth);
 
 	public int updateOrderStatus(Date date);
 
