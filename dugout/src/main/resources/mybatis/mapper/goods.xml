@@ -118,11 +118,11 @@
 	<select id="selectBestGoods" parameterType="Pager"
 		resultType="Goods">
 	<![CDATA[
-	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount,goodsStatus
 	         from    (
-	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount,goodsStatus
 	                     from (
-	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsSaleCount,goodsStatus
 							  FROM goods
 							  WHERE goodsStatus != 2  
 							  ORDER BY goodsSaleCount desc
@@ -136,11 +136,11 @@
 	<select id="selectRecommendGoods" parameterType="Pager"
 		resultType="Goods">
 	<![CDATA[
-	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount,goodsStatus
 	         from    (
-	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikecount
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikecount,goodsStatus
 	                     from (
-	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsLikeCount,goodsStatus
 							  FROM goods
 							   WHERE goodsStatus != 2  
 							  ORDER BY goodsLikecount desc
@@ -174,11 +174,11 @@
 	<select id="selectNewGoods" parameterType="Pager"
 		resultType="Goods">
 	<![CDATA[
-	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+	         select  goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate,goodsStatus
 	         from    (
-	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+	                     select rownum as rnum, goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate,goodsStatus
 	                     from (
-	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate
+	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory,goodsRegDate,goodsStatus
 							  FROM goods
 							  WHERE goodsStatus != 2 
 							  ORDER BY goodsRegDate desc
