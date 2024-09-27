@@ -1,7 +1,7 @@
 nav {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 10px;
+  font-size: 19px;
 }
 
 nav a {
@@ -21,7 +21,7 @@ nav button, nav a {
 }
 
 .categorys .dropdown-toggle {
-	font-size: 22px;
+	font-size: 19px;
 	font-weight: bolder;
 }
 
@@ -33,7 +33,7 @@ nav button, nav a {
 
 .categorys .dropdown-toggle .bi-list {
 	padding-right: 8px;
-	font-size: 24px;
+	font-size: 21px;
 }
 
 .categorys .dropdown-toggle::after {
@@ -45,11 +45,12 @@ nav button, nav a {
 }
 
 .searchBox {
-	width: 330px;
+	width: 300px;
+	margin-left: 20px;
 }
 
 .searchBox .bi-search {
-	font-size: 18px;
+	font-size: 17px;
 	color: #343a40;
 	padding-right: 3px;
 }
