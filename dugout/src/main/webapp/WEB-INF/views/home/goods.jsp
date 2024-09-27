@@ -13,7 +13,7 @@
 <script
 	src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
 <section class="section-top">
-	<div class="d-flex align-items-center">
+	<div class="d-flex justify-content-between">
 		<div class="col-6">
 			<p class="product count">
 				<span>${totalRows}</span>개의 상품 검색
@@ -40,10 +40,10 @@
 	</div>
 </section>
 
-<div class="container d-flex justify-content-center">
-			<div class="row d-flex justify-content-start gap-1">
+<div class="container d-flex">
+			<div class="row d-flex justify-content-start gap-2">
 				<c:forEach items="${list}" var="goods">
-					<div class="card col-2" style="width: 250px; height: 400px">
+					<div class="card col-2" style="width: 300px; height: 450px">
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
 							class="card-img-top" id="card-img"
 							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"

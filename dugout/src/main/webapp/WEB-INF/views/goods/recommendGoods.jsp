@@ -11,7 +11,7 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
-	<link href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/home/goods.css"  rel="stylesheet" />
 	<script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
   </head>
@@ -45,10 +45,10 @@
 
 
 		
-<div class="container d-flex justify-content-center">
-			<div class="row d-flex justify-content-start gap-1">
+<div class="container d-flex">
+			<div class="row d-flex justify-content-start gap-2">
 				<c:forEach items="${list}" var="goods">
-					<div class="card col-2" style="width: 250px; height: 400px">
+					<div class="card col-2" style="width: 300px; height: 450px">
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
 							class="card-img-top" id="card-img"
 							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"

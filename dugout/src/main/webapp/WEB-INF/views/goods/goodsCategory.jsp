@@ -20,7 +20,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
     />
 
     <link
-      href="${pageContext.request.contextPath}/resources/css/goods/goodsTotal.css"
+      href="${pageContext.request.contextPath}/resources/css/home/goods.css"
       rel="stylesheet"
     />
     <script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
@@ -56,10 +56,10 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         </div>
     </section>
 
-<div class="container d-flex justify-content-center">
-			<div class="row d-flex justify-content-start gap-1">
+<div class="container d-flex">
+			<div class="row d-flex justify-content-start gap-2">
 				<c:forEach items="${list}" var="goods">
-					<div class="card col-2" style="width: 250px; height: 400px">
+					<div class="card col-2" style="width: 300px; height: 450px">
 						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
 							class="card-img-top" id="card-img"
 							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
