@@ -307,4 +307,17 @@
             WHERE rnum <![CDATA[>]]>= #{pager.startRowNo}
 	</select>
 	
+	<update id="updateGoodsQuantity">
+    UPDATE goods
+    SET 
+        goodsSaleCount = goodsSaleCount + #{goodsQuantity}, 
+        goodsStock = goodsStock  - #{goodsQuantity},
+        goodsStatus = CASE 
+                    WHEN (goodsStock - #{goodsQuantity}) <![CDATA[<]]>= 0 THEN 0 
+                    ELSE goodsStatus
+                 END
+    WHERE goodsId = #{goodsId}
+	</update>
+
+	
 </mapper>

@@ -52,4 +52,6 @@ public interface GoodsDao {
 
 	public int addSaleCount(@Param("goodsId")int goodsId, @Param("count")int count);
 
+	public int updateGoodsQuantity(@Param("goodsId") int goodsId,@Param("goodsQuantity") int goodsQuantity);
+
 }

@@ -124,6 +124,12 @@ public class OrderController {
 			orderItem.setOrderItemPrice(item.getGoodsPrice());
 			orderItem.setOrderItemCount(item.getGoodsQuantity());
 			orderService.insertOrderItem(orderItem);
+			
+			int goodsId = item.getGoodsId();
+			int goodsQuantity = item.getGoodsQuantity();
+			
+			goodsService.updateGoodsQuantity(goodsId,goodsQuantity);
+			
 			cartService.deleteItem(item.getGoodsId());
 			goodsService.addSaleCount(item.getGoodsId(), item.getGoodsQuantity());
 		}
