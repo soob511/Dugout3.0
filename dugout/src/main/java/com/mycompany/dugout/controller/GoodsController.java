@@ -144,6 +144,20 @@ public class GoodsController {
 		return "/goods/teamFilter";
 	}
 	
+	@GetMapping("/sortingTeam")
+	public String sortingTeam(String team, String sort, Model model, HttpSession session, @RequestParam(defaultValue="1")int pageNo) {
+		int teamRows = goodsService.getTeamRows(team);
+		PagerDto pager = new PagerDto(16, 5,  teamRows, pageNo);
+		List<GoodsDto> list =  goodsService.getSortedKeyword(team, sort, pager);
+		
+		model.addAttribute("goodsTeam", team);
+		session.setAttribute("teamRows", teamRows);
+		session.setAttribute("pager",pager);
+		model.addAttribute("list", list);
+		
+		return "goods/teamFilter";
+	}
+	
 	@RequestMapping("/bestGoods")
 	public String bestGoods(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
