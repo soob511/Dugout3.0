@@ -145,17 +145,17 @@ public class GoodsController {
 	}
 	
 	@GetMapping("/sortingTeam")
-	public String sortingTeam(String team, String sort, Model model, HttpSession session, @RequestParam(defaultValue="1")int pageNo) {
-		int teamRows = goodsService.getTeamRows(team);
+	public String sortingTeam(String goodsTeam, String sort, Model model, HttpSession session, @RequestParam(defaultValue="1")int pageNo) {
+		int teamRows = goodsService.getTeamRows(goodsTeam);
 		PagerDto pager = new PagerDto(16, 5,  teamRows, pageNo);
-		List<GoodsDto> list =  goodsService.getSortedKeyword(team, sort, pager);
+		List<GoodsDto> list =  goodsService.getSortedKeyword(goodsTeam, sort, pager);
 		
-		model.addAttribute("goodsTeam", team);
+		model.addAttribute("goodsTeam", goodsTeam);
 		session.setAttribute("teamRows", teamRows);
 		session.setAttribute("pager",pager);
 		model.addAttribute("list", list);
 		
-		return "goods/teamFilter";
+		return "/goods/teamFilter";
 	}
 	
 	@RequestMapping("/bestGoods")

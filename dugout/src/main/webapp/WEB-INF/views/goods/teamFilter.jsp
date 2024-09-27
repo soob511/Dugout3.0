@@ -67,16 +67,16 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=가격높은순">가격 높은 순</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=가격높은순">가격 높은 순</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=가격낮은순">가격 낮은 순</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=가격낮은순">가격 낮은 순</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=많이팔린순">많이 팔린 순</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=많이팔린순">많이 팔린 순</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=인기순">인기 순</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=인기순">인기 순</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=최신순">최신 순</a>
@@ -117,32 +117,32 @@
     <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination">
             <li class="page-item">
-                <a class="page-link" href="?pageNo=1&team=${goodsTeam}&sort=${param.sort}" aria-label="First">
+                <a class="page-link" href="?pageNo=1&goodsTeam=${goodsTeam}&sort=${param.sort != null ? param.sort :'최신순'}" aria-label="First">
                     <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                 </a>
             </li>
             <li class="page-item">
                 <c:if test="${pager.groupNo > 1}">
-                    <a class="page-link" href="?pageNo=${pager.startPageNo - 1}&team=${goodsTeam}&sort=${param.sort}" aria-label="Previous">
+                    <a class="page-link" href="?pageNo=${pager.startPageNo - 1}&goodsTeam=${goodsTeam}&sort=${param.sort != null ? param.sort :'최신순'}" aria-label="Previous">
                         <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
                     </a>
                 </c:if>
             </li>
             <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
                 <li class="page-item ${pager.pageNo == i ? 'active' : ''}">
-                    <a href="?pageNo=${i}&team=${goodsTeam}&sort=${param.sort}" class="page-link">${i}</a>
+                    <a href="?pageNo=${i}&goodsTeam=${goodsTeam}&sort=${param.sort != null ? param.sort :'최신순'}" class="page-link">${i}</a>
                 </li>
             </c:forEach>
             <li class="page-item">
                 <c:if test="${pager.groupNo < pager.totalGroupNo}">
-                    <a class="page-link" href="?pageNo=${pager.endPageNo + 1}&team=${goodsTeam}&sort=${param.sort}" aria-label="Next">
+                    <a class="page-link" href="?pageNo=${pager.endPageNo + 1}&goodsTeam=${goodsTeam}&sort=${param.sort != null ? param.sort :'최신순'}" aria-label="Next">
                         <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
                     </a>
                 </c:if>
             </li>
             <li class="page-item">
                 <c:if test="${pager.groupNo < pager.totalGroupNo}">
-                    <a class="page-link" href="?pageNo=${pager.totalPageCount}&team=${goodsTeam}&sort=${param.sort}" aria-label="Last">
+                    <a class="page-link" href="?pageNo=${pager.totalPageCount}&goodsTeam=${goodsTeam}&sort=${param.sort != null ? param.sort :'최신순'}" aria-label="Last">
                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                     </a>
                 </c:if>
@@ -150,6 +150,23 @@
         </ul>
     </nav>
 
+	<div class="modal" tabindex="-1">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title">관심상품 추가</h5>
+               </div>
+               <div class="modal-body">
+                  <p></p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                     data-bs-dismiss="modal">닫기</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>
