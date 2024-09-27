@@ -15,9 +15,7 @@ $(document).on("click", ".bi-heart, .bi-heart-fill", function () {
 		  },
 		  success:function(data){
 			  if(!data){
-				  $(".modal-body p").text("로그인후 이용하시기 바랍니다.");		
-				  $('.modal').modal('show');	
-				  location.href = "user/loginForm";
+				  location.href = "/dugout/user/loginForm";
 			  }else{ 
 				  if(isLiked){
 					  $(".modal-body p").text("관심목록에 등록되었습니다.");		

@@ -74,6 +74,9 @@ public class OrderController {
 	
 	@GetMapping("/payment")
 	public String payment(Model model,Authentication authentication,HttpSession session) {
+		if(authentication==null) {
+			return "user/loginForm";
+		}
 		UserDetail userDetail = (UserDetail) authentication.getPrincipal();
 		UserDto user = userDetail.getUser();
 		model.addAttribute("user",user);

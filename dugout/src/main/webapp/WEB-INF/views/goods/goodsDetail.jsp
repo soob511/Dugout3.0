@@ -166,9 +166,7 @@
 			method: "post",
 		       data: params,
 			success: function(data) {
-				if(data == false) {
-					  $("#modalCart-body p").text("로그인 후 이용하시기 바랍니다.");		
-					  $('#modalCart').modal('show');	  
+				if(data == false) {  
 					location.href = "${pageContext.request.contextPath}/user/loginForm";
 				} else {
 					  $("#modalCart-body p").text("장바구니에 담겼습니다.");		
