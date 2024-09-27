@@ -17,13 +17,12 @@
 </head>
   <body>
 	  <jsp:include page="/WEB-INF/views/common/header.jsp" />
+	  <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	  <hr>
 	<div class="container">
 	  <div class="notice-insert-box d-flex justify-content-between align-items-center">
 			  <h2 class="notice-insert-title">공지사항</h2>
 		</div>
-	
-
 			<table class="table table-sm table-bordered">
 	              <tr>
 	                 <th style="width:30px">번호</th>
@@ -95,9 +94,6 @@
 					        <a href="writeNoticeForm" class="btn btn-sm btn-writenotice">게시물 쓰기</a>
 					      </div>		
 						</sec:authorize>
-					      
-					      
-					      
 					    </div>
 					  </td>
 					</tr>

@@ -1,17 +1,16 @@
-nav {
+#head-nav {
   text-align: center;
-  margin-bottom: 10px;
   font-size: 19px;
+  margin-bottom: 10px;
 }
 
-nav a {
+#head-nav a:not(li a) {
   color: #333333;
   text-decoration: none;
-  margin: 0 72px;
+  margin: 0 65px;
 }
 
-nav button, nav a {
-
+#head-nav button, #head-nav a {
 	font-weight: bold;
 }
 
@@ -27,8 +26,7 @@ nav button, nav a {
 
 .categorys .dropdown-item {
 	text-align: center;
-    padding: 0;
-    margin: 5px 0;
+    padding: 5px 0;
 }
 
 .categorys .dropdown-toggle .bi-list {
@@ -37,7 +35,7 @@ nav button, nav a {
 }
 
 .categorys .dropdown-toggle::after {
-   display: none; /* 화살표 숨기기 */
+   display: none;
 }
 
 .categorys #dropdownMenuButton {
@@ -45,7 +43,7 @@ nav button, nav a {
 }
 
 .searchBox {
-	width: 300px;
+	width: 280px;
 	margin-left: 20px;
 }
 
@@ -55,3 +53,18 @@ nav button, nav a {
 	padding-right: 3px;
 }
 
+.searchBox form {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1px;
+}
+
+.searchBox .form-control.me-2 {
+  border: none;
+  width: 240px;
+}
+
+.searchBox .search-btn {
+  border: none;
+  background: white;
+}

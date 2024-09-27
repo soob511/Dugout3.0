@@ -28,6 +28,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	<hr>
 
 	<div class="goodsDetail-container d-flex">

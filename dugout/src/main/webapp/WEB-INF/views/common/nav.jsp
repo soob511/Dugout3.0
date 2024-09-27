@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link href="${pageContext.request.contextPath}/resources/css/common/nav.css" rel="stylesheet" />
 
-<nav>
+<nav id="head-nav">
     <div class="navbar-container d-flex justify-content-between align-items-center">
         <div class="dropdown categorys">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"  data-bs-toggle="dropdown" aria-expanded="true">
