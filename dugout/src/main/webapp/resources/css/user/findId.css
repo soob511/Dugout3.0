@@ -116,3 +116,16 @@ header, footer {
     text-decoration: none;
     color: #333333;
 }
+
+.form-group {
+    position: relative; 
+}
+
+.message {
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    right: 40px;
+    top: 43px;
+}

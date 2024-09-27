@@ -9,4 +9,18 @@ $(document).ready(function(){
             $(".findid-btn").prop("disabled", true);
         }
     });
+    
+    $("#phone").on("input", function () {
+        let phone = $("#phone").val().trim();
+        const msg = $('.phone-check');
+        if (phone && !phone.startsWith("010")) {
+    		msg.text("전화번호는 010으로 시작해야 합니다.");
+    	  	msg.css("color", "red");
+    	  	msg.css("opacity", "1");
+        } else {
+        	msg.css("opacity", "0");
+        }
+      });
+  
+    
 });

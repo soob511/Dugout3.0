@@ -36,6 +36,7 @@
 				<div class="form-group">
 					<label for="phone">전화번호</label> <input type="text" id="phone"
 						name="userPhone" class="form-control" placeholder="전화번호를 입력하세요">
+						<span class="message phone-check"></span>
 				</div>
 				<button type="button" class="findid-btn" onclick="findId()" disabled>확인</button>
 			</form>
