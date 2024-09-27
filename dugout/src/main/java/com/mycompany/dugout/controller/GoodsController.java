@@ -97,7 +97,7 @@ public class GoodsController {
 	}
 	
 	@PostMapping("/updateGoods")
-	public String updateGoods(UpdateGoodsDto udGoods) throws IOException {
+	public String updateGoods(UpdateGoodsDto udGoods, int pageNo) throws IOException {
 		log.info("실행");
 		GoodsDto goods = new GoodsDto();
 		goods.setGoodsId(udGoods.getGoodsId());
@@ -121,13 +121,13 @@ public class GoodsController {
 			goods.setGoodsDetailType(detail.getContentType());
 			goods.setGoodsDetailData(detail.getBytes());
 		}
-		
+
 		goodsService.updateGoods(goods);
-		return "redirect:/goods/goodsManagement";
+		return "redirect:/goods/goodsManagement?pageNo=" + pageNo;
 	}
 	
 	@RequestMapping("/previewGoodsDetail")
-	public String  previewGoodsDetail() {
+	public String previewGoodsDetail() {
 		log.info("실행");
 		return "goods/previewGoodsDetail";
 	}
