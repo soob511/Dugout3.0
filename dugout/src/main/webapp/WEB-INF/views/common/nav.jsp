@@ -3,7 +3,7 @@
 
 <nav>
     <div class="navbar-container d-flex justify-content-between align-items-center">
-        <div class="dropdown categorys me-3">
+        <div class="dropdown categorys">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"  data-bs-toggle="dropdown" aria-expanded="true">
                 <i class="bi bi-list"></i> 카테고리
             </button>
@@ -23,9 +23,9 @@
             <a href="${pageContext.request.contextPath}/goods/bestGoods">BEST상품</a>
         </div>
         
-        <div>
+        <div class="searchBox">
             <form class="d-flex" method="post" action="${pageContext.request.contextPath}/goods/searchGoods">
-                <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search" name="inputKeyword" />
+                <input class="form-control me-2" type="search" placeholder="검색어를 입력해 주세요." aria-label="Search" name="inputKeyword" />
                 <button class="search-btn" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
