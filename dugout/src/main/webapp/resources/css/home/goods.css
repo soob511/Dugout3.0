@@ -1,12 +1,15 @@
 .container {
-	margin: 30px  auto;
+	margin: 30px  200px;
 	padding: 0 !important;
-	min-width: 1480px !important;
+	min-width: 1270px !important;
 }
 .row {
 	width: 100%;
 	margin: 0 !important;
 	padding: 0 !important;
+}
+.section-top{
+	margin: 0 200px;
 }
 .col-6 {
   margin: 8px 0;
@@ -55,7 +58,7 @@ form {
 }
 .card {
   border: none !important;
-  margin: 20px;
+  margin: 5px;
 }
 .card-title {
   font-weight: bold;
@@ -93,9 +96,6 @@ form {
 }
 .page-link {
   margin: 0px 0px 0px 0px;
-}
-.section-top {
-  padding: 0 80px;
 }
 .page-link {
   border: none !important;
@@ -140,7 +140,7 @@ form {
     display: flex;
     justify-content: center; 
     align-items: center; 
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 }
 
 
