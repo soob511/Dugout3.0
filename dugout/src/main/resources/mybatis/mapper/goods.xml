@@ -11,6 +11,7 @@
 	                          SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus,goodsmaindata, goodsmaintype,goodsMainName, goodsDetailData, goodsDetailType,goodsDetailName
 							  FROM goods
 							  WHERE goodsStatus != 2 
+							  ORDER BY goodsRegDate DESC
 	                     )
 	                   where rownum <= #{endRowNo}
 	             )
