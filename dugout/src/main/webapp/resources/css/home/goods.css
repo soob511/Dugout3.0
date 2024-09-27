@@ -130,19 +130,6 @@ form {
  .position-relative {
     position: relative;
 }
-
-.position-relative {
-    position: relative;
-}
-
-.position-relative {
-    position: relative;
-}
-
-.position-relative {
-    position: relative;
-}
-
 .overlay {
     position: absolute;
     bottom: 0;
@@ -153,7 +140,9 @@ form {
     display: flex;
     justify-content: center; 
     align-items: center; 
+    margin-bottom: 100px;
 }
+
 
 .out-of-stock {
     color: white; 
