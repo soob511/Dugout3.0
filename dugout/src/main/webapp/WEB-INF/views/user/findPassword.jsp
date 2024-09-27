@@ -30,8 +30,10 @@
 						class="form-control" placeholder="아이디를 입력하세요">
 				</div>
 				<div class="form-group">
-					<label for="phone">전화번호</label> <input type="text" id="phone"
+					<label for="phone">전화번호</label> 
+					<input type="text" id="phone"
 						class="form-control" placeholder="전화번호를 입력하세요">
+						<span class="message phone-check"></span>
 				</div>
 				<button type="button" class="findPassword-btn" onclick="findPassword()" disabled>확인</button>
 			</form>
