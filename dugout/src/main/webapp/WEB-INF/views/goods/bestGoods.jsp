@@ -42,24 +42,31 @@
         </div>
     </section>
 
-    <div class="container d-flex justify-content-center">
-		<div class="row d-flex justify-content-start gap-4">
-			<c:forEach items="${list}" var="goods">
-				<div class="card col-3" style="width: 300px; height: 500px">
-					<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
-						class="card-img-top"
-						src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
-						height="150" /></a> <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
-					<div class="card-body">
-						<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-						<p class="card-text">${goods.goodsCategory}</p>
-						<p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}"
-							pattern="###,###" /></span> <span>원</span></p>
+    
+<div class="container d-flex justify-content-center">
+			<div class="row d-flex justify-content-start gap-1">
+				<c:forEach items="${list}" var="goods">
+					<div class="card col-2" style="width: 250px; height: 400px">
+						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
+							class="card-img-top" id="card-img"
+							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
+							height="150" style="${goods.goodsStatus == 0 ? 'opacity: 0.5;' : ''}" /></a>
+							<c:if test="${goods.goodsStatus == 0}">
+									<p class="overlay out-of-stock">SOLD OUT</p>
+							</c:if>
+							<c:if test="${goods.goodsStatus != 0}">
+									<i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
+							</c:if>
+						<div class="card-body">
+							<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
+							<p class="card-text">${goods.goodsCategory}</p>
+							<p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}"
+								pattern="###,###" /></span> <span>원</span></p>
+						</div>
 					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
+			</div>
 		</div>
-	</div>
 
     <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination">
