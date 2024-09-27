@@ -157,6 +157,13 @@ nav {
     letter-spacing: 1px;
 }
 
+#soldOutBtn {
+    background-color: gray; 
+    color: white; 
+    cursor: not-allowed; 
+    pointer-events: none;
+}
+
 .bi-heart-fill {
   color: #ff0004;
   cursor: pointer;

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -91,9 +91,19 @@
 					<button type="button" class="like-btn col-2">
 						<i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
 					</button>
-					<button class="shoppingcart-btn col-5" onclick="addCart()">장바구니</button>
-					<button type="button" class="purchase-btn col-5"
-						onclick="orderItem()">구매하기</button>
+					<c:if test="${goods.goodsStatus != 0}">
+					    <button class="shoppingcart-btn col-5" onclick="addCart()">장바구니</button>
+					</c:if>
+					<c:if test="${goods.goodsStatus == 0}">
+					    <button class="shoppingcart-btn col-5" disabled>장바구니</button>
+					</c:if>
+					<c:if test="${goods.goodsStatus != 0}">
+					    <button type="button" class="purchase-btn col-5" onclick="orderItem()">구매하기</button>					
+					</c:if>
+					<c:if test="${goods.goodsStatus == 0}">
+					    <button type="button" class="purchase-btn col-5" id="soldOutBtn"disabled>SOLD OUT</button>					
+					</c:if>
+
 				</div>
 			</div>
 		</div>
