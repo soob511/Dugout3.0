@@ -53,7 +53,7 @@
 						<tbody>
 							<!-- 상품마다 개별 form -->
 							<c:forEach items="${goods != null ? goods : searchGoods}" var="goods">
-								<form method="post" action="${pageContext.request.contextPath}/goods/updateGoods" enctype="multipart/form-data">
+								<form method="post" action="${pageContext.request.contextPath}/goods/updateGoods?pageNo=${pager.pageNo}" enctype="multipart/form-data">
 									<tr>
 										<td>
 											<img src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}" class="img-thumbnail" alt="상품 이미지" />
