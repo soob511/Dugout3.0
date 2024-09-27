@@ -12,9 +12,11 @@
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 	<link href="${pageContext.request.contextPath}/resources/css/notice/noticeDetail.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
   <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
+	<jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	<hr>
 	<div class="container">
 		<div class="notice-detail-box d-flex justify-content-between align-items-center">

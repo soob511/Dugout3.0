@@ -14,7 +14,6 @@
   </head>
   <body>
 	  <jsp:include page="/WEB-INF/views/common/header.jsp" /> 
-	   <%-- <jsp:include page="/WEB-INF/views/admin/headerManagement.jsp" /> --%>
 	  <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	  <jsp:include page="/WEB-INF/views/home/banner.jsp" />	
       <jsp:include page="/WEB-INF/views/home/teamLogoCategory.jsp" />
