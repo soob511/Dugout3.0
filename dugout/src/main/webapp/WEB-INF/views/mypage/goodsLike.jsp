@@ -64,9 +64,14 @@
 					</div>
 					<div class="heart-btns">
 						<div class="cart-to">
-							<button type="button" class="btn-to-cart"
-								onclick="addCart(${item.goodsId})">장바구니 담기</button>
+						    <c:if test="${item.goodsStatus == 0}">
+						        <button type="button" class="btn-to-cart" id="soldOutBtn" disabled>SOLD OUT</button>
+						    </c:if>
+						    <c:if test="${item.goodsStatus != 0}">
+						        <button type="button" class="btn-to-cart" onclick="addCart(${goods.goodsId})">장바구니 담기</button>
+						    </c:if>
 						</div>
+
 						<div class="heart-delete">
 							<button type="button" class="btn-heart-delete"
 								onclick="deleteLike(${item.goodsId})">삭제</button>
