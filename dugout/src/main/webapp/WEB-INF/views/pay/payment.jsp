@@ -10,6 +10,7 @@
   <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
+   <link href="${pageContext.request.contextPath}/resources/css/common/modal.css" rel="stylesheet" />
 <link
 	href="${pageContext.request.contextPath}/resources/css/pay/payment.css"
 	rel="stylesheet" />
@@ -58,10 +59,16 @@
 		<div class="section">
 			<div class="section-title">최종 주문정보</div>
 			<div class="info-row">
-				<span class="info-label">즉시 구매가</span> <span class="info-value">${totalPrice}</span>
+				<span class="info-label">즉시 구매가</span> <span class="info-value"><fmt:formatNumber
+													value="${totalPrice}"
+													pattern="#,###,###"></fmt:formatNumber>
+												원</span>
 			</div>
 			<div class="total-row">
-				<span class="total-label">총 결제금액</span> <span class="total-value">${totalPrice}</span>
+				<span class="total-label">총 결제금액</span> <span class="total-value"><fmt:formatNumber
+													value="${totalPrice}"
+													pattern="#,###,###"></fmt:formatNumber>
+												원</span>
 			</div>
 		</div>
 		<a onclick="insertOrder()" style="text-decoration: none;">

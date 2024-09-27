@@ -22,4 +22,6 @@ public interface OrderDao {
 	public int updateOrderStatus(Date date);
 
 	public List<OrderItemDetailDto> getOrderItemDetail(Long orderId);
+
+	
 }

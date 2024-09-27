@@ -119,5 +119,13 @@ public class GoodsService {
 	public void addSaleCount(int goodsId, int count) {
 		goodsDao.addSaleCount(goodsId, count);	
 	}
+
+	public void updateGoodsQuantity(int goodsId, int goodsQuantity) {
+		goodsDao.updateGoodsQuantity(goodsId,goodsQuantity);
+		
+		
+	}
+
+
 }
 
