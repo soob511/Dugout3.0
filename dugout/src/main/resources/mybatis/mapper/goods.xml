@@ -249,7 +249,6 @@
 						        <if test="kind == 'new'">goodsRegDate DESC</if>
 						        <if test="kind == 'best'">goodsSaleCount DESC</if>
 						        <if test="kind == 'rec'">goodsLikeCount DESC</if>
-						        <if test="kind == 'all'"></if>
 						)
 						WHERE ROWNUM <![CDATA[<]]>= 32
 					)
@@ -272,7 +271,9 @@
                      FROM (
                           SELECT goodsid,goodsname,goodsteam,goodsprice, goodscategory, goodsstock, goodsstatus
 						  FROM goods
+						  <if test="category != null">
 						  WHERE goodsCategory = #{category}
+						  </if>
 						  ORDER BY
 		                	<if test="sort == '가격높은순'">goodsPrice DESC</if>
 		                	<if test="sort == '가격낮은순'">goodsPrice ASC</if>

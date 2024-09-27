@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,5 +37,16 @@ public class HomeController {
 		return "index";
 	}
 	
-	
+	@GetMapping("/sortingGoods")
+	public String sortingGoods(@RequestParam(required = false) String category, @RequestParam String sort, Model model, @RequestParam(defaultValue="1")int pageNo) {
+		int totalRows = goodsService.getTotalRows();
+		PagerDto pager = new PagerDto(16, 5, totalRows, pageNo);
+		List<GoodsDto> list =  goodsService.getSortedCategory(category, sort, pager);
+		
+		model.addAttribute("totalRows",totalRows);
+		model.addAttribute("pager", pager);
+		model.addAttribute("list", list);
+
+		return "index";
+	}
 }
