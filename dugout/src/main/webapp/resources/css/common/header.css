@@ -22,10 +22,10 @@ html {
     font-size: 17px;
 }
 
-.login,.logout{
-  margin-left: 16px;
+.login, .notice {
   margin-right: 16px;
 }
+
 .logo-icons-section {
   display: inline-block;
   width: 100%;

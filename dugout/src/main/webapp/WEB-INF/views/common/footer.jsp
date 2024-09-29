@@ -2,7 +2,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" />
 <body class="footer-body">
     <div class="footer-container">
-        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 my-3 border-top">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 border-top">
             <div class="col mb-2 col-logo">
                 <a href="/" class="mb-2 link-dark text-decoration-none">
                     <img src="${pageContext.request.contextPath}/resources/image/logo/footerDugout.png" alt="Dugout Logo" />

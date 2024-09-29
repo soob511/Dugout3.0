@@ -9,14 +9,15 @@
 .footer-body {
   color: #ffffff;
   font-family: "Pretendard-Regular";
-  height: 250px;
+  height: 260px;
 }
 
 .footer-container {
   background-color: #333333;
-  padding: 25px 200px 0;
+  padding: 35px 200px 20px;
   width:100%;
-   margin-top: 200px;
+  height: 100%;
+  margin-top: 160px;
 }
 
 .footer-container .col-logo {
@@ -45,7 +46,7 @@
 }
 
 .footer-container div {
-	padding: 15px 0;
+	padding: 25px 0;
 }
 
 .footer-container .text-muted {
