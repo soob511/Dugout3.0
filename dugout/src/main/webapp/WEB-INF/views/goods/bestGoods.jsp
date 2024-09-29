@@ -1,31 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
     <title>베스트상품</title>
-
     <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
     <link href="${pageContext.request.contextPath}/resources/css/home/goods.css" rel="stylesheet" />
-	<script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
-	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
+    <script src="${pageContext.request.contextPath}/resources/js/home/goods.js"></script>
+    <link href="${pageContext.request.contextPath}/resources/css/common/modal.css" rel="stylesheet" />
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
     <jsp:include page="/WEB-INF/views/common/nav.jsp" />
-    <hr>
-    
+    <hr />
     <section class="section-top">
         <div class="d-flex align-items-center">
             <div class="col-6">
-                <p class="product count">
-                    <span>${limitRows}</span>개의 상품 검색
-                </p>
+                <p class="product count"><span>${limitRows}</span>개의 상품 검색</p>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="dropdown me-3">
@@ -41,33 +37,28 @@
             </div>
         </div>
     </section>
-
-    
-<div class="container d-flex">
-			<div class="row d-flex justify-content-start gap-2">
-				<c:forEach items="${list}" var="goods">
-					<div class="card col-2" style="width: 300px; height: 450px">
-						<a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}"><img
-							class="card-img-top" id="card-img"
-							src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}"
-							height="150" style="${goods.goodsStatus == 0 ? 'opacity: 0.5;' : ''}" /></a>
-							<c:if test="${goods.goodsStatus == 0}">
-									<p class="overlay out-of-stock">SOLD OUT</p>
-							</c:if>
-							<c:if test="${goods.goodsStatus != 0}">
-									<i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
-							</c:if>
-						<div class="card-body">
-							<p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
-							<p class="card-text">${goods.goodsCategory}</p>
-							<p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}"
-								pattern="###,###" /></span> <span>원</span></p>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-
+    <div class="container d-flex">
+        <div class="row d-flex justify-content-start gap-2">
+            <c:forEach items="${list}" var="goods">
+                <div class="card col-2" style="width: 300px; height: 450px">
+                    <a href="${pageContext.request.contextPath}/goods/goodsDetail?goodsId=${goods.goodsId}">
+                        <img class="card-img-top" id="card-img" src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}" height="150" style="${goods.goodsStatus == 0 ? 'opacity: 0.5;' : ''}" />
+                    </a>
+                    <c:if test="${goods.goodsStatus == 0}">
+                        <p class="overlay out-of-stock">SOLD OUT</p>
+                    </c:if>
+                    <c:if test="${goods.goodsStatus != 0}">
+                        <i class="bi bi-heart" data-goods-id="${goods.goodsId}"></i>
+                    </c:if>
+                    <div class="card-body">
+                        <p class="card-title">[${goods.goodsTeam}] ${goods.goodsName}</p>
+                        <p class="card-text">${goods.goodsCategory}</p>
+                        <p class="card-text2"><span><fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###" /></span> <span>원</span></p>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
     <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination">
             <li class="page-item">
@@ -83,7 +74,7 @@
                 </c:if>
             </li>
             <c:forEach begin="${pager.startPageNo}" end="${pager.endPageNo}" step="1" var="i">
-                <li class="page-item <c:if test="${pager.pageNo == i}">active</c:if>">
+                <li class="page-item <c:if test='${pager.pageNo == i}'>active</c:if>'">
                     <a href="?pageNo=${i}&kind=${param.kind}&sort=${param.sort}" class="page-link">${i}</a>
                 </li>
             </c:forEach>
@@ -101,24 +92,21 @@
             </li>
         </ul>
     </nav>
-    
-		<div class="modal" tabindex="-1">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">관심상품 추가</h5>
-					</div>
-					<div class="modal-body">
-						<p></p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">닫기</button>
-					</div>
-				</div>
-			</div>
-		</div>
-     
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">관심상품 추가</h5>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
