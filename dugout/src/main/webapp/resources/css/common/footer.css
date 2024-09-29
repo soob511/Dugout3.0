@@ -9,13 +9,14 @@
 .footer-body {
   color: #ffffff;
   font-family: "Pretendard-Regular";
+  height: 250px;
 }
 
 .footer-container {
   background-color: #333333;
-  padding: 25px 200px;
+  padding: 25px 200px 0;
   width:100%;
-  height: 240px;
+   margin-top: 200px;
 }
 
 .footer-container .col-logo {
@@ -49,4 +50,8 @@
 
 .footer-container .text-muted {
   color: #cccccc !important;
+}
+
+.footer-container .col:last-of-type {
+	width: max-content;
 }

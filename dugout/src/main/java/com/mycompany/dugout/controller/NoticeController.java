@@ -77,6 +77,7 @@ public class NoticeController {
 		return "notice/updateNoticeForm";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/updateNotice")
 	public String updateNotice(UpdateNoticeDto form) {
 		noticeService.updateNotice(form);		

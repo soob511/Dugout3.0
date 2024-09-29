@@ -17,12 +17,15 @@
 </head>
   <body>
 	  <jsp:include page="/WEB-INF/views/common/header.jsp" />
+	  <jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	  <hr>
-	<div class="container">
-	  <div class="notice-insert-box d-flex justify-content-between align-items-center">
-			  <h2 class="secure-title">접근권한이 없습니다.</h2>
+
+	  <div class="empty-cart">
+	  	<i class="bi bi-exclamation-triangle-fill"></i>
+			<h4>접근권한이 없습니다.</h4>
 		</div>
-	</div>
+<!-- 	  	<i class="bi bi-exclamation-diamond-fill"></i>
+	  	<i class="bi bi-exclamation-circle-fill"></i> -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
   </body>
 </html>

@@ -45,7 +45,7 @@
                 </ul>
             </div>
 
-            <div class="col mb-2 grow">
+            <div class="col mb-2">
                 <h5>고객센터 1588-0603</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
