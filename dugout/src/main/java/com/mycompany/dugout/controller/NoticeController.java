@@ -52,6 +52,7 @@ public class NoticeController {
 		return "notice/noticeDetail";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/writeNoticeForm")
 	public String writeNoticeForm() {
 		return "notice/noticeForm";
