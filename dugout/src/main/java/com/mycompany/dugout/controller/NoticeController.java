@@ -52,6 +52,7 @@ public class NoticeController {
 		return "notice/noticeDetail";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/writeNoticeForm")
 	public String writeNoticeForm() {
 		return "notice/noticeForm";
@@ -76,6 +77,7 @@ public class NoticeController {
 		return "notice/updateNoticeForm";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/updateNotice")
 	public String updateNotice(UpdateNoticeDto form) {
 		noticeService.updateNotice(form);		
