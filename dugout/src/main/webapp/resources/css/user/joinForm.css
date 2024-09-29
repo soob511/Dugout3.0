@@ -1,9 +1,16 @@
-@charset "UTF-8";
-.join-body {
+@font-face {
+    font-family: 'PresicavHv';
+    src: url('/common/font/PresicavHv-Regular') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer-body {
     width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: black !important;
 }
 .title {
     text-align: center;
@@ -14,6 +21,7 @@
     font-size: 36px;
     font-weight: bold;
     color:#333333;
+    font-family: 'PresicavHv';
 }
 #member-form {
     max-width: 800px;

@@ -13,12 +13,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
 <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
-
-<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" />
-<link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/css/user/joinForm.css" rel="stylesheet" />
 </head>
-<body class="join-body">
+<body class="footer-body">
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	
 	<hr class="join-hr" />
