@@ -1,4 +1,3 @@
-/* 카카오주소 api */
 function searchAddress() {
   new daum.Postcode({
     oncomplete: function (data) {
@@ -25,7 +24,6 @@ function searchAddress() {
   }).open();
 }
 
-/* 회원가입 Form 유효성 검사 */
 $(document).ready(function () {
 	const checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 	const checkPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/;
@@ -105,6 +103,27 @@ $(document).ready(function () {
 	    }
 	});
 });
+
+function idCheck() {
+	let inputId = $("#inputId").val();
+	
+	$.ajax({
+		url: "idCheck",
+		method: "post",
+        data: { inputId: inputId },
+		success: function(data) {
+			const msg = $('.username-message');
+			msg.css("opacity", "1")
+			if(data) {
+				msg.text("사용 가능한 아이디입니다.");
+				msg.css("color", "blue");
+			} else {
+				msg.text("이미 존재하는 아이디입니다.");
+				msg.css("color", "red");
+			}
+		}
+	});
+}
   
   
   

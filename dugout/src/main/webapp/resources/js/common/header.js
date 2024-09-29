@@ -1,20 +1,15 @@
-$(document).ready(function () {
-  var loginSuccess = localStorage.getItem("login");
-  var userAdmin = localStorage.getItem("userAdmin");
-  if (loginSuccess) {
-    $(".login")
-      .text("로그아웃")
-      .attr("href", "#")
-      .on("click", function () {
-        localStorage.removeItem("login");
-        localStorage.removeItem("userAdmin");
-        location.href = "../main/Main.html";
-      });
-    $(".member").css("visibility", "hidden");
-  } else {
-    $(".login").text("로그인");
-  }
-  if (userAdmin === "true") {
-    $("header").load("../management/HeaderManagement.html");
-  }
+$(document).ready(function() {
+	$.ajax({
+		url : "/dugout/cart/cartCount",
+		method : "GET",
+		success : function(data) {
+
+			if (data) {
+				console.log(data);
+				$(".cart-badge").text(data);
+			} else {
+				$(".cart-badge").text(0);
+			}
+		}
+	});
 });

@@ -9,9 +9,7 @@
                 </a>
                 <p class="text-muted">© 2024</p>
             </div>
-
             <div class="col mb-2"></div>
-
             <div class="col mb-2">
                 <h5>이용안내</h5>
                 <ul class="nav flex-column">
@@ -29,7 +27,6 @@
                     </li>
                 </ul>
             </div>
-
             <div class="col mb-2">
                 <h5>고객지원</h5>
                 <ul class="nav flex-column">
@@ -44,7 +41,6 @@
                     </li>
                 </ul>
             </div>
-
             <div class="col mb-2">
                 <h5>고객센터 1588-0603</h5>
                 <ul class="nav flex-column">

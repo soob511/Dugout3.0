@@ -9,7 +9,6 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-	
 	<link href="${pageContext.request.contextPath}/resources/css/main.css"  rel="stylesheet" />
   </head>
   <body>
