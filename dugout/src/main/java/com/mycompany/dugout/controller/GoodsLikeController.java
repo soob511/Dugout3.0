@@ -31,7 +31,7 @@ public class GoodsLikeController {
 	@Autowired
 	GoodsService goodsService;
 	
-	@RequestMapping("")
+	@RequestMapping("/goodsLikeList")
 	public String goodsLike(Authentication authentication, 
 								      @RequestParam(defaultValue="1") int pageNo, 
 									  HttpSession session, Model model) {
@@ -47,7 +47,7 @@ public class GoodsLikeController {
 
 		List<GoodsDto> likeList = goodsLikeService.getLikeItemList(userId, pager);		
 		model.addAttribute("likeList", likeList);
-		return "mypage/goodsLike";
+		return "mypage/goodsLikeList";
 	}
 	
 	@ResponseBody

@@ -10,6 +10,6 @@
 	  <a href="${pageContext.request.contextPath}/user/userInfo">회원 정보</a>
 	</div>	
 	<div class="menu-item">
-	  <a href="${pageContext.request.contextPath}/goodsLike">관심 내역</a>
+	  <a href="${pageContext.request.contextPath}/goodsLike/goodsLikeList">관심 내역</a>
 	</div>
 </div>
