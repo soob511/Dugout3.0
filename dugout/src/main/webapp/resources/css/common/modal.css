@@ -13,34 +13,34 @@
 .modal-header {
     color: white;
     background-color: #333333;
-    height: 50px; /* 헤더의 높이를 설정 */
+    height: 50px; 
 }
 
 .modal-footer {
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: center; /* 버튼을 가운데 정렬 */
-    padding: 8px 15px; /* 패딩을 살짝 줄여줌 */
+    justify-content: center; 
+    padding: 8px 15px; 
 }
 
 .btn-secondary {
     background-color: #333333;
-    padding: 0.3rem 1.2rem; /* 패딩을 약간 줄여서 크기를 조정 */
-    font-size: 1rem; /* 글씨 크기를 조금 줄임 */
-    min-width: 90px; /* 최소 너비를 줄여서 더 컴팩트하게 만듦 */
-    height: 40px; /* 버튼 높이를 조금 줄임 */
+    padding: 0.3rem 1.2rem; 
+    font-size: 1rem;
+    min-width: 90px; 
+    height: 40px; 
     color: white;
 }
 
 .modal-body {
-    display: flex; /* Flexbox 사용 */
-    flex-direction: column; /* 세로 정렬을 위한 방향 설정 */
-    justify-content: center; /* 수직 중앙 정렬 */
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
     text-align: center;
-    font-size: 1.2rem; /* 본문 글씨 크기를 조금 줄임 */
-    padding: 1.5rem 1rem; /* 위쪽과 아래쪽 패딩을 조정하여 균형 있게 설정 */
-    height: 100px; /* 본문 높이를 설정 */
+    font-size: 1.2rem; 
+    padding: 1.5rem 1rem;
+    height: 100px;
 }
 
 .modal-body p {
