@@ -60,6 +60,7 @@
 							  FROM goods
 							  where goodsTeam=#{goodsTeam}
 							  AND  goodsStatus != 2 
+							  ORDER BY goodsRegDate DESC
 	                     )
 	                   where rownum <= #{pager.endRowNo}
 	             )
