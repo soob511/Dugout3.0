@@ -60,7 +60,7 @@
 						        <button type="button" class="btn-to-cart" id="soldOutBtn" disabled>SOLD OUT</button>
 						    </c:if>
 						    <c:if test="${item.goodsStatus != 0}">
-						        <button type="button" class="btn-to-cart" onclick="addCart(${goods.goodsId})">장바구니 담기</button>
+						        <button type="button" class="btn-to-cart" onclick="addCart(${item.goodsId})">장바구니 담기</button>
 						    </c:if>
 						</div>
 
