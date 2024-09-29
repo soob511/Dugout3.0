@@ -17,16 +17,8 @@
 	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<script
-	src="${pageContext.request.contextPath}/resources/js/mypage/goodsLike.js"></script>
 <link
-	href="${pageContext.request.contextPath}/resources/css/common/header.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/common/footer.css"
-	rel="stylesheet" />
-<link
-	href="${pageContext.request.contextPath}/resources/css/mypage/goodsLike.css"
+	href="${pageContext.request.contextPath}/resources/css/mypage/goodsLikeList.css"
 	rel="stylesheet" />
 <link
 	href="${pageContext.request.contextPath}/resources/css/common/modal.css"

@@ -63,10 +63,10 @@ public class GoodsController {
 	}
 	
 	@Secured("ROLE_ADMIN")
-	@RequestMapping("/goodsAdd")
-	public String goodsAdd() {
+	@RequestMapping("/goodsAddForm")
+	public String goodsAddForm() {
 		log.info("실행");
-		return "/goods/goodsAdd";
+		return "/goods/goodsAddForm";
 	}
 	
 	@PostMapping("insertGoods")

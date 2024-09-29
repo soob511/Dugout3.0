@@ -8,7 +8,7 @@
     <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-    <link href="${pageContext.request.contextPath}/resources/css/goods/goodsAdd.css"  rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/css/admin/goodsAddForm.css"  rel="stylesheet" />
     <link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
   </head>
   <body id="product-insert-body">

@@ -11,11 +11,9 @@
     <link href="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <script src="${pageContext.request.contextPath}/resources/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
-<link
-	href="${pageContext.request.contextPath}/resources/css/goods/goodsManagement.css"
-	rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/admin/goodsManagement.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/common/modal.css"  rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" /> 
