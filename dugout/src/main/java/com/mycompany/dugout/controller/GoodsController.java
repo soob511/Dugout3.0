@@ -144,13 +144,13 @@ public class GoodsController {
 		return "/goods/teamFilter";
 	}
 	
-	@GetMapping("/sortingTeam")
+	@RequestMapping("/sortingTeam")
 	public String sortingTeam(String goodsTeam, String sort, Model model, HttpSession session, @RequestParam(defaultValue="1")int pageNo) {
 		int teamRows = goodsService.getTeamRows(goodsTeam);
 		PagerDto pager = new PagerDto(16, 5,  teamRows, pageNo);
 		List<GoodsDto> list =  goodsService.getSortedKeyword(goodsTeam, sort, pager);
 		
-		model.addAttribute("goodsTeam", goodsTeam);
+		session.setAttribute("goodsTeam", goodsTeam);
 		session.setAttribute("teamRows", teamRows);
 		session.setAttribute("pager",pager);
 		model.addAttribute("list", list);

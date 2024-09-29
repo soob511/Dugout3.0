@@ -79,7 +79,7 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=인기순">인기 순</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?team=${goodsTeam}&sort=최신순">최신 순</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/goods/sortingTeam?goodsTeam=${goodsTeam}&sort=최신순">최신 순</a>
                     </li>
                 </ul>
             </div>
