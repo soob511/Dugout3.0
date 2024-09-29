@@ -164,7 +164,7 @@
 		$(document).ready(function(){
 			$("#modalLikeBtn").click(function(){
 					
-				location.href = "${pageContext.request.contextPath}/goodsLike";
+				location.href = "${pageContext.request.contextPath}/goodsLike/goodsLikeList";
 		
 			})
 		
