@@ -70,7 +70,7 @@ public class NoticeController {
 	}
 	
 	@Secured("ROLE_ADMIN")
-	@GetMapping("/updateNotice")
+	@GetMapping("/updateNoticeForm")
 	public String updateNotice(int noticeId, Model model) {
 		NoticeDto notice = noticeService.getNoticeDetail(noticeId);
 		model.addAttribute("notice", notice);
