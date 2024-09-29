@@ -28,7 +28,7 @@
 	<jsp:include page="/WEB-INF/views/common/nav.jsp" />
 	<hr>
 	<div id="search-keyword">
-		<h1>'${keyword}'에 대한 검색결과</h1>
+		    <h1><strong>'${keyword}'</strong> 에 대한 검색결과</h1>
 	</div>
 
 	<c:if test="${totalRows != 0}">

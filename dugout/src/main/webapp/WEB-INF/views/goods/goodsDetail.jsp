@@ -41,7 +41,7 @@
 				</ol>
 			</nav>
 
-			<div class="product-image">
+			<div class="product-image ">
 				<img
 					src="${pageContext.request.contextPath}/goods/getImg?goodsId=${goods.goodsId}" />
 			</div>
