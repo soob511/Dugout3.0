@@ -66,7 +66,7 @@ public class GoodsController {
 	@RequestMapping("/goodsAddForm")
 	public String goodsAddForm() {
 		log.info("실행");
-		return "/goods/goodsAddForm";
+		return "/admin/goodsAddForm";
 	}
 	
 	@PostMapping("insertGoods")
@@ -93,7 +93,7 @@ public class GoodsController {
 		
 		goodsService.insertGoods(goods);
 		
-		return "goods/goodsAdd";
+		return "admin/goodsAddForm";
 	}
 	
 	@PostMapping("/updateGoods")
@@ -129,7 +129,7 @@ public class GoodsController {
 	@RequestMapping("/previewGoodsDetail")
 	public String previewGoodsDetail() {
 		log.info("실행");
-		return "goods/previewGoodsDetail";
+		return "admin/previewGoodsDetail";
 	}
 	
 	@RequestMapping("/teamFilter")
@@ -213,7 +213,7 @@ public class GoodsController {
 				   "엘지 트윈스", "SSG 랜더스", "케이티 위즈", "롯데 자이언츠", "삼성 라이온즈", "국가대표"};		
 			session.setAttribute("categories", categories);
 			session.setAttribute("teams", teams);
-			return "goods/goodsManagement";
+			return "admin/goodsManagement";
 		} else {
 			return searchGoodsManagement(inputKeyword, model, session, 1);
 		}
@@ -266,7 +266,7 @@ public class GoodsController {
 	    model.addAttribute("goods", null);
 	    model.addAttribute("searchGoods", searchGoods);
  
-	    return "goods/goodsManagement";
+	    return "admin/goodsManagement";
 	}
 	
 	
