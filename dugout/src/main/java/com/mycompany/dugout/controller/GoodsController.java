@@ -171,7 +171,7 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/newGoods")
-	public String newProduct(Model model,@RequestParam(defaultValue="1")int pageNo) {
+	public String newGoods(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
 		int limitRows = goodsService.getLimitRows();
 		model.addAttribute("limitRows",limitRows);
@@ -183,7 +183,7 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/recommendGoods")
-	public String recommendProduct(Model model,@RequestParam(defaultValue="1")int pageNo) {
+	public String recommendGoods(Model model,@RequestParam(defaultValue="1")int pageNo) {
 		log.info("실행");
 		int limitRows = goodsService.getLimitRows();
 		model.addAttribute("limitRows",limitRows);
