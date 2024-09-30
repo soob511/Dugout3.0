@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Pretendard-Regular';
-   
 }
 
 body > hr {
@@ -35,6 +34,7 @@ body > hr {
 	height: max-content;
 	padding: 40px 30px;
 	border: 1px solid #ccc;
+	margin-top: 38px;
 }
 
 nav {
