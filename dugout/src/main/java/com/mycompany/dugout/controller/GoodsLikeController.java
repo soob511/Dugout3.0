@@ -28,11 +28,9 @@ public class GoodsLikeController {
 	
 	@Autowired
 	GoodsLikeService goodsLikeService;
-	@Autowired
-	GoodsService goodsService;
 	
 	@RequestMapping("/goodsLikeList")
-	public String goodsLike(Authentication authentication, 
+	public String goodsLikeList(Authentication authentication, 
 								      @RequestParam(defaultValue="1") int pageNo, 
 									  HttpSession session, Model model) {
 		
